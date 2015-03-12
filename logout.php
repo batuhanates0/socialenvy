@@ -10,15 +10,15 @@ unset($_SESSION["login_user"]);
 
 ?>
 <script src="js/jquery-1.11.0.min.js"></script>
-<script src="userjs/home.js"></script>
+
 
 <section id="content">
 
     <!-- Page Heading -->
     <section class="section page-heading animate-onscroll">
 
-        <h1>Logout</h1>
-        <p class="breadcrumb"><a href="index.php">Home</a></p>
+
+
 
     </section>
     <!-- Page Heading -->

@@ -156,7 +156,7 @@ if($_POST['action'] == "register") {
     $result1 = $check1->fetch(PDO::FETCH_ASSOC);
 
     $uid=$result1['id'];
-    echo $uid;
+    //echo $uid;
     $IGuname = $_POST['IGuname'];
     $IGpassword = $_POST['IGpassword'];
     $IGAccstatus='Active';

@@ -1,47 +1,105 @@
-<?php
-session_start();
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
 
-/*$dbHost = "webcloud72.au.syrahost.com";
-$port="3306";*/
+    <script src="js/jquery-1.11.0.min.js"></script>
 
-$dbHost = "localhost";
-$dbName = "socialen_instamgt";
-$dbUser = "socialen";
-$dbPassword = "y2QnRqtW";
+    <script type="text/javascript">
+        $("document").ready(function(){
 
-/*$dbHost = "mysql1005.ixwebhosting.com:3306";
-$dbName = "C325018_socialen_instamgt";
-$dbUser = "C325018_socialen";
-$dbPassword = "y2QnRqtW";*/
+            // $(".alert-error").hide();
+
+            $("#intgrm").submit(function(){
+                // $(".alert-error").hide();
+
+                var data = {
+                    "action": "register"
+                };
+                data = $(this).serialize() + "&" + $.param(data);
+                $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    url: "curlrequest.php", //Relative or absolute path to response.php file
+                    data: data,
+                    success: function(data, status) {
+                        if(data=="Success")
+                        {
+                            $(".alert-error").show();
+                            $(".alert-error").html(data);
+                            // window.location.href="home.php";
+                            //alert("successful");
+                        }else
+                        {
+                            $(".alert-error").show();
+                            $(".alert-error").html(data);
+                            //alert("unsuccessful");
+                        }
+                    },
+                    error: function(xhr, desc, err) {
+                        // $(".alert-error").show();
+                        //$(".alert-error").html("Details: " + desc + "\nError:" + err);
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
+
+
+</head>
+
+<body>
+<div class="container-fluid">
+    <div class="row-fluid">
+
+        <div class="row-fluid">
+            <div class="span12 center login-header">
+
+            </div><!--/span-->
+        </div><!--/row-->
+
+        <div class="row-fluid">
+            <div class="well span5 center login-box">
+                <div class="alert alert-info">
+                    Please Enter your Instagram Username and Password.
+                </div>
+                <div class="alert alert-error"></div>
+
+                <form id="intgrm" action="instagram.php" method="post" >
+                    <table>
+                        <!-- <tr>
+                             <td><div id="loginMsg" class="alert alert-danger"></div></td>
+                         </tr>-->
+                        <tr>
+
+                            <td>Instagram Username <input id="IGuname" type="text" placeholder="please enter your Instagram Username" name="IGuname" required="required" /></td>
+
+
+
+                        </tr>
+
+                        <tr>
+
+                            <td>Instagram Password <input type="password" placeholder="please enter your password" id="IGpassword" name="IGpassword" required="required" /> </td>
+
+
+
+                        </tr>
+                        <tr>
+
+                            <td><div align="center"><input type="submit" class="no-margin-top" value="Submit" /> <input type="reset" class="no-margin-top" value="Reset" />
+
+                    </table>
+                </form>
+            </div><!--/span-->
+        </div><!--/row-->
+    </div><!--/fluid-row-->
+
+</div><!--/.fluid-container-->
 
 
 
 
-if (!defined('PDO::ATTR_DRIVER_NAME')) {
-    echo 'PDO unavailable';
-}
-else echo('pdo is available');
-
-//$con = new PDO("mysql:host=$dbHost;port=$port;dbname=$dbName",$dbUser,$dbPassword);
-try {
-    $conn = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPassword);
-
-    $email="nirdeshjain29@gmail.com";
-    $check1=$conn->prepare("SELECT id FROM tblLogin WHERE email = :email");
-    $check1->bindparam(':email', $email);
-    $check1->execute();
-    $result = $check1->fetch(PDO::FETCH_ASSOC);
-    $id=$result['id'];
-    echo $id;
-   // print_r($result);
-
-
-    //$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch(PDOException $e) {
-    echo 'ERROR: ' . $e->getMessage();
-
-}
-
-
-
+</body>
+</html>
