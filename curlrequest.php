@@ -20,8 +20,8 @@ $fields = array(
 
 
 );
-echo $_POST['IGuname'];
-echo $_POST['IGpassword'];
+//echo $_POST['IGuname'];
+//echo $_POST['IGpassword'];
 //url-ify the data for the POST
 //$field_string = http_build_query($fields);
 
@@ -35,7 +35,7 @@ curl_setopt($ch, CURLOPT_COOKIEJAR, '/tmp/'.$cookie);
 curl_setopt($ch, CURLOPT_COOKIEFILE, '/tmp/'.$cookie);
 curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2.13) Gecko/20101206 Ubuntu/10.10 (maverick) Firefox/3.6.13');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch, CURLOPT_HEADER, 1);
+//curl_setopt($ch, CURLOPT_HEADER, 1);
 //curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 curl_setopt($ch,CURLOPT_POST, 1);
 curl_setopt($ch,CURLOPT_POSTFIELDS, $fields);
@@ -51,5 +51,5 @@ print_r($err);
 
 //close connection
 curl_close($ch);
-
+var_dump($_POST);
 //echo $result;
