@@ -6,19 +6,34 @@
  * Time: 5:56 PM
  */
 
-class DatabaseConnection {
+class DatabaseConnection
+{
 
-    private $dbHost = "localhost";
-    private $dbName = "socialen_instamgt";
-    private $dbUser = "socialen";
-    private $dbPassword = "y2QnRqtW";
+    private $host = 'localhost';
+    private $dbname = 'socialen_instamgt';
+    private $username = 'socialen';
+    private $password ='y2QnRqtW';
 
-    public $con = '';
+    public $con = null;
 
-    function Connect()
-    {
-        $this->$con = new PDO("mysql:host=$this->dbHost;dbname=$this->dbName", $this->dbUser, $this->dbPassword);
+    function __construct(){
+
+        $this->connect();
     }
 
+    function connect(){
 
+        try{
+
+            $this->con = new PDO("mysql:host=$this->host;dbname=$this->dbname",$this->username, $this->password);
+            $this->con->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+
+
+        }catch(PDOException $e){
+
+            echo 'We\'re sorry but there was an error while trying to connect to the database';
+            file_put_contents('connection.errors.txt', $e->getMessage().PHP_EOL,FILE_APPEND);
+
+        }
+    }
 }

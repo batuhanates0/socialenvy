@@ -10,6 +10,11 @@ include "DatabaseConnection.php";
 class clsUser
 {
 
+//    private $dbHost = "localhost";
+//    private $dbName = "socialen_instamgt";
+//    private $dbUser = "socialen";
+//    private $dbPassword = "y2QnRqtW";
+
     public function Login($Username, $Password)
     {
         return "Hello";
@@ -17,12 +22,19 @@ class clsUser
 
     public function GetUsers()
     {
-        $dbCon = new DatabaseConnection();
-        $dbCon->Connect();
+        echo "Start Connecting";
+        //$this->$con = new PDO("mysql:host=$this->dbHost;dbname=$this->dbName", $this->dbUser, $this->dbPassword);
 
-        $getLogins = $dbCon->con->prepare("SELECT * FROM tblLogin");
-        $getLogins->execute();
+       $dbCon = new DatabaseConnection();
+//        $dbCon->Connect();
+
+        echo "connected";
+        $dbCon->con->
+        $result = $dbCon->$dbCon->prepare("SELECT * FROM tblLogin");
+        $result->execute();
+
         $userCount = $getLogins->rowCount();
-        echo $userCount;
+        echo "count row";
+        return $userCount;
     }
 }
