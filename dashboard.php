@@ -1,1131 +1,480 @@
-<!--<a href="logout.php">LogOut</a>-->
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <!-- bootstrap 3.0.2 -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- font Awesome -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!-- Ionicons -->
+    <link href="css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <!-- Morris chart -->
+    <link href="css/morris.css" rel="stylesheet" type="text/css" />
+    <!-- jvectormap -->
+    <link href="css/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+    <!-- fullCalendar -->
+    <link href="css/fullcalendar.css" rel="stylesheet" type="text/css" />
+    <!-- Daterange picker -->
+    <link href="css/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
+    <!-- bootstrap wysihtml5 - text editor -->
+    <link href="css/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
+    <!-- default style -->
+    <link href="css/default.css" rel="stylesheet" type="text/css" />
 
-    <title>Instagress / Dashboard</title>
-
-
-
-
-
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/png" href="/favicon.png?v=154"/>
-    <link rel="icon" type="image/png" href="/favicon.png?v=154"/>
-
-    <!-- Apple touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="img/apple-touch-icon-152x152.png?v=154"/>
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144x144.png?v=154"/>
-    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/img/apple-touch-icon-120x120.png?v=154"/>
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/img/apple-touch-icon-114x114.png?v=154"/>
-    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="/img/apple-touch-icon-76x76.png?v=154"/>
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/img/apple-touch-icon-72x72.png?v=154"/>
-    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/img/apple-touch-icon-57x57.png?v=154"/>
-    <link rel="apple-touch-icon-precomposed" href="/img/apple-touch-icon-60x60.png?v=154"/>
-
-    <!-- Fonts -->
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700"/>
-
-    <!-- Styles -->
-    <link rel="stylesheet" href="css/bootstrap.min.css?v=154" media="all"/>
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css?v=154" media="all"/>
-    <link rel="stylesheet" href="css/font-awesome.min.css?v=154" media="all"/>
-    <link rel="stylesheet" href="css/jquery.fancybox.css?v=154" media="all"/>
-    <link rel="stylesheet" href="css/emojify.min.css" media="all"/>
-    <link rel="stylesheet" href="css/emojione.min.css" media="all"/>
-    <link rel="stylesheet" href="css/common.css?v=154" media="all"/>
-    <link rel="stylesheet" href="css/main.css?v=154" media="all"/>
-    <link rel="stylesheet" href="css/main-new.css?v=154" media="all"/>
-
-    <!-- Scripts -->
-    <script src="/js/jquery-1.11.0.min.js?v=154"></script>
-    <script src="/js/jquery.cookie.min.js?v=154"></script>
-    <script src="/js/jquery.fancybox.pack.js?v=154"></script>
-    <script src="/js/jquery.maskedinput.min.js?v=154"></script>
-    <script src="/js/underscore.min.js?v=154"></script>
-    <script src="/lib/bootstrap-3/js/bootstrap.min.js?v=154"></script>
-    <script src="/js/json2.min.js?v=154"></script>
-    <script src="/lib/emojify.js/js/emojify.min.js"></script>
-    <script src="/lib/emojione/js/emojione.min.js"></script>
-    <script src="/js/helper.min.js?v=154"></script>
-    <script src="/js/popup.min.js?v=154"></script>
-    <script src="/js/main.min.js?v=154"></script>
-
-
-    <script type="text/javascript">
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-43454158-1']);
-        _gaq.push(['_trackPageview']);
-
-        (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
-    </script>
-
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
-
 </head>
-<body>
-<header>
-
-
-
-<div class="top-row">
-    <div class="info-row -warning-row -info-row -warning-row">
-        <div class="container">
-            <strong>New Features:</strong> <a href="/blog/spintax-comments">{Spintax|Spinning} Comments</a> and <a href="/blog/protected-time-transfer">Protected Time Transfer</a>
-        </div>
-    </div>
-</div>
-
-
-
-
-
-
-<div class="container navbar-main">
-<a href="/" class="logo-new">
-    <img src="img/instagress-logo.png?v=154"
-         srcset="img/instagress-logo-2x.png?v=154 2x"
-         alt="Instagress"/>
-</a>
-
-<a href="#" class="btn-navbar-menu" data-ui-menu-toggle="navbar-menu"></a>
-<a href="#" class="btn-navbar-menu-login" data-ui-menu-toggle="navbar-menu-login"></a>
-
-<div class="navbar-mobile-menu" data-ui="navbar-menu">
-    <ul>
-
-
-        <li class="">
-            <a href="/about" >About</a>
-
-        </li>
-
-
-        <li class="more">
-            <a href="/terms" >Terms</a>
-
-        </li>
-
-
-        <li class="">
-            <a href="/prices" >Prices</a>
-
-        </li>
-
-
-        <li class="">
-            <a href="/guide" >Guide</a>
-
-        </li>
-
-
-        <li class="">
-            <a href="/faq" >FAQ</a>
-
-        </li>
-
-
-        <li class="more">
-            <a href="/blog" >Blog</a>
-
-        </li>
-
-
-        <li class="more">
-            <a href="#" data-popup-open="#popup-support">Support</a>
-
-        </li>
-
-        <li class="toggle-more">
-            <a href="#" class="btn-navbar-menu-more"
-               data-ui-menu-toggle="navbar-menu-more" data-ui-role="dropdown"></a>
-            <div class="navbar-popup-menu" data-ui="navbar-menu-more">
-                <ul>
-
-
-
-                    <li class="">
-                        <a href="/terms" >Terms</a>
-
-                    </li>
-
-
-
-
-
-                    <li class="">
-                        <a href="/blog" >Blog</a>
-
-                    </li>
-
-
-                    <li class="">
-                        <a href="#" data-popup-open="#popup-support">Support</a>
-
-                    </li>
-
-                </ul>
-
-            </div>
-        </li>
-    </ul>
-
-</div>
-<div class="navbar-mobile-menu" data-ui="navbar-menu-login">
-
-    <ul>
-
-        <li class="menu-header hidden-md hidden-lg">nirdesh@resiliencesoft.com</li>
-        <li class="menu-header visible-md visible-lg">Account</li>
-        <li><a href="/account">Dashboard</a></li>
-        <li><a href="/account/billing/history">Billing History</a></li>
-        <li><a href="/account/settings">Settings</a></li>
-        <li><a href="/account/logout">Log out</a></li>
-
-
-
-    </ul>
-
-
-</div>
-
-<div class="navbar-desktop-menu">
-    <ul>
-
-
-        <li class="">
-            <a href="/about" >About</a>
-
-        </li>
-
-
-        <li class="more">
-            <a href="/terms" >Terms</a>
-
-        </li>
-
-
-        <li class="">
-            <a href="/prices" >Prices</a>
-
-        </li>
-
-
-        <li class="">
-            <a href="/guide" >Guide</a>
-
-        </li>
-
-
-        <li class="">
-            <a href="/faq" >FAQ</a>
-
-        </li>
-
-
-        <li class="more">
-            <a href="/blog" >Blog</a>
-
-        </li>
-
-
-        <li class="more">
-            <a href="#" data-popup-open="#popup-support">Support</a>
-
-        </li>
-
-        <li class="toggle-more">
-            <a href="#" class="btn-navbar-menu-more"
-               data-ui-menu-toggle="navbar-menu-more" data-ui-role="dropdown"></a>
-            <div class="navbar-popup-menu" data-ui="navbar-menu-more">
-                <ul>
-
-
-
-                    <li class="">
-                        <a href="/terms" >Terms</a>
-
-                    </li>
-
-
-
-
-
-                    <li class="">
-                        <a href="/blog" >Blog</a>
-
-                    </li>
-
-
-                    <li class="">
-                        <a href="#" data-popup-open="#popup-support">Support</a>
-
-                    </li>
-
-                </ul>
-
-            </div>
-        </li>
-    </ul>
-
-</div>
-<div class="navbar-desktop-menu navbar-desktop-menu-right">
-
-    <ul>
-        <li>
-            <a href="#" class="btn-navbar-menu-account"
-               data-ui-menu-toggle="navbar-menu-account" data-ui-role="dropdown">
-
-                nirdesh@resiliencesoft.com
-
-            </a>
-            <div class="navbar-popup-menu navbar-popup-menu-right" data-ui="navbar-menu-account">
-                <ul>
-
-                    <li class="menu-header hidden-md hidden-lg">nirdesh@resiliencesoft.com</li>
-                    <li class="menu-header visible-md visible-lg">Account</li>
-                    <li><a href="/account">Dashboard</a></li>
-                    <li><a href="/account/billing/history">Billing History</a></li>
-                    <li><a href="/account/settings">Settings</a></li>
-                    <li><a href="/account/logout">Log out</a></li>
-
-
-
-                </ul>
-
-            </div>
-        </li>
-    </ul>
-
-</div>
-</div>
-</header>
-
-
-<div class="usermenu accountmenu">
-    <div class="container">
-
-    </div>
-</div>
-
-
-
-
-
-<div id="popup-time-transfer" class="popup">
-    <h3>Time Transfer</h3>
-    <a href="#" class="btn-close-x" data-popup-close="#popup-time-transfer"></a>
-
-    <div class="color-gray mb20">
-        Using this tool you can transfer your time from one username to another.
-        Only purchased time can be transferred.
-    </div>
-
-    <div class="alerts">
-        <div class="alert alert-danger alert-error"></div>
-        <div class="alert alert-success"></div>
-    </div>
-
-    <form action="/account/time/transfer" class="form-horizontal form-ajax mt20" method="post">
-        <div class="form-group">
-            <div class="col-md-12 field-wrap" data-field="userFromId">
-                <label class="control-label text-align-left" for="inpUserFromId">From:</label>
-                <select name="userFromId" id="inpUserFromId" class="form-control js-sel-username">
-                    <option value="">Transfer time from...</option>
-
-
-                    <option value="5502acce1252626266001c5d" data-username="nirdesh_123">
-                        nirdesh_123 (3 days)
-                    </option>
-
-
-                </select>
-                <span class="help-block text-danger text-error hidden"></span>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-12 field-wrap" data-field="userToId">
-                <label class="control-label text-align-left" for="inpUserToId">To:</label>
-                <select name="userToId" id="inpUserToId" class="form-control js-sel-username">
-                    <option value="">Transfer time to...</option>
-
-
-                    <option value="5502acce1252626266001c5d" data-username="nirdesh_123">
-                        nirdesh_123 (3 days)
-                    </option>
-
-
-                </select>
-                <span class="help-block text-danger text-error hidden"></span>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-xs-4 field-wrap" data-field="timeDays">
-                <label class="control-label text-align-left" for="inpTimeDays">Days:</label>
-                <input type="number" name="timeDays" id="inpTimeDays"
-                       class="form-control js-inp-time" min="0" value="0"/>
-                <span class="help-block text-danger text-error hidden"></span>
-            </div>
-            <div class="col-xs-4 field-wrap" data-field="timeHours">
-                <label class="control-label text-align-left" for="inpTimeHours">Hours:</label>
-                <input type="number" name="timeHours" id="inpTimeHours"
-                       class="form-control js-inp-time" min="0" max="23" value="0"/>
-                <span class="help-block text-danger text-error hidden"></span>
-            </div>
-            <div class="col-xs-4 field-wrap" data-field="timeMinutes">
-                <label class="control-label text-align-left" for="inpTimeMinutes">Minutes:</label>
-                <input type="number" name="timeMinutes" id="inpTimeMinutes"
-                       class="form-control js-inp-time" min="0" max="59" value="0"/>
-                <span class="help-block text-danger text-error hidden"></span>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-12">
-                <label class="chk-custom mt10" for="inpTimeAll">
-                    <input type="checkbox" name="timeAll" id="inpTimeAll" class="chk-custom" value="yes"/>
-                    <label class="chk-custom mr10" for="inpTimeAll"></label>
-                    Transfer all purchased time
-					<span class="help-tip"
-                          title="Purchased time"
-                          data-content="Only purchased part of the remaining
-						  	time will be transferred.">?</span>
-                </label>
-            </div>
-        </div>
-
-        <div class="text-align-center">
-            <button type="submit"
-                    class="btn btn-plain btn-success"
-                    data-loading-text="Transferring...">Transfer</button>
-        </div>
-    </form>
-</div>
-
-<div id="popup-activity-error-help" class="popup">
-    <h3>Activity Error Help</h3>
-    <a href="#" class="btn-close-x" data-popup-close="#popup-activity-error-help"></a>
-    <div class="mb20">
-        <p>
-            Your Activity stopped with error? These can be the possible reasons:
-        </p>
-        <ul class="nice-list">
-            <li>
-                <p><strong>No connection to Instagram API</strong></p>
-                <p>
-                    This error may occur due to temporary networking issues on our
-                    servers or when Instagram API is temporarily unavailable.
-                </p>
-                <p class="text-small">
-                    How to solve: Try to restart your Activity after a while.
-                </p>
-            </li>
-            <li>
-                <p><strong>Unable to perform selected action</strong></p>
-                <p>
-                    It looks like Instagram has temporarily blocked one of your
-                    actions (like, comment, follow or unfollow) due to high speed of
-                    your activity.
-                </p>
-                <p class="text-small">
-                    How to solve: Try to restart your Activity using Slow or Normal
-                    speed after 12-24 hours.
-                </p>
-            </li>
-            <li>
-                <p><strong>Access to Instagram API has been reset</strong></p>
-                <p>
-                    This error may occur when access token or password of your username
-                    was reseted by Instagram due to high speed of your activity or if you
-                    using Instagram on your mobile device or with third-party websites.
-                </p>
-                <p class="text-small">
-                    How to solve: Try to reconnect your username after a while
-                    and then restart your Activity.
-                </p>
-            </li>
-        </ul>
-        <p>
-            If you will continue to receive any activity errors, please
-            <a href="#" class="link-ajax"
-               data-popup-open="#popup-support">contact&nbsp;us</a>.
-        </p>
-    </div>
-    <div class="text-align-center">
-        <button class="btn btn-plain" data-popup-close="#popup-activity-error-help">Close</button>
-    </div>
-</div>
-
-
-<section class="account-index">
-    <div class="account-index-head">
-        <div class="container">
-            <h1>Dashboard</h1>
-
-
-
-
-
-
-
-
-
-            <div class="row">
-                <div class="col-sm-12 col-md-4 col-md-push-4">
-                    <div class="title-block">Add new account to your dashboard</div>
-
-
-
-                    <div class="-add-account-cont">
-                        <button class="btn btn-plain btn-big btn-add-account btn-danger js-btn-add-account"
-                                data-popup-open="#popup-login">Add account</button>
-                    </div>
-                </div>
-
-                <div class="col-sm-12 col-md-4 col-md-pull-4 start-stop-block">
-
-
-                    <div class="-start-stop-cont clearfix">
-                        <div class="title-block -mb10">Start/stop all accounts</div>
-
-                        <div class="row mt10">
-                            <div class="col-xs-6 color-red start-all-btn-cont">
-                                <button id="btn-start-all"
-                                        class="btn btn-plain btn-big btn-start-stop btn-danger"
-                                        data-loading-text="Start all">Start all</button>
-                                <div class="mt10">
-                                    <span id="count-started">0</span> started
-                                </div>
-                            </div>
-                            <div class="col-xs-6 color-gray stop-all-btn-cont">
-                                <button id="btn-stop-all"
-                                        class="btn btn-plain btn-big btn-start-stop"
-                                        data-loading-text="Stop all">Stop all</button>
-                                <div class="mt10">
-                                    <span id="count-stopped">0</span> stopped
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-12 col-md-4 -col-xs-4 new-features-block">
-
-                    <div class="title-block">
-                        Buy time package
-                    </div>
-                    <a href="/order/new" class="btn btn-plain btn-success btn-big form-control">Buy time package</a>
-
-
-                    <div class="mt10">
-                        <a href="#" class="link-ajax" data-popup-open="#popup-time-transfer">Transfer time</a>
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="account-index-list container">
-        <div class="row">
-            <div class="col-md-4">
-                <h2>Accounts</h2>
-            </div>
-            <div class="col-md-8">
-                <ul class="account-sort-menu">
-                    <li>Sort:</li>
-                    <li><a href="/account/users/sort/default">Default</a></li>
-                    <li><a href="/account/users/sort/username">Username</a></li>
-                    <li><a href="/account/users/sort/status">Status</a></li>
-                    <li><a href="/account/users/sort/time">Time</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="row clearfix">
-
-            <div class="col-md-4 col-sm-6">
-                <div class="account-entry nice-block"
-                     data-user-id="5502acce1252626266001c5d"
-                     data-username="nirdesh_123">
-                    <div class="account-head">
-                        <a href="/account/user/select/5502acce1252626266001c5d" class="account-user">
-                            <img src="/img/default-avatar.png"
-                                 class="account-avatar"
-                                 alt="nirdesh_123"/>
-                            <span class="account-username">nirdesh_123</span>
-                        </a>
-                        <div class="account-type">Instagram</div>
-                        <div class="account-type-icon fa fa-instagram fa-lg"></div>
-                    </div>
-                    <hr/>
-                    <div class="row">
-                        <div class="col-xs-4 col-lg-5 color-gray pr0">Activity:</div>
-                        <div class="col-xs-8 col-lg-7 status status-stopped">
-                            <span class="status-text">stopped</span>
-				<span class="stat-alert alert-success hidden"
-                      data-alert-class="success"
-                      data-hidden="true"
-                      data-toggle="tooltip"
-                      title="Activity automatically stopped:<br/>"></span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-4 col-lg-5 color-gray pr0">Time:</div>
-                        <div class="col-xs-8 col-lg-7 payment-timer">
-				<span class="label-ok ">
-					3 days
-				</span>
-				<span class="label-over color-red hidden">
-					Time is over
-				</span>
-                        </div>
-                    </div>
-                    <hr/>
-                    <div class="row">
-                        <div class="col-xs-4 col-lg-5 color-gray pr0">Likes:</div>
-                        <div class="col-xs-8 col-lg-7 todo-count count-likes">0</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-4 col-lg-5 color-gray pr0">Comments:</div>
-                        <div class="col-xs-8 col-lg-7 todo-count count-comments">0</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-4 col-lg-5 color-gray pr0">Follows:</div>
-                        <div class="col-xs-8 col-lg-7 todo-count count-follows">0</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-4 col-lg-5 color-gray pr0">Unfollows:</div>
-                        <div class="col-xs-8 col-lg-7 todo-count count-unfollows">0</div>
-                    </div>
-
-                    <hr/>
-                    <div class="row mt10">
-                        <div class="col-xs-4 col-lg-5 color-gray pr0">Start time:</div>
-                        <div class="col-xs-8 col-lg-7 time-start">
-
-                            -
-
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-4 col-lg-5 color-gray pr0">Stop time:</div>
-                        <div class="col-xs-8 col-lg-7 time-stop">
-
-                            -
-
-                        </div>
-                    </div>
-                    <hr/>
-                    <div class="clearfix mt10">
-                        <div class="btn-start-stop-cont">
-                            <button class="btn btn-plain btn-start-stop btn-start "
-                                    data-loading-text="Start">Start</button>
-                            <button class="btn btn-plain btn-start-stop btn-stop hidden"
-                                    data-loading-text="Stop">Stop</button>
-                        </div>
-                        <div class="btn-settings-cont">
-                            <a href="/account/user/select/5502acce1252626266001c5d" class="btn btn-plain">Settings</a>
-                        </div>
-                        <div class="btn-more-cont">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-plain btn-block dropdown-toggle" data-toggle="dropdown">
-                                    More <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    <li><a href="/account/user/select/5502acce1252626266001c5d?next=/profile">Profile</a></li>
-                                    <li><a href="/account/user/select/5502acce1252626266001c5d?next=/likes">Likes</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#" data-ui="btn-time-transfer" data-username="nirdesh_123">Transfer time</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#" data-ui="btn-reauth" data-username="nirdesh_123">Reconnect</a></li>
-                                    <li><a href="/account/user/remove/5502acce1252626266001c5d">Log out</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-    </div>
-
-</section>
-
-
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3">
-                <a href="/" class="logo-footer-new">
-                    <img src="img/instagress-logo-footer.png?v=154"
-                         srcset="/img/instagress-logo-footer-2x.png?v=154 2x"
-                         alt="Instagress"/>
-                </a>
-                <div class="copyright">&copy; 2013-2015</div>
-            </div>
-            <div class="col-md-6 menu-cont">
-                <ul>
-
-
-                    <li class="">
-                        <a href="/about" >About</a>
-
-                    </li>
-
-
-                    <li class="more">
-                        <a href="/terms" >Terms</a>
-
-                    </li>
-
-
-                    <li class="">
-                        <a href="/prices" >Prices</a>
-
-                    </li>
-
-
-                    <li class="">
-                        <a href="/guide" >Guide</a>
-
-                    </li>
-
-
-                    <li class="">
-                        <a href="/faq" >FAQ</a>
-
-                    </li>
-
-
-                    <li class="more">
-                        <a href="/blog" >Blog</a>
-
-                    </li>
-
-
-                    <li class="more">
-                        <a href="#" data-popup-open="#popup-support">Support</a>
-
-                    </li>
-
-                    <li class="toggle-more">
-                        <a href="#" class="btn-navbar-menu-more"
-                           data-ui-menu-toggle="navbar-menu-more" data-ui-role="dropdown"></a>
-                        <div class="navbar-popup-menu" data-ui="navbar-menu-more">
-                            <ul>
-
-
-
-                                <li class="">
-                                    <a href="/terms" >Terms</a>
-
-                                </li>
-
-
-
-
-
-                                <li class="">
-                                    <a href="/blog" >Blog</a>
-
-                                </li>
-
-
-                                <li class="">
-                                    <a href="#" data-popup-open="#popup-support">Support</a>
-
-                                </li>
+<body class="skin-black">
+<!-- header logo: style can be found in header.less -->
+<header class="header">
+    <a href="dashboard.html" class="logo">
+        <!-- Add the class icon to your logo image or logo icon to add the margining -->
+        SocialEnvy
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top" role="navigation">
+        <!-- Sidebar toggle button-->
+        <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </a>
+        <div class="navbar-right">
+            <ul class="nav navbar-nav">
+                <!-- Messages: style can be found in dropdown.less-->
+                <li class="dropdown messages-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-envelope"></i>
+                        <span class="label label-success">4</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="header">You have 4 messages</li>
+                        <li>
+                            <!-- inner menu: contains the actual data -->
+                            <ul class="menu">
+                                <li><!-- start message -->
+                                    <a href="#">
+                                        <div class="pull-left">
+                                            <img src="img/avatar3.png" class="img-circle" alt="User Image"/>
+                                        </div>
+                                        <h4>
+                                            Welcome
+                                            <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                                        </h4>
+                                        <p>Thanks for join SocialEnvy</p>
+                                    </a>
+                                </li><!-- end message -->
+                                <li><!-- start message -->
+                                    <a href="#">
+                                        <div class="pull-left">
+                                            <img src="img/avatar3.png" class="img-circle" alt="User Image"/>
+                                        </div>
+                                        <h4>
+                                            Welcome
+                                            <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                                        </h4>
+                                        <p>Thanks for join SocialEnvy</p>
+                                    </a>
+                                </li><!-- end message -->
+
+                                <li><!-- start message -->
+                                    <a href="#">
+                                        <div class="pull-left">
+                                            <img src="img/avatar3.png" class="img-circle" alt="User Image"/>
+                                        </div>
+                                        <h4>
+                                            Welcome
+                                            <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                                        </h4>
+                                        <p>Thanks for join SocialEnvy</p>
+                                    </a>
+                                </li><!-- end message -->
+
+                                <li><!-- start message -->
+                                    <a href="#">
+                                        <div class="pull-left">
+                                            <img src="img/avatar3.png" class="img-circle" alt="User Image"/>
+                                        </div>
+                                        <h4>
+                                            Welcome
+                                            <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                                        </h4>
+                                        <p>Thanks for join SocialEnvy</p>
+                                    </a>
+                                </li><!-- end message -->
 
                             </ul>
+                        </li>
+                        <li class="footer"><a href="#">See All Messages</a></li>
+                    </ul>
+                </li>
+                <!-- Notifications: style can be found in dropdown.less -->
+                <li class="dropdown notifications-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-warning"></i>
+                        <span class="label label-warning">10</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="header">You have 10 notifications</li>
+                        <li>
+                            <!-- inner menu: contains the actual data -->
+                            <ul class="menu">
+                                <li>
+                                    <a href="#">
+                                        <i class="ion ion-ios7-people info"></i> 5 new members joined today
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-warning danger"></i> Very long description here that may not fit into the page and may cause design problems
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-users warning"></i> 5 new members joined
+                                    </a>
+                                </li>
 
+                                <li>
+                                    <a href="#">
+                                        <i class="ion ion-ios7-cart success"></i> 25 sales made
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="ion ion-ios7-person danger"></i> You changed your username
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="footer"><a href="#">View all</a></li>
+                    </ul>
+                </li>
+
+                <!-- User Account: style can be found in dropdown.less -->
+                <li class="dropdown user user-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="glyphicon glyphicon-user"></i>
+                        <span>Mohd Saqib <i class="caret"></i></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <!-- User image -->
+                        <li class="user-header bg-light-blue">
+                            <img src="img/avatar3.png" class="img-circle" alt="User Image" />
+                            <p>
+                                Mohd Saqib - Web Developer
+                                <small>Member since Nov. 2013</small>
+                            </p>
+                        </li>
+                        <!-- Menu Body -->
+                        <li class="user-body">
+                            <div class="col-xs-4 text-center">
+                                <a href="#">Followers</a>
+                            </div>
+                            <div class="col-xs-4 text-center">
+                                <a href="#">Sales</a>
+                            </div>
+                            <div class="col-xs-4 text-center">
+                                <a href="#">Friends</a>
+                            </div>
+                        </li>
+                        <!-- Menu Footer-->
+                        <li class="user-footer">
+                            <div class="pull-left">
+                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                            </div>
+                            <div class="pull-right">
+                                <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<div class="wrapper row-offcanvas row-offcanvas-left">
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="left-side sidebar-offcanvas">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+            <!-- Sidebar user panel -->
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="img/avatar3.png" class="img-circle" alt="User Image" />
+                </div>
+                <div class="pull-left info">
+                    <p>Hello, Saqib</p>
+
+                    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                </div>
+            </div>
+            <!-- search form -->
+            <form action="#" method="get" class="sidebar-form">
+                <div class="input-group">
+                    <input type="text" name="q" class="form-control" placeholder="Search..."/>
+                            <span class="input-group-btn">
+                                <button type='submit' name='seach' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+                            </span>
+                </div>
+            </form>
+            <!-- /.search form -->
+            <!-- sidebar menu: : style can be found in sidebar.less -->
+            <ul class="sidebar-menu">
+                <li class="active">
+                    <a href="dashboard.html">
+                        <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-play"></i> <span>Start All</span> <small class="badge pull-right bg-green">10</small>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fa fa-stop"></i> <span>Stop All</span> <small class="badge pull-right bg-red">05</small>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="accounts.php">
+                        <i class="fa fa-plus"></i> <span>Add Account</span> <small class="badge pull-right bg-blue">03</small>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fa fa-credit-card"></i> <span>Buy Time Package</span> <!--<small class="badge pull-right bg-green">new</small>-->
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="calendar.html">
+                        <i class="fa fa-calendar"></i> <span>Calendar</span>
+                        <small class="badge pull-right bg-red">3</small>
+                    </a>
+                </li>
+                <li>
+                    <a href="mailbox.html">
+                        <i class="fa fa-envelope"></i> <span>Mailbox</span>
+                        <small class="badge pull-right bg-yellow">12</small>
+                    </a>
+                </li>
+
+            </ul>
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Right side column. Contains the navbar and content of the page -->
+    <aside class="right-side">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                Dashboard
+                <small>Control panel</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li class="active">Dashboard</li>
+            </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+
+            <!-- Main row -->
+            <div class="row">
+
+
+                <!-- Left col -->
+                <section class="col-lg-6 connectedSortable">
+
+
+                    <!-- Calendar -->
+                    <div class="box box-warning">
+                        <div class="box-header">
+                            <i class="fa fa-calendar"></i>
+                            <div class="box-title">Calendar</div>
+
+                            <!-- tools box -->
+                            <div class="pull-right box-tools">
+                                <!-- button with a dropdown -->
+                                <div class="btn-group">
+                                    <button class="btn btn-warning btn-sm dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i></button>
+                                    <ul class="dropdown-menu pull-right" role="menu">
+                                        <li><a href="#">Add new event</a></li>
+                                        <li><a href="#">Clear events</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">View calendar</a></li>
+                                    </ul>
+                                </div>
+                            </div><!-- /. tools -->
+                        </div><!-- /.box-header -->
+                        <div class="box-body no-padding">
+                            <!--The calendar -->
+                            <div id="calendar"></div>
+                        </div><!-- /.box-body -->
+                    </div><!-- /.box -->
+
+                    <!-- quick email widget -->
+                    <div class="box box-info">
+                        <div class="box-header">
+                            <i class="fa fa-envelope"></i>
+                            <h3 class="box-title">Quick Email</h3>
+                            <!-- tools box -->
+                            <div class="pull-right box-tools">
+                                <button class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
+                            </div><!-- /. tools -->
                         </div>
-                    </li>
-                </ul>
+                        <div class="box-body">
+                            <form action="#" method="post">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" name="emailto" placeholder="Email to:"/>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="subject" placeholder="Subject"/>
+                                </div>
+                                <div>
+                                    <textarea class="textarea" placeholder="Message" style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="box-footer clearfix">
+                            <button class="pull-right btn btn-default" id="sendEmail">Send <i class="fa fa-arrow-circle-right"></i></button>
+                        </div>
+                    </div>
 
-            </div>
-            <div class="col-md-3">
-                <div class="social-icons clearfix">
-                    <a href="https://www.facebook.com/instagress"
-                       class="icon-fb" target="_blank" title="Follow us on Facebook">
-                        <img src="/img/icon-social-fb.png?v=154"
-                             srcset="/img/icon-social-fb-2x.png?v=154 2x"
-                             alt="Follow us on Facebook"/>
-                    </a>
+                </section><!-- /.Left col -->
+                <!-- right col (We are only adding the ID to make the widgets sortable)-->
+                <section class="col-lg-6 connectedSortable">
 
-                    <a href="https://twitter.com/instagress"
-                       class="icon-tw" target="_blank" title="Follow us on Twitter">
-                        <img src="/img/icon-social-tw.png?v=154"
-                             srcset="/img/icon-social-tw-2x.png?v=154 2x"
-                             alt="Follow us on Twitter"/>
-                    </a>
 
-                    <a href="http://instagress.tumblr.com/"
-                       class="icon-tb" target="_blank" title="Follow us on Tumblr">
-                        <img src="/img/icon-social-tb.png?v=154"
-                             srcset="/img/icon-social-tb-2x.png?v=154 2x"
-                             alt="Follow us on Tumblr"/>
-                    </a>
-                </div>
-                <div class="support">
-                    <a href="mailto:support@instagress.com">support@instagress.com</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<div id="popup-alert" class="popup popup-small">
-    <a href="#" class="btn-close-x" data-popup-close="#popup-alert"></a>
-    <div class="text"></div>
-</div>
-
-<div id="popup-support" class="popup">
-    <h3>Support</h3>
-    <a href="#" class="btn-close-x" data-popup-close="#popup-support"></a>
-    <div class="color-gray mb20">
-        Please use the form below if you have any questions, comments
-        or would like to give us some feedback. Your opinion is very important to us!
-    </div>
-    <div class="alert alert-info">
-        If you have a question or you want to ask about an error,
-        please try to find an answer on the <a href="/faq">FAQ</a> page by yourself at first.
-    </div>
-    <div class="alerts">
-        <div class="alert alert-danger alert-error"></div>
-        <div class="alert alert-success"></div>
-    </div>
-    <form action="/contact" class="form-horizontal form-ajax mt20" method="post">
-        <input type="hidden" name="token" value=""/>
-        <div class="form-group field-wrap" data-field="subject">
-            <div class="col-md-12">
-                <label class="control-label text-align-left" for="inpSupportSubject">Subject:</label>
-                <select name="subject" id="inpSupportSubject" class="form-control" autofocus>
-
-                    <option value="question">Question</option>
-
-                    <option value="error">Error</option>
-
-                    <option value="idea">Idea</option>
-
-                    <option value="payment">Payment</option>
-
-                    <option value="refund">Refund</option>
-
-                    <option value="discount">Discount</option>
-
-                    <option value="security">Security</option>
-
-                    <option value="other">Other</option>
-
-                </select>
-                <span class="help-block text-danger text-error hidden"></span>
-            </div>
-        </div>
-        <div class="form-group field-wrap" data-field="email">
-            <div class="col-md-12">
-                <label class="control-label text-align-left" for="inpSupportEmail">Email:</label>
-
-                <input type="text" name="email" id="inpSupportEmail"
-                       class="form-control" placeholder="Your email"
-                       value="nirdesh@resiliencesoft.com"/>
-                <span class="help-block text-danger text-error hidden"></span>
-            </div>
-        </div>
-        <div class="form-group field-wrap" data-field="username">
-            <div class="col-md-12">
-                <label class="control-label text-align-left" for="inpSupportUsername">Username:</label>
-                <input type="text" name="username" id="inpSupportUsername"
-                       class="form-control" placeholder="Your Instagram username (optional)"
-                       value=""/>
-                <span class="help-block text-danger text-error hidden"></span>
-            </div>
-        </div>
-        <div class="form-group field-wrap" data-field="message">
-            <div class="col-md-12">
-                <label class="control-label text-align-left" for="inpSupportMessage">Message:</label>
-                <textarea name="message" id="inpSupportMessage" rows="4"
-                          class="form-control" placeholder="Your message"></textarea>
-                <span class="help-block text-danger text-error hidden"></span>
-            </div>
-        </div>
-        <div>
-            <button type="submit" class="btn btn-plain btn-success" data-loading-text="Sending...">Send</button>
-        </div>
-    </form>
-</div>
-
-<div id="popup-login" class="popup">
-    <h3>
-
-        Add Instagram Account
-
-    </h3>
-    <a href="#" class="btn-close-x" data-popup-close="#popup-login"></a>
-    <div class="alert alert-success">
-        <strong>Your privacy is important to us!</strong><br/>
-        We won't store your password and use it only to obtain required data
-        for Instagram <abbr title="Application programming interface">API</abbr>.
-        Please, check out <a href="/guide">Guide</a> page before you sign in.
-    </div>
-    <div class="alerts">
-        <div class="alert alert-danger alert-error"></div>
-        <div class="alert alert-success"></div>
-    </div>
-    <form action="/auth/login" id="login-form" class="form-horizontal form-ajax mb0" method="post">
-        <div class="form-group field-wrap" data-field="username">
-            <div class="col-md-12">
-                <input type="text" name="username" id="inpLoginUsername"
-                       class="form-control input-icon input-icon-username"
-                       placeholder="Instagram username" autofocus/>
-                <span class="help-block text-danger text-error hidden"></span>
-            </div>
-        </div>
-        <div class="form-group field-wrap" data-field="password">
-            <div class="col-md-12">
-                <input type="password" name="password" id="inpLoginPassword"
-                       class="form-control input-icon input-icon-password"
-                       placeholder="Instagram password"/>
-                <span class="help-block text-danger text-error hidden"></span>
-            </div>
-        </div>
-        <div>
-            <button type="submit"
-                    class="btn btn-plain btn-success mb20"
-                    data-loading-text="Signing in...">Sign in</button>
-        </div>
+                    <!-- Chat box -->
+                    <div class="box box-success">
+                        <div class="box-header">
+                            <h3 class="box-title"><i class="fa fa-comments-o"></i> Chat</h3>
+                            <div class="box-tools pull-right" data-toggle="tooltip" title="Status">
+                                <div class="btn-group" data-toggle="btn-toggle" >
+                                    <button type="button" class="btn btn-default btn-sm active"><i class="fa fa-square text-green"></i></button>
+                                    <button type="button" class="btn btn-default btn-sm"><i class="fa fa-square text-red"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-body chat" id="chat-box">
+                            <!-- chat item -->
+                            <div class="item">
+                                <img src="img/avatar.png" alt="user image" class="online"/>
+                                <p class="message">
+                                    <a href="#" class="name">
+                                        <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15</small>
+                                        Mike Doe
+                                    </a>
+                                    I would like to meet you to discuss the latest news about
+                                    the arrival
+                                </p>
+                                <div class="attachment">
+                                    <h4>Attachments:</h4>
+                                    <p class="filename">
+                                        Theme-thumbnail-image.jpg
+                                    </p>
+                                    <div class="pull-right">
+                                        <button class="btn btn-primary btn-sm btn-flat">Open</button>
+                                    </div>
+                                </div><!-- /.attachment -->
+                            </div><!-- /.item -->
+                            <!-- chat item -->
+                            <div class="item">
+                                <img src="img/avatar2.png" alt="user image" class="offline"/>
+                                <p class="message">
+                                    <a href="#" class="name">
+                                        <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 5:15</small>
+                                        Jane Doe
+                                    </a>
+                                    I would like to meet you to discuss the latest news about
+                                    the arrival
+                                </p>
+                            </div><!-- /.item -->
+                            <!-- chat item -->
+                            <div class="item">
+                                <img src="img/avatar3.png" alt="user image" class="offline"/>
+                                <p class="message">
+                                    <a href="#" class="name">
+                                        <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 5:30</small>
+                                        Susan Doe
+                                    </a>
+                                    I would like to meet you to discuss the latest news about
+                                    the arrival
+                                </p>
+                            </div><!-- /.item -->
+                        </div><!-- /.chat -->
+                        <div class="box-footer">
+                            <div class="input-group">
+                                <input class="form-control" placeholder="Type message..."/>
+                                <div class="input-group-btn">
+                                    <button class="btn btn-success"><i class="fa fa-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- /.box (chat box) -->
 
 
 
-        <div>
-            <a href="#" class="link-ajax" data-popup-open="#popup-login-help">Sign in help</a>
-        </div>
+                </section><!-- right col -->
 
 
-    </form>
-</div>
-
-<div id="popup-login-help" class="popup">
-    <h3>Sign in Help</h3>
-    <a href="#" class="btn-close-x" data-popup-close="#popup-login-help"></a>
-    <div class="mb20">
-        <p>
-            Having trouble logging in with your Instagram credentials?
-            These can be the possible reasons:
-        </p>
-        <ul class="nice-list">
-            <li>
-                <p><strong>Wrong username or password</strong></p>
-                <p>
-                    Check that you have not misspelled your username or password.
-                </p>
-            </li>
-            <li>
-                <p><strong>Instagram reseted your password</strong></p>
-                <p>
-                    In rare cases Instagram can reset your password when you trying
-                    to login on the third-party website. Go to your email (associated
-                    with your Instagram account) and check your inbox/spam for a message
-                    from Instagram with password reset link.
-                </p>
-            </li>
-            <li>
-                <p><strong>Integrity checkpoint</strong></p>
-                <p>
-                    This error means that Instagram is asking you to verify your account
-                    by entering a captcha. You must be logged in on Instagram website
-                    with this Instagram account to do it.
-                </p>
-            </li>
-        </ul>
-        <p>
-            If you will continue to receive any login errors, please
-            <a href="#" class="link-ajax"
-               data-popup-open="#popup-support">contact&nbsp;us</a>.
-        </p>
-    </div>
-    <div class="text-align-center">
-        <button class="btn btn-plain" data-popup-close="#popup-login-help">Close</button>
-    </div>
-</div>
-
-<div id="popup-reauth" class="popup">
-    <h3>Account Reconnect</h3>
-    <a href="#" class="btn-close-x" data-popup-close="#popup-reauth"></a>
-    <div class="alerts">
-        <div class="alert alert-danger alert-error"></div>
-        <div class="alert alert-success"></div>
-    </div>
-    <form action="/auth/login?mode=reauth&next=/account" id="reauth-form" class="form-horizontal form-ajax mb0" method="post">
-        <div class="form-group field-wrap" data-field="username">
-            <div class="col-md-12">
-                <input type="text" name="username" id="inpReauthUsername"
-                       class="form-control input-icon input-icon-username"
-                       placeholder="Instagram username" readonly/>
-                <span class="help-block text-danger text-error hidden"></span>
-            </div>
-        </div>
-        <div class="form-group field-wrap" data-field="password">
-            <div class="col-md-12">
-                <input type="password" name="password" id="inpReauthPassword"
-                       class="form-control input-icon input-icon-password"
-                       placeholder="Instagram password" autofocus/>
-                <span class="help-block text-danger text-error hidden"></span>
-            </div>
-        </div>
-        <div>
-            <button type="submit"
-                    class="btn btn-plain btn-success mb20"
-                    data-loading-text="Signing in...">Sign in</button>
-        </div>
-        <div>
-            <a href="#" class="link-ajax" data-popup-open="#popup-login-help">Sign in help</a>
-        </div>
-    </form>
-</div>
-
-<div id="popup-account-signup" class="popup">
-    <h3>Sign up</h3>
-    <a href="#" class="btn-close-x" data-popup-close="#popup-account-signup"></a>
-    <div class="alerts">
-        <div class="alert alert-danger alert-error"></div>
-        <div class="alert alert-success"></div>
-    </div>
-    <form action="/account/signup" id="account-signup-form" class="form-horizontal form-ajax mb0" method="post">
-        <div class="form-group field-wrap" data-field="email">
-            <div class="col-md-12">
-                <input type="text" name="email" id="inpAccountSignupEmail"
-                       class="form-control input-icon input-icon-email"
-                       placeholder="Email" autofocus/>
-                <span class="help-block text-danger text-error hidden"></span>
-            </div>
-        </div>
-        <div class="form-group field-wrap" data-field="password">
-            <div class="col-md-12">
-                <input type="password" name="password" id="inpAccountSignupPassword"
-                       class="form-control input-icon input-icon-password"
-                       placeholder="Password (random by default)"/>
-                <span class="help-block text-danger text-error hidden"></span>
-            </div>
-        </div>
-        <div>
-            <button type="submit"
-                    class="btn btn-plain btn-success mb20"
-                    data-loading-text="Signing up...">Sign up</button>
-        </div>
-        <div class="mb10">
-            By signing up, you agree to the <a href="/terms" target="_blank">Terms of Service</a>.
-        </div>
-        <div>
-            Already have an account?
-            <a href="#" class="link-ajax"
-               data-popup-close="#popup-account-signup"
-               data-popup-open="#popup-account-login">Log in</a>
-        </div>
-        <hr/>
-        <div class="color-gray -mb20">
-            <i class="fa fa-instagram fa-lg mr5"></i>
-            <a href="#" class="link-ajax"
-               data-popup-close="#popup-account-signup"
-               data-popup-open="#popup-login">Sign in with Instagram</a>
-        </div>
-    </form>
-</div>
-
-<div id="popup-account-login" class="popup">
-    <h3>Log in</h3>
-    <a href="#" class="btn-close-x" data-popup-close="#popup-account-login"></a>
-    <div class="alerts">
-        <div class="alert alert-danger alert-error"></div>
-        <div class="alert alert-success"></div>
-    </div>
-    <form action="/account/login" id="account-login-form" class="form-horizontal form-ajax mb0" method="post">
-        <div class="form-group field-wrap" data-field="email">
-            <div class="col-md-12">
-                <input type="text" name="email" id="inpAccountLoginEmail"
-                       class="form-control input-icon input-icon-email"
-                       placeholder="Email" autofocus/>
-                <span class="help-block text-danger text-error hidden"></span>
-            </div>
-        </div>
-        <div class="form-group field-wrap" data-field="password">
-            <div class="col-md-12">
-                <input type="password" name="password" id="inpAccountLoginPassword"
-                       class="form-control input-icon input-icon-password"
-                       placeholder="Password"/>
-                <span class="help-block text-danger text-error hidden"></span>
-            </div>
-        </div>
-        <div>
-            <button type="submit"
-                    class="btn btn-plain btn-success mb20"
-                    data-loading-text="Logging in...">Log in</button>
-        </div>
-        <div class="mb10">
-            <a href="#" class="link-ajax" data-popup-open="#popup-account-password-reset">Password reset</a>
-        </div>
-        <div>
-            Don't have an account?
-            <a href="#" class="link-ajax"
-               data-popup-close="#popup-account-login"
-               data-popup-open="#popup-account-signup">Sign up</a>
-        </div>
-        <hr/>
-        <div class="color-gray -mb20">
-            <i class="fa fa-instagram fa-lg mr5"></i>
-            <a href="#" class="link-ajax"
-               data-popup-close="#popup-account-login"
-               data-popup-open="#popup-login">Sign in with Instagram</a>
-        </div>
-    </form>
-</div>
-
-<div id="popup-account-password-reset" class="popup">
-    <h3>Password Reset</h3>
-    <a href="#" class="btn-close-x" data-popup-close="#popup-account-password-reset"></a>
-    <div class="color-gray mb20">
-        If you forgot your password, request a new one by entering your email address in this form.
-    </div>
-    <div class="alerts">
-        <div class="alert alert-danger alert-error"></div>
-        <div class="alert alert-success"></div>
-    </div>
-    <form action="/account/password/reset" id="account-password-reset-form" class="form-horizontal form-ajax mb0" method="post">
-        <div class="form-group field-wrap" data-field="email">
-            <div class="col-md-12">
-                <input type="text" name="email" id="inpAccountPasswordResetEmail"
-                       class="form-control input-icon input-icon-email"
-                       placeholder="Email" value="nirdesh@resiliencesoft.com" autofocus/>
-                <span class="help-block text-danger text-error hidden"></span>
-            </div>
-        </div>
-        <div>
-            <button type="submit"
-                    class="btn btn-plain btn-success"
-                    data-loading-text="Sending request...">Send request</button>
-        </div>
-    </form>
-</div>
 
 
+
+            </div><!-- /.row (main row) -->
+
+        </section><!-- /.content -->
+    </aside><!-- /.right-side -->
+</div><!-- ./wrapper -->
+
+<!-- add new calendar event modal -->
+
+
+<!-- jQuery 2.0.2 -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<!-- jQuery UI 1.10.3 -->
+<script src="js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
+<!-- Bootstrap -->
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<!-- Morris.js charts -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="js/morris.min.js" type="text/javascript"></script>
+<!-- Sparkline -->
+<script src="js/jquery.sparkline.min.js" type="text/javascript"></script>
+<!-- jvectormap -->
+<script src="js/jquery-jvectormap-1.2.2.min.js" type="text/javascript"></script>
+<script src="js/jquery-jvectormap-world-mill-en.js" type="text/javascript"></script>
+<!-- fullCalendar -->
+<script src="js/fullcalendar.min.js" type="text/javascript"></script>
+<!-- jQuery Knob Chart -->
+<script src="js/jquery.knob.js" type="text/javascript"></script>
+<!-- daterangepicker -->
+<script src="js/daterangepicker.js" type="text/javascript"></script>
+<!-- Bootstrap WYSIHTML5 -->
+<script src="js/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
+<!-- iCheck -->
+<script src="js/icheck.min.js" type="text/javascript"></script>
+
+<!-- AdminLTE App -->
+<script src="js/app.js" type="text/javascript"></script>
+
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="js/dashboard.js" type="text/javascript"></script>
 
 </body>
 </html>
