@@ -1,3 +1,4 @@
+<?php ?>
 <!DOCTYPE html>
 <html class="bg-black">
 <head>
@@ -14,21 +15,69 @@
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+ <!--   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>-->
+    <script src="js/jquery-1.11.0.min.js"></script>
     <script src="ajax_request/registration.js"></script>
-    <![endif]-->
+
+
+
+    <script type="text/javascript">
+
+      /*  $("document").ready(function(){
+
+            // $(".alert-error").hide();
+
+            $("#register").submit(function(){
+                // $(".alert-error").hide();
+
+                var data = {
+                    "action": "register"
+                };
+                data = $(this).serialize() + "&" + $.param(data);
+                $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    url: "clstest.php", //Relative or absolute path to response.php file
+                    data: data,
+                    success: function(data, status) {
+                        if(data=="Success")
+                        {
+                            // $("#alert-error").show();
+                            // $("#alert-error").html(data);
+                            //window.location.href="dashboard.php";
+                            alert("successful");
+                        }else
+                        {
+                            // $("#alert-error").show();
+                            // $("#alert-error").html(data);
+                            alert("unsuccessful");
+                            //window.location.href="signup.php";
+                        }
+                    },
+                    error: function(xhr, desc, err) {
+                        // $(".alert-error").show();
+                        //$(".alert-error").html("Details: " + desc + "\nError:" + err);
+                    }
+                });
+                return false;
+            });
+        });
+*/
+    </script>
+
+
 </head>
 <body class="bg-black">
 
 <div class="form-box" id="login-box">
     <div class="header">Register New Membership</div>
-    <form action="classes/clsLogin.php" id="register" method="post">
+    <form id="register" action="register.php"  method="post">
 
         <div class="body bg-gray">
 
 
-
+            <div id="alert-msg" class="alert alert-danger"></div>
             <!--<div class="form-group">
                 <input type="text" name="name" class="form-control" placeholder="Full name"/>
             </div>-->

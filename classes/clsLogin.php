@@ -1,5 +1,13 @@
-
 <?php
+class Login
+{
+
+    public function setProperty($username,$password)
+    {
+        $this->prop1 = $username;
+        $this->prop1=$password;
+    }
+}
 
 include('dbconn.php');
 
@@ -132,3 +140,4 @@ if($_POST['action'] == "register") {
     echo json_encode($responseMessage);
 
 }
+?>

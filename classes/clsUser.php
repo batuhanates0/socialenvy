@@ -9,25 +9,43 @@ include "DatabaseConnection.php";
 
 class clsUser
 {
+    public $responseMessage='';
+
     public function Login($email, $password)
     {
         $dbCon = new DatabaseConnection();
+        $chk_email = $dbCon->con->prepare("SELECT * FROM tblLogin where email=:email");
 
-        $result = $dbCon->con->prepare("SELECT * FROM tblLogin where email=:email and password=::password");
+        $chk_email->bindParam(':email', $email);
 
-        $result->bindParam(':email', $email);
-        $result->bindParam(':password', $password);
 
-        $result->execute();
+        $chk_email->execute();
 
-        $userCount = $result->rowCount();
-
-        if ($userCount == 1) {
-            echo "success";
-        } else {
-            echo "failed";
+        $no_email = $chk_email->rowCount();
+        if ($no_email == 0){
+            $responseMessage= "Email_Id isnot valid";
         }
-        return $userCount;
+      else {
+          $result = $dbCon->con->prepare("SELECT * FROM tblLogin where email=:email and password=:password");
+
+          $result->bindParam(':email', $email);
+          $result->bindParam(':password', $password);
+
+          $result->execute();
+
+          $userCount = $result->rowCount();
+
+          if ($userCount == 1) {
+              $responseMessage = "success";
+              // $_SESSION['msg']="success";
+              // echo  $_SESSION['msg'];
+
+          } else {
+              $responseMessage = "Password is wrong";
+          }
+          // return $userCount;
+      }
+        echo json_encode($responseMessage);
     }
 
     public function GetUsers()
@@ -55,6 +73,7 @@ class clsUser
 
     public function Register($email, $password, $status)
     {
+
         $dbCon = new DatabaseConnection();
         $result = $dbCon->con->prepare("SELECT * FROM tblLogin where email=:email");
         $result->bindParam(':email', $email);
@@ -81,13 +100,13 @@ class clsUser
 
             if ($rows == 1) {
                 $_SESSION['login_user'] = $email; // Initializing Session
-                echo "success";
+                $responseMessage= "success";
             } else {
                 $responseMessage = "failed";
             }
         } else {
-            echo "Email already Exists";
+            $responseMessage= "Email already Exists";
         }
-
+      echo json_encode($responseMessage);
     }
 }

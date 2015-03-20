@@ -1,10 +1,10 @@
 
 $("document").ready(function(){
 
-    // $(".alert-error").hide();
+     $("#alert-msg").hide();
 
     $("#register").submit(function(){
-        // $(".alert-error").hide();
+         $("#alert-msg").hide();
 
         var data = {
             "action": "register"
@@ -13,20 +13,20 @@ $("document").ready(function(){
         $.ajax({
             type: "POST",
             dataType: "json",
-            url: "classes/clsLogin.php", //Relative or absolute path to response.php file
+            url: "actionpage/ajaxregistration.php", //Relative or absolute path to response.php file
             data: data,
             success: function(data, status) {
-                if(data=="Success")
+                if(data=="success")
                 {
-                    // $("#alert-error").show();
-                    // $("#alert-error").html(data);
+                    $("#alert-msg").show();
+                     $("#alert-msg").html(data);
                     //window.location.href="dashboard.php";
-                     alert("successful");
+                     //alert("successful");
                 }else
                 {
-                   // $("#alert-error").show();
-                   // $("#alert-error").html(data);
-                    alert("unsuccessful");
+                    $("#alert-msg").show();
+                    $("#alert-msg").html(data);
+                   // alert("unsuccessful");
                     //window.location.href="signup.php";
                 }
             },
