@@ -16,24 +16,29 @@
         <!-- Ionicons -->
         <link href="../css/ionicons.min.css" rel="stylesheet" type="text/css" />
         <!-- Morris chart -->
-        <link href="../css/morris/morris.css" rel="stylesheet" type="text/css" />
+<!--        <link href="../css/morris/morris.css" rel="stylesheet" type="text/css" />-->
         <!-- jvectormap -->
-        <link href="../css/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+<!--        <link href="../css/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />-->
         <!-- fullCalendar -->
-        <link href="../css/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" />
+<!--        <link href="../css/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" />-->
         <!-- Daterange picker -->
-        <link href="../css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
+<!--        <link href="../css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />-->
         <!-- bootstrap wysihtml5 - text editor -->
-        <link href="../css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
+<!--        <link href="../css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />-->
         <!-- Theme style -->
         <link href="../css/default.css" rel="stylesheet" type="text/css" />
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+         <!-- <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
+        <script src="../js/jquery-1.11.0.min.js"></script>
+        <script src="../ajax_request/accountdetails.js"></script>
+
+        <script type="text/javascript">
+        </script>
     </head>
     <body class="skin-black">
         <!-- header logo: style can be found in header.less -->
@@ -305,11 +310,11 @@
                     <!-- Main row -->
                     <div class="row">
 
-
+<div id="dashboard-list"></div>
                         <!-- user accounts -->
-                           <div class="col-lg-4 col-md-4 col-sm-4">
+                           <!--<div class="col-lg-4 col-md-4 col-sm-4">
 
-                               <div class="inner-accounts-box">
+                               <div id="dashboard-list"  class="inner-accounts-box">
 
                                    <div style="border-bottom:1px solid #ccc; padding-bottom:10px; margin-bottom:10px;">
                                       <div class="pull-left image">
@@ -317,7 +322,7 @@
                                       </div>
 
                                       <div class="pull-left info" style="padding-left:10px;">
-                                        <h4>Vivankapoor</h4>
+                                        <h4 id="IGuname"></h4>
                                         <p>Instagram</p>
                                      </div>
 
@@ -346,22 +351,22 @@
 
                                       <tr>
                                          <td width="50%">Likes:</td>
-                                         <td width="50%">2090</td>
+                                         <td width="50%" id="likes"></td>
                                       </tr>
 
                                       <tr>
-                                         <td width="50%">Comments:</td>
-                                         <td width="50%">0</td>
+                                         <td width="50%" >Comments:</td>
+                                         <td width="50%" id="comment"></td>
                                       </tr>
 
                                       <tr>
                                          <td width="50%">Follows:</td>
-                                         <td width="50%">1408</td>
+                                         <td width="50%" id="follows"></td>
                                       </tr>
 
                                       <tr>
                                          <td width="50%">Unfollows:</td>
-                                         <td width="50%">0</td>
+                                         <td width="50%" id="unfollows"></td>
                                       </tr>
 
                                   </table>
@@ -372,12 +377,12 @@
 
                                       <tr>
                                          <td width="50%">Start time:</td>
-                                         <td width="50%">Mar 7 2015 5:16 PM</td>
+                                         <td width="50%" id="start_time"></td>
                                       </tr>
 
                                       <tr>
                                          <td width="50%">Stop time:</td>
-                                         <td width="50%">Mar 10 2015 6:19 PM</td>
+                                         <td width="50%"id="end_time"></td>
                                       </tr>
 
 
@@ -410,11 +415,11 @@
 
                                </div>
                            </div>
-
+-->
                           <!-- user accounts ends -->
 
                             <!-- user accounts -->
-                           <div class="col-lg-4 col-md-4 col-sm-4">
+                          <!-- <div class="col-lg-4 col-md-4 col-sm-4">
 
                                <div class="inner-accounts-box">
 
@@ -517,11 +522,11 @@
 
                                </div>
                            </div>
-
+-->
                           <!-- user accounts ends -->
 
                             <!-- user accounts -->
-                           <div class="col-lg-4 col-md-4 col-sm-4">
+                           <!--<div class="col-lg-4 col-md-4 col-sm-4">
 
                                <div class="inner-accounts-box">
 
@@ -624,7 +629,7 @@
 
                                </div>
                            </div>
-
+-->
                           <!-- user accounts ends -->
 
 

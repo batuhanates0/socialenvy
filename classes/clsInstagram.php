@@ -69,4 +69,13 @@ class clsInstagram {
 
 
     }
+    public function InstagramAccount(){
+        $dbCon = new DatabaseConnection();
+
+        $result = $dbCon->con->prepare("SELECT * FROM tblInstagram");
+        $result->execute();
+
+        $data = $result->fetchall();
+        echo json_encode($data);
+    }
 }
