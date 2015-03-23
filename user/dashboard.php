@@ -40,7 +40,7 @@
     <body class="skin-black">
         <!-- header logo: style can be found in header.less -->
         <header class="header">
-            <a href="dashboard.html" class="logo">
+            <a href="dashboard.php" class="logo">
                 <!-- Add the class icon to your logo image or logo icon to add the margining -->
                 SocialEnvy
             </a>
@@ -236,7 +236,7 @@
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
                         <li >
-                            <a href="dashboard.html">
+                            <a href="dashboard.php">
                                 <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                             </a>
                         </li>
