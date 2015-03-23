@@ -1,4 +1,5 @@
 <?php
+session_start();
 /**
  * Created by PhpStorm.
  * User: DIGICOM
@@ -37,6 +38,8 @@ class clsUser
 
           if ($userCount == 1) {
               $responseMessage = "success";
+              $_SESSION['login_user']=$email;
+
               // $_SESSION['msg']="success";
               // echo  $_SESSION['msg'];
 

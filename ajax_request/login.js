@@ -17,9 +17,9 @@
                 data: data,
                 success: function (data, status) {
                     if (data == "success") {
-                          $("#alert-error").show();
-                         $("#alert-error").html(data);
-                       // window.location.href = "dashboard.php";
+                         // $("#alert-error").show();
+                        // $("#alert-error").html(data);
+                        window.location.href = "user/dashboard.php";
                         // alert("successful");
                     } else {
                         $("#alert-error").show();

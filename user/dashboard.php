@@ -1,7 +1,4 @@
-<?php
 
-
-?>
 
 <!DOCTYPE html>
 <html>
@@ -172,7 +169,7 @@
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="glyphicon glyphicon-user"></i>
-                                <span>Mohd Saqib <i class="caret"></i></span>
+                                <span><?php session_start(); echo $_SESSION['login_user']; ?> <i class="caret"></i></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
@@ -221,7 +218,7 @@
                             <img src="../img/avatar3.png" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
-                            <p>Hello, Saqib</p>
+                            <p>Hello,<?php session_start();  echo $_SESSION['login_user']; ?></p>
 
                             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                         </div>
@@ -256,11 +253,15 @@
                         </li>
 
                         <li class="active">
-                            <a href="../account.php">
+                            <a href="../addinstagramaccount.php">
                                 <i class="fa fa-plus"></i> <span>Add Account</span> <small class="badge pull-right bg-blue">03</small>
                             </a>
                         </li>
-
+                        <li class="active">
+                            <a href="https://api.instagram.com/oauth/authorize/?client_id=d699b2681e2644479f4b97b76b2bda33&redirect_uri=http://52.10.69.137/User/InstagramCallback.aspx&response_type=code&&scope=comments+likes+relationships">
+                                <i class="fa fa-plus"></i> <span>Subscribe Instagram Application</span>
+                            </a>
+                        </li>
                         <li>
                             <a href="#">
                                 <i class="fa fa-credit-card"></i> <span>Buy Time Package</span> <!--<small class="badge pull-right bg-green">new</small>-->
@@ -310,7 +311,7 @@
                     <!-- Main row -->
                     <div class="row">
 
-<div id="dashboard-list"></div>
+                      <div id="dashboard-list"></div>
                         <!-- user accounts -->
                            <!--<div class="col-lg-4 col-md-4 col-sm-4">
 
