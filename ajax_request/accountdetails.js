@@ -2,6 +2,110 @@
  * Created by RESILIENCE on 3/21/2015.
  */
 
+function updatestopall() {
+
+    // alert(id);
+    var data = {
+        "action": "stopstatusforall"
+    };
+
+    data = $(this).serialize() + "&" + $.param(data);
+
+
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url:"../actionpage/stopallincacc.php", //Relative or absolute path to response.php file
+        data: data,
+        success: function(data, status) {
+            // $("#"+photoId).hide();
+            //alert("Photo deleted Successfully");
+            // alert("status updated");
+
+        },
+        error: function(xhr, desc, err) {
+            //alert(xhr);
+            //alert("Details: " + desc + "\nError:" + err);
+        }
+    });
+
+    return false;
+
+}
+
+function updatestatusall() {
+
+    // alert(id);
+    var data = {
+        "action": "changestatusforall"
+    };
+
+    data = $(this).serialize() + "&" + $.param(data);
+
+
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url:"../actionpage/startallinsacc.php", //Relative or absolute path to response.php file
+        data: data,
+        success: function(data, status) {
+            // $("#"+photoId).hide();
+            //alert("Photo deleted Successfully");
+            // alert("status updated");
+        },
+        error: function(xhr, desc, err) {
+            //alert(xhr);
+            //alert("Details: " + desc + "\nError:" + err);
+        }
+    });
+
+    return false;
+
+}
+
+
+function updatestatus(id) {
+
+   // alert(id);
+    var data = {
+        "action": "changestatus"
+    };
+
+    if(id!= null)
+    {
+        var query_data = {
+            "Id": id
+        };
+
+        data = $(this).serialize() + "&" + $.param(data)+ "&" + $.param(query_data);
+
+    }else {
+        data = $(this).serialize() + "&" + $.param(data);
+    }
+
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url:"../actionpage/startinsacc.php", //Relative or absolute path to response.php file
+        data: data,
+        success: function(data, status) {
+            // $("#"+photoId).hide();
+            //alert("Photo deleted Successfully");
+           // alert("status updated");
+            //$("#status").val("Active");
+            document.getElementById('status').innerHTML="Active";
+        },
+        error: function(xhr, desc, err) {
+           // alert(xhr);
+           // alert("Details: " + desc + "\nError:" + err);
+        }
+    });
+
+    return false;
+
+}
+
+
 $("document").ready(function(){
     var data = {
         "action": "InstagramAccount"
@@ -35,7 +139,7 @@ $("document").ready(function(){
                 innerTableHtml += "<table width='100%' >";
                 innerTableHtml += "<tr>";
                 innerTableHtml += "<td width='50%'>Activity:</td>";
-                innerTableHtml += "<td width='50%'>Stopped</td>";
+                innerTableHtml += "<td id='status' width='50%'>"+data[i].activity+"</td>";
                 innerTableHtml += "</tr>";
                 innerTableHtml += "<tr>";
                 innerTableHtml += "<td width='50%'>Time:</td>";
@@ -78,7 +182,7 @@ $("document").ready(function(){
                 innerTableHtml += "<div>";
                 innerTableHtml += "<table width='100%'>";
                 innerTableHtml += "<tr>";
-                innerTableHtml += "<td width='35%'><div class='btn btn-danger'><i class='fa fa-play'></i> Start</div></td>";
+                innerTableHtml += '<td width="35%"><div class="btn btn-danger" href="javascript:void(0)" onclick="updatestatus(\'' + data[i].id + '\')"><i class="fa fa-play"></i> Start</div></td>';
                 innerTableHtml +="<td width='35%'><div class='btn btn-primary'><i class='fa fa-gear'></i> Settings</div></td>";
                 innerTableHtml += "<td width='30%'><div class='btn-group pull-right'>";
                 innerTableHtml +="<button class='btn btn-warning btn-sm dropdown-toggle' data-toggle='dropdown'><i class='fa fa-bars'></i>  More</button>";

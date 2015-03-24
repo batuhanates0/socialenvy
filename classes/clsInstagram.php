@@ -1,4 +1,5 @@
 <?php
+session_start();
 /**
  * Created by PhpStorm.
  * User: DIGICOM
@@ -78,4 +79,85 @@ class clsInstagram {
         $data = $result->fetchall();
         echo json_encode($data);
     }
+    public function changeaccountstatus($id,$activity){
+        $dbCon = new DatabaseConnection();
+
+
+        $result =$dbCon->con->prepare("UPDATE `tblInstagram` Set `activity`= :activity  where `id`=:id");
+
+        $result->bindParam(':id', $id);
+        $result->bindParam(':activity', $activity);
+
+        $result->execute();
+
+        $rows = $result->rowCount();//  fetch(PDO::FETCH_NUM);
+
+        if ($rows == 1) {
+            $responseMsg = "Success";
+            //return true;
+        } else {
+           $responseMsg = "Failed";
+           // return false;
+        }
+        echo json_encode($responseMsg);
+    }
+    public function changeallaccountstatus($activity){
+        $dbCon = new DatabaseConnection();
+
+
+        $result =$dbCon->con->prepare("UPDATE `tblInstagram` Set `activity`= :activity");
+
+
+        $result->bindParam(':activity', $activity);
+
+        $result->execute();
+
+        $rows = $result->rowCount();//  fetch(PDO::FETCH_NUM);
+
+        $result_row = $dbCon->con->prepare("SELECT * FROM tblInstagram");
+        $result_row->execute();
+
+        $data = $result_row->fetchall();
+        $no_rows=count($data);
+
+        if ($rows > 0) {
+            $responseMsg = "Success";
+            $_SESSION['rowcount']=$no_rows;
+            //return true;
+        } else {
+            $responseMsg = "Failed";
+            // return false;
+        }
+        echo json_encode($responseMsg);
+    }
+    public function stopallaccountstatus($activity){
+        $dbCon = new DatabaseConnection();
+
+
+        $result =$dbCon->con->prepare("UPDATE `tblInstagram` Set `activity`= :activity");
+
+
+        $result->bindParam(':activity', $activity);
+
+        $result->execute();
+
+        $rows = $result->rowCount();//  fetch(PDO::FETCH_NUM);
+
+        $result_row = $dbCon->con->prepare("SELECT * FROM tblInstagram");
+        $result_row->execute();
+
+        $data = $result_row->fetchall();
+        $no_rows=count($data);
+
+        if ($rows > 0) {
+            $responseMsg = "Success";
+            $_SESSION['rowcount_stop']=$no_rows;
+            //return true;
+        } else {
+            $responseMsg = "Failed";
+            // return false;
+        }
+        echo json_encode($responseMsg);
+    }
+
 }

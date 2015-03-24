@@ -242,13 +242,13 @@
                         </li>
                         <li>
                             <a href="#">
-                                <i class="fa fa-play"></i> <span>Start All</span> <small class="badge pull-right bg-green">10</small>
+                                <i class="fa fa-play"></i> <span  href="javascript:void(0)" onclick="updatestatusall();">Start All</span> <small class="badge pull-right bg-green"><?php session_start(); echo $_SESSION['rowcount'];?></small>
                             </a>
                         </li>
 
                         <li>
                             <a href="#">
-                                <i class="fa fa-stop"></i> <span>Stop All</span> <small class="badge pull-right bg-red">05</small>
+                                <i class="fa fa-stop"></i> <span href="javascript:void(0)" onclick="updatestopall();">Stop All</span> <small class="badge pull-right bg-red"><?php session_start(); echo $_SESSION['rowcount_stop'];?></small>
                             </a>
                         </li>
 
