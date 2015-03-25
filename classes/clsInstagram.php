@@ -79,14 +79,14 @@ class clsInstagram {
         $data = $result->fetchall();
         echo json_encode($data);
     }
-    public function changeaccountstatus($id,$activity){
+    public function changeaccountstatus($id,$isRunning){
         $dbCon = new DatabaseConnection();
 
 
-        $result =$dbCon->con->prepare("UPDATE `tblInstagram` Set `activity`= :activity  where `id`=:id");
+        $result =$dbCon->con->prepare("UPDATE `tblInstagram` Set `isRunning`= :isRunning  where `id`=:id");
 
         $result->bindParam(':id', $id);
-        $result->bindParam(':activity', $activity);
+        $result->bindParam(':isRunning', $isRunning);
 
         $result->execute();
 
@@ -101,14 +101,14 @@ class clsInstagram {
         }
         echo json_encode($responseMsg);
     }
-    public function changeallaccountstatus($activity){
+    public function changeallaccountstatus($isRunning){
         $dbCon = new DatabaseConnection();
 
 
-        $result =$dbCon->con->prepare("UPDATE `tblInstagram` Set `activity`= :activity");
+        $result =$dbCon->con->prepare("UPDATE `tblInstagram` Set `isRunning`= :isRunning");
 
 
-        $result->bindParam(':activity', $activity);
+        $result->bindParam(':isRunning', $isRunning);
 
         $result->execute();
 
@@ -130,14 +130,14 @@ class clsInstagram {
         }
         echo json_encode($responseMsg);
     }
-    public function stopallaccountstatus($activity){
+    public function stopallaccountstatus($isRunning){
         $dbCon = new DatabaseConnection();
 
 
-        $result =$dbCon->con->prepare("UPDATE `tblInstagram` Set `activity`= :activity");
+        $result =$dbCon->con->prepare("UPDATE `tblInstagram` Set `isRunning`= :isRunning");
 
 
-        $result->bindParam(':activity', $activity);
+        $result->bindParam(':isRunning', $isRunning);
 
         $result->execute();
 
@@ -158,6 +158,21 @@ class clsInstagram {
             // return false;
         }
         echo json_encode($responseMsg);
+    }
+    public function getid($id){
+        $dbCon = new DatabaseConnection();
+
+
+        $result =$dbCon->con->prepare("select * from tblInstagram where id=:id");
+
+        $result->bindParam(':id', $id);
+
+
+        $result->execute();
+
+        $data = $result->fetchall();//  fetch(PDO::FETCH_NUM);
+       echo json_encode($data);
+
     }
 
 }

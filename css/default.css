@@ -3414,3 +3414,59 @@ fieldset[disabled] .btn-vk.active {
 	padding:10px 15px;
 }
 
+.inner-setting-box {
+    background: none repeat scroll 0 0 #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 15px;
+    text-align: center;
+}
+
+.tags {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+}
+
+.tags li, .tags a {
+    float: left;
+    font-size: 11px;
+    height: 34px;
+    line-height: 34px;
+    margin-bottom: 10px;
+    margin-top: -5px;
+    position: relative;
+}
+.tags a {
+    background: none repeat scroll 0 0 #000;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+    color: #fff;
+    font-size: 11pt;
+    margin-left: 25px;
+    padding: 0 10px 0 12px;
+    text-decoration: none;
+}
+.tags a::before {
+    border-color: transparent #000 transparent transparent;
+    border-style: solid;
+    border-width: 17px 17px 17px 0;
+    content: "";
+    height: 0;
+    left: -17px;
+    position: absolute;
+    top: 0;
+    width: 0;
+}
+.tags a::after {
+    content: "";
+    position: absolute;
+}
+.tags a:hover {
+    background: none repeat scroll 0 0 #555;
+}
+.tags a:hover::before {
+    border-color: transparent #555 transparent transparent;
+}
