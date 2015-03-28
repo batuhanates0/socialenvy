@@ -93,7 +93,8 @@ function updatestatus(id) {
             //alert("Photo deleted Successfully");
            // alert("status updated");
             //$("#status").val("Active");
-            document.getElementById('status').innerHTML="Active";
+          //  document.getElementById('status').innerHTML="Active";
+           // location.reload();
         },
         error: function(xhr, desc, err) {
            // alert(xhr);
@@ -184,7 +185,7 @@ $("document").ready(function(){
                 innerTableHtml += "<tr>";
                 innerTableHtml += '<td width="35%"><div class="btn btn-danger" href="javascript:void(0)" onclick="updatestatus(\'' + data[i].id + '\')"><i class="fa fa-play"></i> Start</div></td>';
                // innerTableHtml +="<td width='35%'><div class='btn btn-primary'><i class='fa fa-gear'></i><a href='../activity.php'> Settings</a></div></td>";
-                innerTableHtml +="<td width='35%'><div><a class='btn btn-primary' href='../activity.php?id="+data[i]+"'><i class='fa fa-gear'></i>Settings</a></div></td>";
+                innerTableHtml +="<td width='35%'><div><a class='btn btn-primary' href='../activity.php?id="+data[i].id+"'><i class='fa fa-gear'></i>Settings</a></div></td>";
                 innerTableHtml += "<td width='30%'><div class='btn-group pull-right'>";
                 innerTableHtml +="<button class='btn btn-warning btn-sm dropdown-toggle' data-toggle='dropdown'><i class='fa fa-bars'></i>  More</button>";
                 innerTableHtml += "<ul class='dropdown-menu pull-right' role='menu'>";

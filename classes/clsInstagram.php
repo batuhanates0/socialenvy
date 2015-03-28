@@ -91,15 +91,21 @@ class clsInstagram {
         $result->execute();
 
         $rows = $result->rowCount();//  fetch(PDO::FETCH_NUM);
+        $result_fetch =$dbCon->con->prepare("select * from tblInstagram  where `id`=:id");
+        $result_fetch->bindParam(':id', $id);
+        $result_fetch->execute();
+        $data=$result_fetch->fetchall();
 
-        if ($rows == 1) {
-            $responseMsg = "Success";
+       // if ($rows == 1) {
+        //    $responseMsg = "Success";
+
             //return true;
-        } else {
-           $responseMsg = "Failed";
+      //  } else {
+        //   $responseMsg = "Failed";
            // return false;
-        }
-        echo json_encode($responseMsg);
+      //  }
+      //  echo json_encode($responseMsg);
+        echo json_encode($data);
     }
     public function changeallaccountstatus($isRunning){
         $dbCon = new DatabaseConnection();
@@ -173,6 +179,34 @@ class clsInstagram {
         $data = $result->fetchall();//  fetch(PDO::FETCH_NUM);
        echo json_encode($data);
 
+    }
+    public function changeaccountstatus_stop($id,$isRunning){
+        $dbCon = new DatabaseConnection();
+
+
+        $result =$dbCon->con->prepare("UPDATE `tblInstagram` Set `isRunning`= :isRunning  where `id`=:id");
+
+        $result->bindParam(':id', $id);
+        $result->bindParam(':isRunning', $isRunning);
+
+        $result->execute();
+
+        $rows = $result->rowCount();//  fetch(PDO::FETCH_NUM);
+        $result_fetch =$dbCon->con->prepare("select * from tblInstagram  where `id`=:id");
+        $result_fetch->bindParam(':id', $id);
+        $result_fetch->execute();
+        $data=$result_fetch->fetchall();
+
+        // if ($rows == 1) {
+        //    $responseMsg = "Success";
+
+        //return true;
+        //  } else {
+        //   $responseMsg = "Failed";
+        // return false;
+        //  }
+        //  echo json_encode($responseMsg);
+        echo json_encode($data);
     }
 
 }

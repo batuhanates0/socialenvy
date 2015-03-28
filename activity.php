@@ -318,6 +318,8 @@
 
 <!--        <div class="btn-lg btn-danger" style="text-align:center; margin-bottom:10px;"><i class="fa fa-play"></i> Start</div>-->
             <div id="dashboard"></div>
+<!--            <div id="dashboard_stop"></div>-->
+<!--             <div id="dashboard_start"></div>-->
         <p class="text-red">How to start?</p>
 
     </div>
