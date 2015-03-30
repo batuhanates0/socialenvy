@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 /**
  * Created by PhpStorm.
  * User: DIGICOM
@@ -69,20 +69,20 @@ class InstagramLogin
 //                $result_userid = $check_userid->fetch(PDO::FETCH_ASSOC);
 //
 //                $uid=$result_userid['id'];
-                $uid=1;
+                $unique_username= $_SESSION['login_user'];
 
                 $IGAccstatus='Active';
                 $date = date('Y-m-d');
 
 
 
-                $strQuery = "insert into tblInstagram (`uid`,`IGuname`,`IGpassword`,`IGAccstatus`,`date`)
-                              VALUES (:uid,:IGuname,:IGpassword,:IGAccstatus,:date)";
+                $strQuery = "insert into tblInstagram (`unique_username`,`IGuname`,`IGpassword`,`IGAccstatus`,`date`)
+                              VALUES (:unique_username,:IGuname,:IGpassword,:IGAccstatus,:date)";
 
 
                 $result =$dbCon-> con->prepare($strQuery);
 
-                $result->bindParam(':uid', $uid);
+                $result->bindParam(':unique_username', $unique_username);
                 $result->bindParam(':IGuname', $username);
                 $result->bindParam(':IGpassword', $password);
                 $result->bindParam(':IGAccstatus', $IGAccstatus);

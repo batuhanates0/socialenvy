@@ -258,7 +258,7 @@
                             </a>
                         </li>
                         <li class="active">
-                            <a href="https://api.instagram.com/oauth/authorize/?client_id=d699b2681e2644479f4b97b76b2bda33&redirect_uri=http://52.10.69.137/User/InstagramCallback.aspx&response_type=code&&scope=comments+likes+relationships">
+                            <a href="https://api.instagram.com/oauth/authorize/?client_id=bfa277fe0d8c4e4f8f6dd29ea2460ee1&redirect_uri=http://socialenvy.co.nz/&response_type=code&&scope=comments+likes+relationships">
                                 <i class="fa fa-plus"></i> <span>Subscribe Instagram Application</span>
                             </a>
                         </li>

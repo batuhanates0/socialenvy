@@ -79,7 +79,7 @@
             <div class="form-group">
 
                 <div id="alert-error" class="alert alert-danger"></div>
-                <input type="text" name="email" class="form-control" placeholder="Email ID"/>
+                <input type="text" name="username" class="form-control" placeholder="Username"/>
             </div>
             <div class="form-group">
                 <input type="password" name="password" class="form-control" placeholder="Password"/>
@@ -93,7 +93,7 @@
 
             <p><a href="#">I forgot my password</a></p>
 
-            <a href="register.html" class="text-center">Register a new membership</a>
+            <a href="register.php" class="text-center">Register a new membership</a>
         </div>
     </form>
 

@@ -18,9 +18,9 @@ $("document").ready(function(){
             success: function(data, status) {
                 if(data=="success")
                 {
-                    $("#alert-msg").show();
-                     $("#alert-msg").html(data);
-                    //window.location.href="dashboard.php";
+                   // $("#alert-msg").show();
+                    // $("#alert-msg").html(data);
+                    window.location.href="user/dashboard.php";
                      //alert("successful");
                 }else
                 {

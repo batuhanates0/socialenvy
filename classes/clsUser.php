@@ -12,24 +12,24 @@ class clsUser
 {
     public $responseMessage='';
 
-    public function Login($email, $password)
+    public function Login($username, $password)
     {
         $dbCon = new DatabaseConnection();
-        $chk_email = $dbCon->con->prepare("SELECT * FROM tblLogin where email=:email");
+        $chk_username = $dbCon->con->prepare("SELECT * FROM tblLogin where username=:username");
 
-        $chk_email->bindParam(':email', $email);
+        $chk_username->bindParam(':username', $username);
 
 
-        $chk_email->execute();
+        $chk_username->execute();
 
-        $no_email = $chk_email->rowCount();
-        if ($no_email == 0){
-            $responseMessage= "Email_Id isnot valid";
+        $no_user = $chk_username->rowCount();
+        if ($no_user == 0){
+            $responseMessage= "You are not registered with us";
         }
       else {
-          $result = $dbCon->con->prepare("SELECT * FROM tblLogin where email=:email and password=:password");
+          $result = $dbCon->con->prepare("SELECT * FROM tblLogin where username=:username and password=:password");
 
-          $result->bindParam(':email', $email);
+          $result->bindParam(':username', $username);
           $result->bindParam(':password', $password);
 
           $result->execute();
@@ -38,7 +38,7 @@ class clsUser
 
           if ($userCount == 1) {
               $responseMessage = "success";
-              $_SESSION['login_user']=$email;
+              $_SESSION['login_user']=$username;
 
               // $_SESSION['msg']="success";
               // echo  $_SESSION['msg'];
@@ -74,41 +74,58 @@ class clsUser
         return $userCount;
     }
 
-    public function Register($email, $password, $status)
+    public function Register($email, $password, $status,$password_confirm,$username)
     {
 
         $dbCon = new DatabaseConnection();
-        $result = $dbCon->con->prepare("SELECT * FROM tblLogin where email=:email");
-        $result->bindParam(':email', $email);
 
-        $result->execute();
-        $userCount = $result->rowCount();
+        $result_username = $dbCon->con->prepare("SELECT * FROM tblLogin where username=:username");
+        $result_username->bindParam(':username', $username);
 
-        if ($userCount == 0) {
+        $result_username->execute();
+        $userCount_username = $result_username->rowCount();
 
-            $date = date('Y-m-d');
+        if ($userCount_username == 0) {
 
-            $strQuery = "insert into tblLogin (`email`,`password`,`status`,`date`)
-                              VALUES (:email,:password,:status,:date)";
+            $result_email = $dbCon->con->prepare("SELECT * FROM tblLogin where email=:email");
+            $result_email->bindParam(':email', $email);
 
-            $register_result = $dbCon->con->prepare($strQuery);
+            $result_email->execute();
+            $userCount = $result_email->rowCount();
 
-            $register_result->bindParam(':email', $email);
-            $register_result->bindParam(':password', $password);
-            $register_result->bindParam(':status', $status);
-            $register_result->bindParam(':date', $date);
+            if ($userCount == 0) {
+                if ($password != $password_confirm) {
 
-            $register_result->execute();
-            $rows = $register_result->rowCount();
+                    $responseMessage = "Password & confirm Password must be same";
+                } else {
+                    $date = date('Y-m-d');
 
-            if ($rows == 1) {
-                $_SESSION['login_user'] = $email; // Initializing Session
-                $responseMessage= "success";
+                    $strQuery = "insert into tblLogin (`email`,`password`,`status`,`date`,`username`)
+                              VALUES (:email,:password,:status,:date,:username)";
+
+                    $register_result = $dbCon->con->prepare($strQuery);
+
+                    $register_result->bindParam(':email', $email);
+                    $register_result->bindParam(':password', $password);
+                    $register_result->bindParam(':status', $status);
+                    $register_result->bindParam(':date', $date);
+                    $register_result->bindParam(':username', $username);
+
+                    $register_result->execute();
+                    $rows = $register_result->rowCount();
+
+                    if ($rows == 1) {
+                        $_SESSION['login_user'] = $username; // Initializing Session
+                        $responseMessage = "success";
+                    } else {
+                        $responseMessage = "failed";
+                    }
+                }
             } else {
-                $responseMessage = "failed";
+                $responseMessage = "Email already Exists";
             }
-        } else {
-            $responseMessage= "Email already Exists";
+        }else{
+            $responseMessage="Username already Exists";
         }
       echo json_encode($responseMessage);
     }

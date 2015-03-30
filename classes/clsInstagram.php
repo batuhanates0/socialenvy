@@ -72,8 +72,9 @@ class clsInstagram {
     }
     public function InstagramAccount(){
         $dbCon = new DatabaseConnection();
-
-        $result = $dbCon->con->prepare("SELECT * FROM tblInstagram");
+         $username=$_SESSION['login_user'];
+        $result = $dbCon->con->prepare("SELECT * FROM tblInstagram where unique_username =:username");
+        $result->bindparam(':username',$username);
         $result->execute();
 
         $data = $result->fetchall();

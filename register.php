@@ -78,9 +78,9 @@
 
 
             <div id="alert-msg" class="alert alert-danger"></div>
-            <!--<div class="form-group">
-                <input type="text" name="name" class="form-control" placeholder="Full name"/>
-            </div>-->
+            <div class="form-group">
+                <input type="text" name="username" class="form-control" placeholder="Username"/>
+            </div>
             <div class="form-group">
                 <input type="text" name="email" class="form-control" placeholder="Email Address"/>
             </div>
@@ -95,7 +95,7 @@
 
             <button type="submit" class="btn bg-olive btn-block">Sign me up</button>
 
-            <a href="index.html" class="text-center">I already have a membership</a>
+            <a href="login.php" class="text-center">I already have a membership</a>
         </div>
     </form>
 
