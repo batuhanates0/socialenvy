@@ -73,7 +73,10 @@
 <body class="bg-black">
 <div class="sidebar-menu">
 
-    <a class='btn btn-primary' href='user/dashboard.php'> Dashboard</a>
+<!--    <a class='btn btn-primary' href='user/dashboard.php'> Dashboard</a>-->
+    <a class='btn btn-primary' href='user/dashboard.php'>
+    <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+    </a>
 </div>
 
 <div class="form-box" id="login-box">
