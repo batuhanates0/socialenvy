@@ -96,10 +96,11 @@ function updatestatus(id) {
                 success: function(data) {
                     data = eval(data);
                    // alert(data);
-                    alert(data[0].IGuname);
+                   // alert(data[0].IGuname);
                    // $('#status_' + data[0].IGuname  + "'").val("Active");
 
                     $("#status_"+data[0].IGuname+"").html("Active");
+                    $("#divActivity_"+data[0].IGuname+"").html("Stop");
 
 
 
@@ -156,7 +157,7 @@ $("document").ready(function(){
                 innerTableHtml += "<table width='100%' >";
                 innerTableHtml += "<tr>";
                 innerTableHtml += "<td width='50%'>Activity:</td>";
-                innerTableHtml += "<td id='status_"+data[i].IGuname+"' width='50%'></td>";
+                innerTableHtml += "<td id='status_"+data[i].IGuname+"' width='50%'>"+data[i].isRunning+"</td>";
                 innerTableHtml += "</tr>";
                 innerTableHtml += "<tr>";
                 innerTableHtml += "<td width='50%'>Time:</td>";
@@ -199,7 +200,8 @@ $("document").ready(function(){
                 innerTableHtml += "<div>";
                 innerTableHtml += "<table width='100%'>";
                 innerTableHtml += "<tr>";
-                innerTableHtml += '<td width="35%"><div class="btn btn-danger" href="javascript:void(0)" onclick="updatestatus(\'' + data[i].id + '\')"><i class="fa fa-play"></i> Start</div></td>';
+                innerTableHtml += '<td width="35%"><div  class="btn btn-danger" href="javascript:void(0)" onclick="updatestatus(\'' + data[i].id + '\')">';
+                innerTableHtml += "<i id='divActivity_"+data[i].IGuname+"' class='fa fa-play'> Start</i></div></td>";
                // innerTableHtml +="<td width='35%'><div class='btn btn-primary'><i class='fa fa-gear'></i><a href='../activity.php'> Settings</a></div></td>";
                 innerTableHtml +="<td width='35%'><div><a class='btn btn-primary' href='../activity.php?id="+data[i].id+"'><i class='fa fa-gear'></i>Settings</a></div></td>";
                 innerTableHtml += "<td width='30%'><div class='btn-group pull-right'>";

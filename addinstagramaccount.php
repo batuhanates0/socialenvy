@@ -71,6 +71,10 @@
 
 </head>
 <body class="bg-black">
+<div class="sidebar-menu">
+
+    <a class='btn btn-primary' href='user/dashboard.php'> Dashboard</a>
+</div>
 
 <div class="form-box" id="login-box">
     <div class="header">Sign In</div>
