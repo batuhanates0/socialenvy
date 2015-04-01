@@ -24,6 +24,7 @@
     <script src="ajax_request/activity.js"></script>
 
     <script type="text/javascript">
+
     </script>
 </head>
 <body class="skin-black">
@@ -213,15 +214,16 @@
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
+
         <!-- search form -->
-        <form action="#" method="get" class="sidebar-form">
-            <div class="input-group">
+        <form id="formsubmit" action="activity.php" method="post" class="sidebar-form">
+        <!--    <div class="input-group">
                 <input type="text" name="q" class="form-control" placeholder="Search..."/>
                             <span class="input-group-btn">
                                 <button type='submit' name='seach' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
                             </span>
-            </div>
-        </form>
+            </div>-->
+
         <!-- /.search form -->
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
@@ -230,28 +232,28 @@
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                 </a>
             </li>
-            <li>
+          <!--  <li>
                 <a href="#">
-                    <i class="fa fa-play"></i> <span>Start All</span> <small class="badge pull-right bg-green"><?php session_start(); echo $_SESSION['rowcount'];?></small>
+                    <i class="fa fa-play"></i> <span>Start All</span> <small class="badge pull-right bg-green"><?php /*session_start(); echo $_SESSION['rowcount'];*/?></small>
                 </a>
             </li>
 
             <li>
                 <a href="#">
-                    <i class="fa fa-stop"></i> <span>Stop All</span> <small class="badge pull-right bg-red"><?php session_start(); echo $_SESSION['rowcount_stop'];?></small>
+                    <i class="fa fa-stop"></i> <span>Stop All</span> <small class="badge pull-right bg-red"><?php /*session_start(); echo $_SESSION['rowcount_stop'];*/?></small>
                 </a>
-            </li>
+            </li>-->
 
             <li>
                 <a href="accounts.html">
                     <i class="fa fa-plus"></i> <span>Add Account</span> <small class="badge pull-right bg-blue"></small>
                 </a>
             </li>
-            <li class="active">
+        <!--    <li class="active">
                 <a href="https://api.instagram.com/oauth/authorize/?client_id=d699b2681e2644479f4b97b76b2bda33&redirect_uri=http://52.10.69.137/User/InstagramCallback.aspx&response_type=code&&scope=comments+likes+relationships">
                     <i class="fa fa-plus"></i> <span>Subscribe Instagram Application</span>
                 </a>
-            </li>
+            </li>-->
 
             <li>
                 <a href="#">
@@ -410,7 +412,7 @@
                         <td  align="right" valign="middle">
 
 
-                            <select  class="form-control" >
+                            <select name="Activityspeed" class="form-control" >
                                 <option value="Slow">Slow</option>
                                 <option value="Normal">Normal</option>
                                 <option value="Fast">Fast</option>
@@ -441,7 +443,7 @@
                         <td  align="right" valign="middle">
 
 
-                            <select  class="form-control" >
+                            <select name="Mediasource" class="form-control" >
                                 <option value="Tags">Tags</option>
                                 <option value="Locations">Locations</option>
                                 <option value="My Feed">My Feed</option>
@@ -486,7 +488,7 @@
                         <td  align="right" valign="middle">
 
 
-                            <input type="number" placeholder="0"/>
+                            <input name="Minlikesfilter" type="number" placeholder="0"/>
 
 
                         </td>
@@ -509,7 +511,7 @@
                         <td  align="right" valign="middle">
 
 
-                            <input type="number" placeholder="0"/>
+                            <input name="Maxlikesfilter" type="number" placeholder="0"/>
 
 
                         </td>
@@ -716,7 +718,7 @@
                         <td  align="right" valign="middle">
 
 
-                            <input type="number" placeholder="0"/>
+                            <input name="Likescounter" type="number" placeholder="0"/>
 
 
                         </td>
@@ -739,7 +741,7 @@
                         <td  align="right" valign="middle">
 
 
-                            <input type="number" placeholder="0"/>
+                            <input name="Commentscounter" type="number" placeholder="0"/>
 
 
                         </td>
@@ -762,7 +764,7 @@
                         <td  align="right" valign="middle">
 
 
-                            <input type="number" placeholder="0"/>
+                            <input name="Followscounter" type="number" placeholder="0"/>
 
 
                         </td>
@@ -785,7 +787,7 @@
                         <td  align="right" valign="middle">
 
 
-                            <input type="number" placeholder="0"/>
+                            <input name="Unfollowscounter" type="number" placeholder="0"/>
 
 
                         </td>
@@ -808,7 +810,7 @@
                         <td  align="right" valign="middle">
 
 
-                            <input type="time" />
+                            <input name="Timer" type="time" />
 
 
                         </td>
@@ -836,6 +838,6 @@
 <script src="js/bootstrap.min.js" type="text/javascript"></script>
 <!-- AdminLTE App -->
 <script src="js/app.js" type="text/javascript"></script>
-
+</form>
 </body>
 </html>

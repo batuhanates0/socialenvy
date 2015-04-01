@@ -73,11 +73,11 @@ class InstagramLogin
 
                 $IGAccstatus='Active';
                 $date = date('Y-m-d');
+                $isRunning='Stopped';
 
 
-
-                $strQuery = "insert into tblInstagram (`unique_username`,`IGuname`,`IGpassword`,`IGAccstatus`,`date`)
-                              VALUES (:unique_username,:IGuname,:IGpassword,:IGAccstatus,:date)";
+                $strQuery = "insert into tblInstagram (`unique_username`,`IGuname`,`IGpassword`,`IGAccstatus`,`date`,`isRunning`)
+                              VALUES (:unique_username,:IGuname,:IGpassword,:IGAccstatus,:date,:isRunning)";
 
 
                 $result =$dbCon-> con->prepare($strQuery);
@@ -87,6 +87,7 @@ class InstagramLogin
                 $result->bindParam(':IGpassword', $password);
                 $result->bindParam(':IGAccstatus', $IGAccstatus);
                 $result->bindParam(':date', $date);
+                $result->bindParam(':isRunning', $isRunning);
 
 
                 $result->execute();

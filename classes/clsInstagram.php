@@ -82,7 +82,7 @@ class clsInstagram {
     }
     public function changeaccountstatus($id,$isRunning){
         $dbCon = new DatabaseConnection();
-
+       // $isRun='Stopped';
 
         $result =$dbCon->con->prepare("UPDATE `tblInstagram` Set `isRunning`= :isRunning  where `id`=:id");
 
@@ -92,6 +92,17 @@ class clsInstagram {
         $result->execute();
 
         $rows = $result->rowCount();//  fetch(PDO::FETCH_NUM);
+
+        //$result_stop =$dbCon->con->prepare("UPDATE `tblInstagram` Set `isRunning`= :isRun  where `id`!=:id");
+
+       // $result_stop->bindParam(':id', $id);
+       // $result_stop->bindParam(':isRun', $isRun);
+
+        //$result_stop->execute();
+
+       // $rows_stop = $result_stop->rowCount();//  fetch(PDO::FETCH_NUM);
+
+
         $result_fetch =$dbCon->con->prepare("select * from tblInstagram  where `id`=:id");
         $result_fetch->bindParam(':id', $id);
         $result_fetch->execute();
@@ -209,5 +220,81 @@ class clsInstagram {
         //  echo json_encode($responseMsg);
         echo json_encode($data);
     }
+
+    public function changeaccountstatusinsertdetails($id,$isRunning,$Activityspeed,$Mediasource,$Minlikesfilter,$Maxlikesfilter,$Likescounter,$Commentscounter,$Followscounter,$Unfollowscounter,$Timer){
+
+        $dbCon = new DatabaseConnection();
+       // $isRun='Stopped';
+
+        $result =$dbCon->con->prepare("UPDATE `tblInstagram` Set `isRunning`= :isRunning  where `id`=:id");
+
+        $result->bindParam(':id', $id);
+        $result->bindParam(':isRunning', $isRunning);
+
+        $result->execute();
+
+        $rows = $result->rowCount();//  fetch(PDO::FETCH_NUM);
+
+       // $result_stop =$dbCon->con->prepare("UPDATE `tblInstagram` Set `isRunning`= :isRun  where `id`!=:id");
+
+       // $result_stop->bindParam(':id', $id);
+       // $result_stop->bindParam(':isRun', $isRun);
+
+       // $result_stop->execute();
+
+       // $rows_stop = $result_stop->rowCount();//  fetch(PDO::FETCH_NUM);
+
+
+        //Main setting table code
+        $strQuery = "insert into tblMainSettings (`uid`,`Activityspeed`,`Mediasource`,`Minlikesfilter`,`Maxlikesfilter`)
+                              VALUES (:id,:Activityspeed,:Mediasource,:Minlikesfilter,:Maxlikesfilter)";
+        $result_mainsetting =$dbCon->con->prepare($strQuery);
+
+        $result_mainsetting->bindParam(':id', $id);
+        $result_mainsetting->bindParam(':Activityspeed', $Activityspeed);
+        $result_mainsetting->bindParam(':Mediasource', $Mediasource);
+        $result_mainsetting->bindParam(':Minlikesfilter', $Minlikesfilter);
+        $result_mainsetting->bindParam(':Maxlikesfilter', $Maxlikesfilter);
+
+        $result_mainsetting->execute();
+
+        $rows_mainsetting = $result_mainsetting->rowCount();//  fetch(PDO::FETCH_NUM);
+        //end
+
+        //Auto Stop setting tbl code
+        $strQuery1 = "insert into tblAutostopsettings (`uid`,`Likescounter`,`Commentscounter`,`Followscounter`,`Unfollowscounter`,`Timer`)
+                              VALUES (:id,:Likescounter,:Commentscounter,:Followscounter,:Unfollowscounter,:Timer)";
+        $result_autosetting =$dbCon->con->prepare($strQuery1);
+
+        $result_autosetting->bindParam(':id', $id);
+        $result_autosetting->bindParam(':Likescounter', $Likescounter);
+        $result_autosetting->bindParam(':Commentscounter', $Commentscounter);
+        $result_autosetting->bindParam(':Followscounter', $Followscounter);
+        $result_autosetting->bindParam(':Unfollowscounter', $Unfollowscounter);
+        $result_autosetting->bindParam(':Timer', $Timer);
+
+        $result_autosetting->execute();
+
+        $rows_autosetting = $result_autosetting->rowCount();//  fetch(PDO::FETCH_NUM);
+        //end
+
+
+        $result_fetch =$dbCon->con->prepare("select * from tblInstagram  where `id`=:id");
+        $result_fetch->bindParam(':id', $id);
+        $result_fetch->execute();
+        $data=$result_fetch->fetchall();
+
+        // if ($rows == 1) {
+        //    $responseMsg = "Success";
+
+        //return true;
+        //  } else {
+        //   $responseMsg = "Failed";
+        // return false;
+        //  }
+        //  echo json_encode($responseMsg);
+        echo json_encode($data);
+    }
+
 
 }

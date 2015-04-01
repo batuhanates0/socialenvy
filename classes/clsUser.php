@@ -129,4 +129,44 @@ class clsUser
         }
       echo json_encode($responseMessage);
     }
+
+    public function PasswordMail($user)
+    {
+        $dbCon = new DatabaseConnection();
+
+        $result = $dbCon->con->prepare("select * from tblLogin where username=:user or email=:user");
+        $result->bindParam(':user', $user);
+        $result->execute();
+
+        $data = $result->fetch(PDO::FETCH_OBJ);
+        if ($data !=null) {
+            $pass = $data->password;
+            $email = $data->email;
+            // if ($result !=null) {
+
+            //  foreach ($result as $row) {
+
+
+            $to = $email;
+            $subject = 'Password recovery';
+            $message = 'hello' . PHP_EOL . 'Your Password is ->' . $pass;
+            $headers = 'From: support@socialenvy.co.nz' . "\r\n" .
+                'Reply-To: support@socialenvy.co.nz' . "\r\n" .
+                'X-Mailer: PHP/' . phpversion();
+
+            mail($to, $subject, $message, $headers);
+            //  }
+
+            // echo $to;
+            // echo "Thank you for contacting us!";
+            $responseMessage = "Thank you for contacting us!";
+        }
+
+
+        else{
+            $responseMessage="Sorry....This Email or username isnot registered with us.";
+        }
+       echo json_encode($responseMessage);
+
+    }
 }

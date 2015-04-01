@@ -65,16 +65,16 @@ function update(id) {
             "Id": id
         };
 
-        data = $(this).serialize() + "&" + $.param(data)+ "&" + $.param(query_data);
+        data = $(this).serialize() + "&" + $.param(data)+ "&" + $.param(query_data) + "&" + $('#formsubmit').serialize();
 
     }else {
-        data = $(this).serialize() + "&" + $.param(data);
+        data = $(this).serialize() + "&" + $.param(data) + "&" + $('#formsubmit').serialize();
     }
 
     $.ajax({
         type: "POST",
         dataType: "json",
-        url:"actionpage/startinsacc.php", //Relative or absolute path to response.php file
+        url:"actionpage/startinstaaccactivity.php", //Relative or absolute path to response.php file
         data: data,
         success: function(data, status) {
             data=eval(data);

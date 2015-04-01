@@ -1,29 +1,29 @@
 
 $("document").ready(function () {
 
-    $("#alert-err").hide();
+    $("#alert-error").hide();
 
-    $("#login").submit(function () {
-        $("#alert-err").hide();
+    $("#resetpassword").submit(function () {
+        $("#alert-error").hide();
 
         var data = {
-            "action": "InsLogin"
+            "action": "passwordmail"
         };
         data = $(this).serialize() + "&" + $.param(data);
         $.ajax({
             type: "POST",
             dataType: "json",
-            url: "actionpage/ajaxaddinstagramaccount.php", //Relative or absolute path to response.php file
+            url: "../actionpage/passwordmail.php", //Relative or absolute path to response.php file
             data: data,
             success: function (data, status) {
-                if (data == "Success") {
-                    // $("#alert-err").show();
-                    // $("#alert-err").html(data);
-                    window.location.href = "user/dashboard.php";
+                if (data == "success") {
+                     $("#alert-error").show();
+                     $("#alert-error").html(data);
+                   // window.location.href = "user/dashboard.php";
                     // alert("successful");
                 } else {
-                    $("#alert-err").show();
-                    $("#alert-err").html(data);
+                    $("#alert-error").show();
+                    $("#alert-error").html(data);
                     //alert("unsuccessful");
                     //window.location.href="signup.php";
                 }

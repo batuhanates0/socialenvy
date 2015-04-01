@@ -33,6 +33,9 @@
         <![endif]-->
         <script src="../js/jquery-1.11.0.min.js"></script>
         <script src="../ajax_request/accountdetails.js"></script>
+        <script src="../js/jquery-1.7.2.min.js"></script>
+        <link rel="stylesheet" href="../css/jquery.alerts.css" media="screen"/>
+        <script src="../js/jquery.alerts.js"></script>
 
         <script type="text/javascript">
         </script>
@@ -240,28 +243,28 @@
                                 <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-play"></i> <span  href="javascript:void(0)" onclick="updatestatusall();">Start All</span> <small class="badge pull-right bg-green"><?php session_start(); echo $_SESSION['rowcount'];?></small>
+                   <!--     <li>
+                           <a href="#">
+                                <i class="fa fa-play"></i> <span  href="javascript:void(0)" onclick="updatestatusall();">Start All</span> <small class="badge pull-right bg-green"><?php /*session_start(); echo $_SESSION['rowcount'];*/?></small>
                             </a>
                         </li>
 
                         <li>
                             <a href="#">
-                                <i class="fa fa-stop"></i> <span href="javascript:void(0)" onclick="updatestopall();">Stop All</span> <small class="badge pull-right bg-red"><?php session_start(); echo $_SESSION['rowcount_stop'];?></small>
+                                <i class="fa fa-stop"></i> <span href="javascript:void(0)" onclick="updatestopall();">Stop All</span> <small class="badge pull-right bg-red"><?php/*session_start(); echo $_SESSION['rowcount_stop'];*/?></small>
                             </a>
-                        </li>
+                        </li>-->
 
                         <li class="active">
                             <a href="../addinstagramaccount.php">
                                 <i class="fa fa-plus"></i> <span>Add Account</span> <small class="badge pull-right bg-blue"></small>
                             </a>
                         </li>
-                        <li class="active">
+                       <!-- <li class="active">
                             <a href="https://api.instagram.com/oauth/authorize/?client_id=bfa277fe0d8c4e4f8f6dd29ea2460ee1&redirect_uri=http://socialenvy.co.nz/&response_type=code&&scope=comments+likes+relationships">
                                 <i class="fa fa-plus"></i> <span>Subscribe Instagram Application</span>
                             </a>
-                        </li>
+                        </li>-->
                         <li>
                             <a href="#">
                                 <i class="fa fa-credit-card"></i> <span>Buy Time Package</span> <!--<small class="badge pull-right bg-green">new</small>-->

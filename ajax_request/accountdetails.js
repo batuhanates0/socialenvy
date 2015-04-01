@@ -65,42 +65,58 @@ function updatestatusall() {
 
 
 function updatestatus(id) {
+   //alert(id);
+   // jConfirm('If You activate this account..Rest will be stopped..Do You really want to continue?', 'Confirmation', function (result) {
+       // if (result) {
 
-   // alert(id);
-    var data = {
-        "action": "changestatus"
-    };
-
-    if(id!= null)
-    {
-        var query_data = {
-            "Id": id
-        };
-
-        data = $(this).serialize() + "&" + $.param(data)+ "&" + $.param(query_data);
-
-    }else {
-        data = $(this).serialize() + "&" + $.param(data);
-    }
-
-    $.ajax({
-        type: "POST",
-        dataType: "json",
-        url:"../actionpage/startinsacc.php", //Relative or absolute path to response.php file
-        data: data,
-        success: function(data, status) {
-            // $("#"+photoId).hide();
-            //alert("Photo deleted Successfully");
-           // alert("status updated");
+           // alert("Account Activated");
             //$("#status").val("Active");
-          //  document.getElementById('status').innerHTML="Active";
-           // location.reload();
-        },
-        error: function(xhr, desc, err) {
-           // alert(xhr);
-           // alert("Details: " + desc + "\nError:" + err);
-        }
-    });
+
+
+            var data = {
+                "action": "changestatus"
+            };
+
+            if (id != null) {
+                var query_data = {
+                    "Id": id
+                };
+
+                data = $(this).serialize() + "&" + $.param(data) + "&" + $.param(query_data);
+
+            } else {
+                data = $(this).serialize() + "&" + $.param(data);
+            }
+
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                url: "../actionpage/startinsacc.php", //Relative or absolute path to response.php file
+                data: data,
+                success: function(data) {
+                    data = eval(data);
+                   // alert(data);
+                    alert(data[0].IGuname);
+                   // $('#status_' + data[0].IGuname  + "'").val("Active");
+
+                    $("#status_"+data[0].IGuname+"").html("Active");
+
+
+
+
+
+                },
+
+                error: function (xhr, desc, err) {
+                    // alert(xhr);
+                    // alert("Details: " + desc + "\nError:" + err);
+                }
+            });
+     //   }
+      //  else{
+
+      //  }
+    //});
 
     return false;
 
@@ -140,7 +156,7 @@ $("document").ready(function(){
                 innerTableHtml += "<table width='100%' >";
                 innerTableHtml += "<tr>";
                 innerTableHtml += "<td width='50%'>Activity:</td>";
-                innerTableHtml += "<td id='status' width='50%'>"+data[i].isRunning+"</td>";
+                innerTableHtml += "<td id='status_"+data[i].IGuname+"' width='50%'></td>";
                 innerTableHtml += "</tr>";
                 innerTableHtml += "<tr>";
                 innerTableHtml += "<td width='50%'>Time:</td>";
