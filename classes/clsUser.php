@@ -22,8 +22,11 @@ class clsUser
 
         $chk_username->execute();
 
-        $no_user = $chk_username->rowCount();
-        if ($no_user == 0){
+        $no_user = $chk_username->fetch(PDO::FETCH_OBJ);
+       // $data=$chk_username=fetch(PDO::FETCH_OBJ);
+        $date=$no_user->date;
+
+        if ($no_user == ""){
             $responseMessage= "You are not registered with us";
         }
       else {
@@ -39,6 +42,7 @@ class clsUser
           if ($userCount == 1) {
               $responseMessage = "success";
               $_SESSION['login_user']=$username;
+              $_SESSION['date']=$date;
 
               // $_SESSION['msg']="success";
               // echo  $_SESSION['msg'];
@@ -109,7 +113,7 @@ class clsUser
                     $register_result->bindParam(':password', $password);
                     $register_result->bindParam(':status', $status);
                     $register_result->bindParam(':date', $date);
-                    $register_result->bindParam(':username', $username);
+                    $register_result->bindParam(':username', ucfirst($username));
 
                     $register_result->execute();
                     $rows = $register_result->rowCount();

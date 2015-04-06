@@ -163,3 +163,34 @@ $("document").ready(function(){
     });
     return false;
 });
+
+
+
+//////////////////////////////////////////////////////////
+$("document").ready(function(){
+    var data = {
+        "action": "gethashtags"
+    };
+    data = $(this).serialize() + "&" + $.param(data);
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "actionpage/hashtag.php", //Relative or absolute path to response.php file
+        data: data,
+        success: function(data, status) {
+            data = eval(data);
+            var innerTableHtml = "";
+
+
+            for (var i = 0; i < data.length; i++) {
+
+                innerTableHtml += "<li><a href='#'>"+data[i].hashtagname+"<button type='button' style='color: #fff;float: left;margin-left: -12px;margin-right: 5px;margin-top: 5px;text-shadow:0 1px 0 #000' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button></a></li>";
+            }
+            $('#hashtag-list').append(innerTableHtml);
+
+        }
+
+    });
+    return false;
+});
+////////////////////////////////////////////////////////

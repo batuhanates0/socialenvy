@@ -82,7 +82,7 @@ class InstagramLogin
 
                 $result =$dbCon-> con->prepare($strQuery);
 
-                $result->bindParam(':unique_username', $unique_username);
+                $result->bindParam(':unique_username',ucfirst($unique_username));
                 $result->bindParam(':IGuname', $username);
                 $result->bindParam(':IGpassword', $password);
                 $result->bindParam(':IGAccstatus', $IGAccstatus);

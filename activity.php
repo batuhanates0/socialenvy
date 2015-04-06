@@ -14,6 +14,7 @@
     <link href="css/default.css" rel="stylesheet" type="text/css" />
 
 
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -21,7 +22,42 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
     <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/popup.min.js?v=155"></script>
     <script src="ajax_request/activity.js"></script>
+
+
+    <!-- Fonts -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700"/>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css?v=155" media="all"/>
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css?v=155" media="all"/>
+    <link rel="stylesheet" href="css/font-awesome.min.css?v=155" media="all"/>
+    <link rel="stylesheet" href="css/jquery.fancybox.css?v=155" media="all"/>
+    <link rel="stylesheet" href="css/emojify.min.css" media="all"/>
+    <link rel="stylesheet" href="css/emojione.min.css" media="all"/>
+    <link rel="stylesheet" href="css/common.css?v=155" media="all"/>
+    <link rel="stylesheet" href="css/main.css?v=155" media="all"/>
+    <link rel="stylesheet" href="css/main-new.css?v=155" media="all"/>
+
+    <!-- Scripts -->
+    <script src="js/jquery-1.11.0.min.js?v=155"></script>
+    <script src="js/jquery.cookie.min.js?v=155"></script>
+    <script src="js/jquery.fancybox.pack.js?v=155"></script>
+    <script src="js/jquery.maskedinput.min.js?v=155"></script>
+    <script src="js/underscore.min.js?v=155"></script>
+    <script src="js/bootstrap.min.js?v=155"></script>
+    <script src="js/json2.min.js?v=155"></script>
+    <script src="js/emojify.min.js"></script>
+    <script src="js/emojione.min.js"></script>
+    <script src="js/helper.min.js?v=155"></script>
+    <script src="js/popup.min.js?v=155"></script>
+    <script src=js/main.min.js?v=155"></script>
+
+
+
+
 
     <script type="text/javascript">
 
@@ -167,8 +203,8 @@
                         <li class="user-header bg-light-blue">
                             <img src="img/avatar3.png" class="img-circle" alt="User Image" />
                             <p>
-                                Mohd Saqib - Web Developer
-                                <small>Member since Nov. 2013</small>
+                                <?php session_start(); echo $_SESSION['login_user']; ?>
+                                <small>Member since <?php session_start(); echo $_SESSION['date']; ?></small></small>
                             </p>
                         </li>
                         <!-- Menu Body -->
@@ -557,8 +593,8 @@
                         <small class="badge pull-left bg-red">New</small>
 
                         <div class="btn-group" style="margin-left:20px;">
-                            <button type="button" class="btn btn-info">Add</button>
-                            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                            <button class="btn btn-plain" tabindex="-1" data-popup-open="#popup-activity-locations">Add</button>
+                            <button class="btn btn-plain dropdown-toggle" tabindex="-1" data-toggle="dropdown">
                                 <span class="caret"></span>
                                 <span class="sr-only">Toggle Dropdown</span>
                             </button>
@@ -592,8 +628,8 @@
 
 
                         <div class="btn-group" style="margin-left:20px;">
-                            <button type="button" class="btn btn-success">Add</button>
-                            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                            <button class="btn btn-plain" tabindex="-1" data-popup-open="#popup-activity-usernames">Add</button>
+                            <button class="btn btn-plain dropdown-toggle" tabindex="-1" data-toggle="dropdown">
                                 <span class="caret"></span>
                                 <span class="sr-only">Toggle Dropdown</span>
                             </button>
@@ -631,6 +667,8 @@
                     <td>Tags<a href="#" data-toggle="tooltip"><i class="fa fa-question"></i></a></td>
                     <td>
                         <ul class="tags">
+                            <div id="hashtag-list"></div>
+                           <!-- <li><a href="#">awesome<button type="button" style="color: #fff;float: left;margin-left: -12px;margin-right: 5px;margin-top: 5px;text-shadow:0 1px 0 #000" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></a></li>
                             <li><a href="#">awesome<button type="button" style="color: #fff;float: left;margin-left: -12px;margin-right: 5px;margin-top: 5px;text-shadow:0 1px 0 #000" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></a></li>
                             <li><a href="#">awesome<button type="button" style="color: #fff;float: left;margin-left: -12px;margin-right: 5px;margin-top: 5px;text-shadow:0 1px 0 #000" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></a></li>
                             <li><a href="#">awesome<button type="button" style="color: #fff;float: left;margin-left: -12px;margin-right: 5px;margin-top: 5px;text-shadow:0 1px 0 #000" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></a></li>
@@ -643,23 +681,39 @@
                             <li><a href="#">awesome<button type="button" style="color: #fff;float: left;margin-left: -12px;margin-right: 5px;margin-top: 5px;text-shadow:0 1px 0 #000" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></a></li>
                             <li><a href="#">awesome<button type="button" style="color: #fff;float: left;margin-left: -12px;margin-right: 5px;margin-top: 5px;text-shadow:0 1px 0 #000" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></a></li>
                             <li><a href="#">awesome<button type="button" style="color: #fff;float: left;margin-left: -12px;margin-right: 5px;margin-top: 5px;text-shadow:0 1px 0 #000" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></a></li>
-                            <li><a href="#">awesome<button type="button" style="color: #fff;float: left;margin-left: -12px;margin-right: 5px;margin-top: 5px;text-shadow:0 1px 0 #000" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></a></li>
-
+-->
+                            <li>
+                            <div class="input-group">
+                                <input id="inpAddTags" class="form-control" type="text"/>
+                                <div class="input-group-btn">
+                                    <button class="btn btn-plain btn-add-tags" tabindex="-1">Add</button>
+                                    <button class="btn btn-plain dropdown-toggle" data-toggle="dropdown" tabindex="-1">
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li><a href="#" class="btn-del-tags">Delete all tags</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            </li>
                         </ul>
 
                     </td>
+
                 </tr>
+
             </table>
 
         </div>
 
     </div>
 
+
 </div><!-- tags ends-->
 
 <!-- tags -->
 
-<div class="row">
+<!--<div class="row">
 
     <div class="col-lg-12 col-md-12 col-sm-12">
 
@@ -696,6 +750,56 @@
     </div>
 
 </div><!-- tags ends-->
+
+<div class="list-row form-group comments"
+     data-field="comments"
+     data-hidden="false">
+    <div class="nice-block clearfix">
+					<span class="label-wrap">
+						<label class="control-label">Comments</label>
+						<span class="help-tip"
+                              title="Comments"
+                              data-content="Add comments to comment media.
+								Comments for each photo or video will be selected randomly.
+								Our system remembers commented photos and videos to interact
+								with them only once. We recommend using at least 10 different
+								neutral comments like: Nice, Like it, Beautiful, etc.<br/><br/>
+								The total length of the comment cannot exceed 300 characters.<br/>
+								The comment cannot contain more than 4 hashtags.<br/>
+								The comment cannot contain more than 1 URL.<br/>
+								The comment cannot consist of all capital letters.<br/>
+								The comments must be different as much as possible.<br/><br/>
+								Maximum allowed 100 comments.">?</span>
+					</span>
+
+        <textarea name="comments"
+                  id="inpComments"
+                  class="hidden"></textarea>
+
+        <script id="tplComment" type="text/html">
+            <span class="unit-comment" data-comment="{{ comment }}">
+							<span>{{ comment }}</span>
+							<a href="#" tabindex="-1">&times;</a>
+						</span>
+        </script>
+
+					<span class="comments-row">
+
+					</span>
+
+        <div class="btn-group">
+            <button class="btn btn-plain" tabindex="-1" data-popup-open="#popup-activity-comments">Add</button>
+            <button class="btn btn-plain dropdown-toggle" data-toggle="dropdown" tabindex="-1">
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-right">
+                <li><a href="/emoji" target="_blank">Emoji cheat sheet</a></li>
+                <li class="divider"></li>
+                <li><a href="#" class="btn-del-comments">Delete all comments</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
 
 <!--  Main settings starts -->
 
@@ -816,7 +920,7 @@
                         </td>
 
                     </tr>
-
+                    </form>
                 </table>
             </div>
 
@@ -827,9 +931,223 @@
 
 </div><!-- main setting ends -->
 
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+
+
+
+
+<div id="popup-activity-locations" class="popup">
+    <h3>Add Locations</h3>
+    <a href="#" class="btn-close-x" data-popup-close="#popup-activity-locations"></a>
+
+    <div class="color-gray mb10">
+        Find locations by name, address or city and get the most popular places nearby.
+        Or just click on the Search button to start exploring locations on the current map position.
+    </div>
+
+    <div class="alerts">
+        <div class="alert alert-danger alert-error js-txt-error"></div>
+        <div class="alert alert-success js-txt-status"></div>
+    </div>
+
+    <input type="hidden"
+           class="js-inp-lat"
+           value="29.85"/>
+    <input type="hidden"
+           class="js-inp-lng"
+           value="76.6667"/>
+
+    <div class="mb20">
+        <div class="input-group input-group-with-gap">
+            <input type="text"
+                   class="form-control input-icon input-icon-location js-inp-address"
+                   placeholder="Location"
+                   autofocus/>
+			<span class="input-group-btn">
+				<button class="btn btn-plain btn-success js-btn-find">Search</button>
+			</span>
+        </div>
+        <span class="help-block text-danger text-error hidden"></span>
+    </div>
+
+    <div class="map js-wgt-map js-hidden"></div>
+
+    <div class="mt20 js-wgt-results js-hidden"></div>
+
+    <div class="loader mt20 js-wgt-loader js-hidden"></div>
+
+    <div class="text-align-center mt20">
+        <button class="btn btn-plain js-btn-close js-hidden"
+                data-popup-close="#popup-activity-locations">Close</button>
+        <button class="btn btn-plain btn-success js-btn-add js-hidden">Add</button>
+    </div>
+</div>
+
+<div id="popup-activity-usernames" class="popup">
+    <h3>Add Usernames</h3>
+    <a href="#" class="btn-close-x" data-popup-close="#popup-activity-usernames"></a>
+
+    <div class="alerts">
+        <div class="alert alert-danger alert-error" data-ui="txt-error"></div>
+        <div class="alert alert-success" data-ui="txt-status"></div>
+    </div>
+
+    <div class="mb20">
+        <div class="input-group input-group-with-gap">
+            <input type="text"
+                   class="form-control input-icon input-icon-username"
+                   placeholder="Username"
+                   autofocus
+                   data-ui="inp-search"/>
+			<span class="input-group-btn">
+				<button class="btn btn-plain btn-success" data-ui="btn-search">Search</button>
+			</span>
+        </div>
+        <span class="help-block text-danger text-error hidden"></span>
+    </div>
+
+    <div class="mt20" data-ui="results"></div>
+
+    <div class="loader mt20 hidden" data-ui="loader"></div>
+
+    <div class="text-align-center mt20">
+        <button class="btn btn-plain hidden" data-ui="btn-close"
+                data-popup-close="#popup-activity-usernames">Close</button>
+        <button class="btn btn-plain btn-success hidden" data-ui="btn-add">Add</button>
+    </div>
+</div>
+<script>
+    $(function() {
+        var schedule = JSON.parse('null');
+        console.log(schedule);
+
+        var scDays  = [
+            'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'
+        ];
+
+        var scHours = [
+            '12 AM', '1 AM', '2 AM', '3 AM', '4 AM', '5 AM', '6 AM', '7 AM', '8 AM', '9 AM', '10 AM', '11 AM',
+            '12 PM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM', '8 PM', '9 PM', '10 PM', '11 PM'
+        ];
+
+        var $popup 	   = $('#popup-activity-schedule');
+        var $table 	   = $('table', $popup);
+        var $tableHead = $('thead', $table);
+        var $tableBody = $('tbody', $table);
+
+        // Render table head, create row
+        var $tr = $('<tr></tr>');
+
+        // Add empty hour cell
+        $tr.append('<th></th>');
+
+        // Add days cells
+        _.each(scDays, function(day) {
+            $tr.append('<th>' + day + '</th>');
+        });
+
+        // Put row into table head
+        $tableHead.append($tr);
+
+        // Render table body
+        _.each(scHours, function(hour, i) {
+            // Create row
+            var $tr = $('<tr></tr>');
+
+            // Add hour cell
+            $tr.append('<td>' + hour + '</td>');
+
+            // Add days cells
+            _.each(scDays, function(day, j) {
+                // Create cell
+                var $td = $('<td></td>');
+
+                // Set attributes
+                $td.attr('data-day', j);
+                $td.attr('data-hour', i);
+                $td.attr('data-state', 0);
+
+                // Put cell into row
+                $tr.append($td);
+            });
+
+            // Put row into table body
+            $tableBody.append($tr);
+        });
+
+        // Attach events to the cells
+        $('td:nth-child(n+2)', $tableBody).on('click', function(e) {
+            e.preventDefault();
+
+            var $td = $(this);
+
+            if ( ! parseInt($td.attr('data-state'))) {
+                $td.attr('data-state', 1).addClass('active');
+            }
+            else {
+                $td.attr('data-state', 0).removeClass('active');
+            }
+        });
+
+        // Attach event to "select all" button
+        $('.js-btn-select-all', $popup).on('click', function(e) {
+            e.preventDefault();
+            $('td:nth-child(n+2)', $tableBody).attr('data-state', 1).addClass('active');
+        });
+
+        // Attach event to "select none" button
+        $('.js-btn-select-none', $popup).on('click', function(e) {
+            e.preventDefault();
+            $('td:nth-child(n+2)', $tableBody).attr('data-state', 0).removeClass('active');
+        });
+
+        // Attach event to "save" button
+        $('.js-btn-save', $popup).on('click', function(e) {
+            e.preventDefault();
+
+            var data = [];
+            var $tds = $('td:nth-child(n+2)', $tableBody);
+
+            // Go through all days
+            _.each(scDays, function(day, j) {
+                var dayData = [];
+
+                // Go through all hours for each day
+                _.each(scHours, function(hour, i) {
+                    // Get state of the day hour
+                    dayData.push(parseInt($tds.filter('[data-day=' + j +'][data-hour=' + i + ']').attr('data-state')));
+                });
+
+                data.push(dayData);
+            });
+
+            // Output data
+            _.each(data, function(dayData) {
+                console.log(dayData.toString());
+            });
+
+            console.log(JSON.stringify(data));
+        });
+
+        // Attach event to popup
+        $popup.on('popup.open', function() {
+            if (schedule === null) {
+                // Activate all cells if no schedule saved yet
+                $('td:nth-child(n+2)', $tableBody).attr('data-state', 1).addClass('active');
+            }
+            else {
+                // Populate last saved schedule state
+                // todo: ...
+            }
+        });
+    });
+</script>
+
 </section> <!-- /.content -->
 </aside> <!-- /.right-side -->
 </div><!-- ./wrapper -->
+
 
 
 <!-- jQuery 2.0.2 -->
@@ -838,6 +1156,8 @@
 <script src="js/bootstrap.min.js" type="text/javascript"></script>
 <!-- AdminLTE App -->
 <script src="js/app.js" type="text/javascript"></script>
-</form>
+
 </body>
 </html>
+
+

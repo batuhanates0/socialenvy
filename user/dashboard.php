@@ -177,10 +177,10 @@
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header bg-light-blue">
-                                    <img src="img/avatar3.png" class="img-circle" alt="User Image" />
+                                    <img src="../img/avatar3.png" class="img-circle" alt="User Image" />
                                     <p>
-                                        Mohd Saqib - Web Developer
-                                        <small>Member since Nov. 2013</small>
+                                        <?php session_start(); echo $_SESSION['login_user']; ?>
+                                        <small>Member since <?php session_start(); echo $_SESSION['date']; ?></small>
                                     </p>
                                 </li>
                                 <!-- Menu Body -->
@@ -625,6 +625,7 @@
                                                 <li><a href="#">Logout</a></li>
                                             </ul>
                                         </div></td>
+
 
                                       </tr>
                                   </table>

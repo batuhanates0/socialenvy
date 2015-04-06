@@ -223,6 +223,11 @@ $("document").ready(function(){
                 innerTableHtml +='</div>';
 
             }
+            if(innerTableHtml =="")
+            {
+                $("#loginMsg").show();
+                innerTableHtml = "<div id='loginMsg' class='alert alert-danger'>No Instagram account found. To add Instagram account click <a href='../addinstagramaccount.php'>here</a> </div>"
+            }
             $('#dashboard-list').append(innerTableHtml);
 
         }
