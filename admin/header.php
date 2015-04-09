@@ -129,7 +129,14 @@
                     <li><a class="ajax-link" href="home.php"><i class="icon-home"></i><span class="hidden-tablet" > Home</span></a></li>
                     <li><a class="ajax-link" href="registeredusers.php"><i class="icon-align-justify"></i><span class="hidden-tablet"> Users</span></a></li>
                     <li><a class="ajax-link" href="instagramaccounts.php"><i class="icon-align-justify"></i><span class="hidden-tablet"> Instagram Accounts</span></a></li>
-                   <!-- <li><a class="ajax-link" href="newphotos.php"><i class="icon-align-justify"></i><span class="hidden-tablet"> New Photos</span></a></li>
+                    <li><a class="ajax-link" href="location.php"><i class="icon-align-justify"></i><span class="hidden-tablet">Locations</span></a></li>
+                    <li><a class="ajax-link" href="users.php"><i class="icon-align-justify"></i><span class="hidden-tablet">New Users</span></a></li>
+                    <li><a class="ajax-link" href="mainsettings.php"><i class="icon-align-justify"></i><span class="hidden-tablet">User MainSettings</span></a></li>
+                    <li><a class="ajax-link" href="autosettings.php"><i class="icon-align-justify"></i><span class="hidden-tablet">User AutoSettings</span></a></li>
+                    <li><a class="ajax-link" href="comment.php"><i class="icon-align-justify"></i><span class="hidden-tablet">User Comments</span></a></li>
+                    <li><a class="ajax-link" href="usertag.php"><i class="icon-align-justify"></i><span class="hidden-tablet">User Tags</span></a></li>
+                    <li><a class="ajax-link" href="userprocess.php"><i class="icon-align-justify"></i><span class="hidden-tablet">User Actions</span></a></li>
+                    <!-- <li><a class="ajax-link" href="newphotos.php"><i class="icon-align-justify"></i><span class="hidden-tablet"> New Photos</span></a></li>
                     <li><a class="ajax-link" href="adminalbum.php"><i class="icon-align-justify"></i><span class="hidden-tablet"> Create New Album</span></a></li>
                     <li><a class="ajax-link" href="albums.php"><i class="icon-align-justify"></i><span class="hidden-tablet"> Albums</span></a></li>
                     <li><a class="ajax-link" href="articles.php"><i class="icon-align-justify"></i><span class="hidden-tablet">New Article</span></a></li>

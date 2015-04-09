@@ -50,11 +50,7 @@ class clsAdmin
 
             if ($userCount == 1) {
                 $responseMessage = "Success";
-                //   $_SESSION['login_user']=$username;
-                //   $_SESSION['date']=$date;
 
-                // $_SESSION['msg']="success";
-                // echo  $_SESSION['msg'];
 
             } else {
                 $responseMessage = "Username or Password is invalid";
@@ -64,5 +60,78 @@ class clsAdmin
             echo json_encode($responseMessage);
         }
 
+    public function Location()
+    {
+        $dbCon = new DatabaseConnection();
 
+        $result = $dbCon->con->prepare("SELECT * FROM tblLocation");
+        $result->execute();
+
+        $data = $result->fetchall();
+        echo json_encode($data);
+    }
+
+    public function GetUsername()
+    {
+        $dbCon = new DatabaseConnection();
+
+        $result = $dbCon->con->prepare("SELECT * FROM tblUsername");
+        $result->execute();
+
+        $data = $result->fetchall();
+        echo json_encode($data);
+    }
+
+    public function MainSettings()
+    {
+        $dbCon = new DatabaseConnection();
+
+        $result = $dbCon->con->prepare("SELECT * FROM tblMainSettings");
+        $result->execute();
+
+        $data = $result->fetchall();
+        echo json_encode($data);
+    }
+    public function AutoSettings()
+    {
+        $dbCon = new DatabaseConnection();
+
+        $result = $dbCon->con->prepare("SELECT * FROM tblAutostopsettings");
+        $result->execute();
+
+        $data = $result->fetchall();
+        echo json_encode($data);
+    }
+    public function UserComments()
+    {
+        $dbCon = new DatabaseConnection();
+
+        $result = $dbCon->con->prepare("SELECT * FROM tblComment");
+        $result->execute();
+
+        $data = $result->fetchall();
+        echo json_encode($data);
+    }
+
+    public function UserTags()
+    {
+        $dbCon = new DatabaseConnection();
+
+        $result = $dbCon->con->prepare("SELECT * FROM tblUsertag");
+        $result->execute();
+
+        $data = $result->fetchall();
+        echo json_encode($data);
+    }
+
+    public function UserProcessDetails()
+    {
+        $dbCon = new DatabaseConnection();
+
+        $result = $dbCon->con->prepare("SELECT * FROM tblProcessDetails");
+        $result->execute();
+
+        $data = $result->fetchall();
+        echo json_encode($data);
+    }
 }
