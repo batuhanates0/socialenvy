@@ -225,6 +225,14 @@ class clsInstagram {
 
         $dbCon = new DatabaseConnection();
        // $isRun='Stopped';
+        $check_userid=$dbCon->con->prepare("SELECT id FROM tblLogin WHERE username = :user");
+        $check_userid->bindparam(':user',$_SESSION['login_user']);
+        $check_userid->execute();
+        $result_userid = $check_userid->fetch(PDO::FETCH_ASSOC);
+
+        $uid=$result_userid['id'];
+
+
         $login_user = $_SESSION['login_user'];
 
         $result =$dbCon->con->prepare("UPDATE `tblInstagram` Set `isRunning`= :isRunning  where `id`=:id");
@@ -244,7 +252,7 @@ class clsInstagram {
        // $result_stop->execute();
 
        // $rows_stop = $result_stop->rowCount();//  fetch(PDO::FETCH_NUM);
-        $result_checklogin_user =$dbCon->con->prepare("select * from  `tblMainSettings` where `login_user`= :loginuser");
+        $result_checklogin_user =$dbCon->con->prepare("select * from  `tblMainSetting` where `login_user`= :loginuser");
 
         $result_checklogin_user->bindparam(':loginuser',$login_user);
         $result_checklogin_user->execute();
@@ -252,7 +260,7 @@ class clsInstagram {
         if($rows_user != 0)
         {
 
-            $result_updateuser =$dbCon->con->prepare("UPDATE `tblMainSettings` Set `Activityspeed`= :Activityspeed,
+            $result_updateuser =$dbCon->con->prepare("UPDATE `tblMainSetting` Set `Activityspeed`= :Activityspeed,
                                                         Mediasource=:Mediasource,Minlikesfilter=:Minlikesfilter,
                                                         Maxlikesfilter=:Maxlikesfilter where `login_user`=:loginuser");
 
@@ -269,10 +277,11 @@ class clsInstagram {
         }
         else {
             //Main setting table code
-            $strQuery = "insert into tblMainSettings (`login_user`,`Activityspeed`,`Mediasource`,`Minlikesfilter`,`Maxlikesfilter`)
-                              VALUES (:loginuser,:Activityspeed,:Mediasource,:Minlikesfilter,:Maxlikesfilter)";
+            $strQuery = "insert into tblMainSetting (`uid`,`login_user`,`Activityspeed`,`Mediasource`,`Minlikesfilter`,`Maxlikesfilter`)
+                              VALUES (:uid,:loginuser,:Activityspeed,:Mediasource,:Minlikesfilter,:Maxlikesfilter)";
             $result_mainsetting = $dbCon->con->prepare($strQuery);
 
+            $result_mainsetting->bindParam(':uid', $uid);
             $result_mainsetting->bindParam(':loginuser', ucfirst($login_user));
             $result_mainsetting->bindParam(':Activityspeed', $Activityspeed);
             $result_mainsetting->bindParam(':Mediasource', $Mediasource);
@@ -284,7 +293,7 @@ class clsInstagram {
             $rows_mainsetting = $result_mainsetting->rowCount();//  fetch(PDO::FETCH_NUM);
         }
         //end
-        $result_checklogin_user_tblauto =$dbCon->con->prepare("select * from  `tblAutostopsettings` where `login_user`= :loginuser");
+        $result_checklogin_user_tblauto =$dbCon->con->prepare("select * from  `tblAutoStopSetting` where `login_user`= :loginuser");
 
         $result_checklogin_user_tblauto->bindparam(':loginuser',$login_user);
         $result_checklogin_user_tblauto->execute();
@@ -292,7 +301,7 @@ class clsInstagram {
         if($rows_user_tblauto != 0)
         {
 
-            $result_updateuser_tblauto =$dbCon->con->prepare("UPDATE `tblAutostopsettings` Set `Likescounter`= :Likescounter,
+            $result_updateuser_tblauto =$dbCon->con->prepare("UPDATE `tblAutoStopSetting` Set `Likescounter`= :Likescounter,
                                                         Commentscounter=:Commentscounter,Followscounter=:Followscounter,
                                                         Unfollowscounter=:Unfollowscounter,Timer=:Timer
                                                          where `login_user`=:loginuser");
@@ -311,10 +320,11 @@ class clsInstagram {
         }
          else {
              //Auto Stop setting tbl code
-             $strQuery1 = "insert into tblAutostopsettings (`login_user`,`Likescounter`,`Commentscounter`,`Followscounter`,`Unfollowscounter`,`Timer`)
-                              VALUES (:loginuser,:Likescounter,:Commentscounter,:Followscounter,:Unfollowscounter,:Timer)";
+             $strQuery1 = "insert into tblAutoStopSetting (`uid`,`login_user`,`Likescounter`,`Commentscounter`,`Followscounter`,`Unfollowscounter`,`Timer`)
+                              VALUES (:uid,:loginuser,:Likescounter,:Commentscounter,:Followscounter,:Unfollowscounter,:Timer)";
              $result_autosetting = $dbCon->con->prepare($strQuery1);
 
+             $result_autosetting->bindParam(':uid', $uid);
              $result_autosetting->bindParam(':loginuser', ucfirst($login_user));
              $result_autosetting->bindParam(':Likescounter', $Likescounter);
              $result_autosetting->bindParam(':Commentscounter', $Commentscounter);
@@ -351,7 +361,7 @@ class clsInstagram {
         $dbCon = new DatabaseConnection();
 
 
-        $result =$dbCon->con->prepare("select * from tblhashtag where login_user=:login_user");
+        $result =$dbCon->con->prepare("select * from tblHashTag where login_user=:login_user");
 
         $result->bindParam(':login_user', $_SESSION['login_user']);
 

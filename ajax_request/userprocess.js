@@ -26,7 +26,7 @@ $("document").ready(function(){
             for (var i=0;i<data.length;i++) {
 
                 innerTableHtml += "<tr>";
-                innerTableHtml += "<td class='center'>"+data[i].uid+"</td>";
+                innerTableHtml += "<td class='center'>"+data[i].login_user+"</td>";
                 innerTableHtml += "<td>"+data[i].ProcessType+"</td>";
                 innerTableHtml += "<td>"+data[i].DateTime+"</td>";
                 // innerTableHtml += "<td>"+data[i].Followscounter+"</td>";

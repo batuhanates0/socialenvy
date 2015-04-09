@@ -86,7 +86,7 @@ class clsAdmin
     {
         $dbCon = new DatabaseConnection();
 
-        $result = $dbCon->con->prepare("SELECT * FROM tblMainSettings");
+        $result = $dbCon->con->prepare("SELECT * FROM tblMainSetting");
         $result->execute();
 
         $data = $result->fetchall();
@@ -96,7 +96,7 @@ class clsAdmin
     {
         $dbCon = new DatabaseConnection();
 
-        $result = $dbCon->con->prepare("SELECT * FROM tblAutostopsettings");
+        $result = $dbCon->con->prepare("SELECT * FROM tblAutoStopSetting");
         $result->execute();
 
         $data = $result->fetchall();

@@ -63,12 +63,12 @@ class InstagramLogin
             $result_username = $check_username->rowCount();
             if ($result_username ==0){
 
-//                $check_userid=$dbCon->con->prepare("SELECT id FROM tblLogin WHERE email = :email");
-//                $check_userid->bindparam(':email',$_SESSION['login_user']);
-//                $check_userid->execute();
-//                $result_userid = $check_userid->fetch(PDO::FETCH_ASSOC);
-//
-//                $uid=$result_userid['id'];
+                $check_userid=$dbCon->con->prepare("SELECT id FROM tblLogin WHERE username = :user");
+                $check_userid->bindparam(':user',$_SESSION['login_user']);
+                $check_userid->execute();
+                $result_userid = $check_userid->fetch(PDO::FETCH_ASSOC);
+
+                $uid=$result_userid['id'];
                 $unique_username= $_SESSION['login_user'];
 
                 $IGAccstatus='Active';
@@ -76,12 +76,13 @@ class InstagramLogin
                 $isRunning='Stopped';
 
 
-                $strQuery = "insert into tblInstagram (`unique_username`,`IGuname`,`IGpassword`,`IGAccstatus`,`date`,`isRunning`)
-                              VALUES (:unique_username,:IGuname,:IGpassword,:IGAccstatus,:date,:isRunning)";
+                $strQuery = "insert into tblInstagram (`uid`,`unique_username`,`IGuname`,`IGpassword`,`IGAccstatus`,`date`,`isRunning`)
+                              VALUES (:uid,:unique_username,:IGuname,:IGpassword,:IGAccstatus,:date,:isRunning)";
 
 
                 $result =$dbCon-> con->prepare($strQuery);
 
+                $result->bindParam(':uid',$uid);
                 $result->bindParam(':unique_username',ucfirst($unique_username));
                 $result->bindParam(':IGuname', $username);
                 $result->bindParam(':IGpassword', $password);

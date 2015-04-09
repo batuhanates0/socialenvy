@@ -35,7 +35,7 @@
                 <table class="table table-striped table-bordered bootstrap-datatable datatable">
                     <thead>
                     <tr>
-                        <th>UserID</th>
+                        <th>Username</th>
                         <th>ProcessType</th>
                         <th>Date of Action</th>
                         <th>Status</th>
