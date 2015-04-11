@@ -85,7 +85,7 @@
                 <li class="dropdown messages-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-envelope"></i>
-                        <span class="label label-success">4</span>
+                        <span class="label label-success"></span>
                     </a>
                     <ul class="dropdown-menu">
                         <li class="header">You have 4 messages</li>
@@ -153,7 +153,7 @@
                 <li class="dropdown notifications-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-warning"></i>
-                        <span class="label label-warning">10</span>
+                        <span class="label label-warning"></span>
                     </a>
                     <ul class="dropdown-menu">
                         <li class="header">You have 10 notifications</li>
@@ -301,13 +301,13 @@
             <li>
                 <a href="calendar.html">
                     <i class="fa fa-calendar"></i> <span>Calendar</span>
-                    <small class="badge pull-right bg-red">3</small>
+                    <small class="badge pull-right bg-red"></small>
                 </a>
             </li>
             <li>
                 <a href="mailbox.html">
                     <i class="fa fa-envelope"></i> <span>Mailbox</span>
-                    <small class="badge pull-right bg-yellow">12</small>
+                    <small class="badge pull-right bg-yellow"></small>
                 </a>
             </li>
         </ul>
@@ -369,22 +369,22 @@
 
             <tr>
                 <td width="50%" align="left" valign="middle">Likes:</td>
-                <td width="50%" align="right" valign="middle"><strong>2090</strong></td>
+                <td width="50%" align="right" valign="middle"><div id="div1" href="javascript:void(0)" class="btn btn-danger"><i class='fa fa-play'> Start</i></div></td>
             </tr>
 
             <tr>
                 <td width="50%" align="left" valign="middle">Comments:</td>
-                <td width="50%" align="right" valign="middle"><strong>0</strong></td>
+                <td width="50%" align="right" valign="middle"><div class="btn btn-danger" onclick="updatestatus(\'' + data[i].id + '\')"><i class='fa fa-play'> Start</i></div></td>
             </tr>
 
             <tr>
                 <td width="50%" align="left" valign="middle">Follows:</td>
-                <td width="50%" align="right" valign="middle"><strong>1408</strong></td>
+                <td width="50%" align="right" valign="middle"><div class="btn btn-danger" onclick="updatestatus(\'' + data[i].id + '\')"><i class='fa fa-play'> Start</i></div></td>
             </tr>
 
             <tr>
                 <td width="50%" align="left" valign="middle">Unfollows:</td>
-                <td width="50%" align="right" valign="middle"><strong>0</strong></td>
+                <td width="50%" align="right" valign="middle"><div class="btn btn-danger" onclick="updatestatus(\'' + data[i].id + '\')"><i class='fa fa-play'> Start</i></div></td>
             </tr>
 
         </table>
@@ -788,7 +788,7 @@
 					</span>
 
         <div class="btn-group">
-            <button class="btn btn-plain" tabindex="-1" data-popup-open="#popup-activity-comments">Add</button>
+            <button class="btn btn-plain" tabindex="-1">Add</button>
             <button class="btn btn-plain dropdown-toggle" data-toggle="dropdown" tabindex="-1">
                 <span class="caret"></span>
             </button>
@@ -932,7 +932,7 @@
 </div><!-- main setting ends -->
 
 
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+<!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
 
 
 
@@ -1143,7 +1143,7 @@
         });
     });
 </script>
-
+-->
 </section> <!-- /.content -->
 </aside> <!-- /.right-side -->
 </div><!-- ./wrapper -->

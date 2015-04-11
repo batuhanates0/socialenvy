@@ -86,6 +86,9 @@ function update(id) {
                 innerTableHtml +='<div class="btn-lg btn-danger" style="text-align:center; margin-bottom:10px;" href="javascript:void(0)" onclick="updatestatus_stop(\'' + data[i].id + '\')"><i class="fa fa-play"></i> Stop</div>';
 
             }
+
+
+
            // alert(innerTableHtml);
             //$("#dashboard").hide();
             // $("#dashboard_start").hide();
@@ -155,6 +158,7 @@ $("document").ready(function(){
                 innerTableHtml +='<div class="btn-lg btn-danger" style="text-align:center; margin-bottom:10px;" href="javascript:void(0)" onclick="update(\'' + data[i].id + '\')"><i class="fa fa-play"></i> Start</div>';
 
             }
+            $('#div1').setAttribute("onclick", "javascript:update("+ data[i].id + ");" );
 
             $('#dashboard').html(innerTableHtml);
 
