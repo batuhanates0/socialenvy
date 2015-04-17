@@ -1,4 +1,129 @@
 
+function ChangeFollowProcess(id)
+{
+    var processFollowValue = $("#processFollow").html();
+    if(processFollowValue=="Start")
+    {
+        $("#processFollow").html("Stop")
+    }else{
+        $("#processFollow").html("Start")
+    }
+
+    ProcessSelection(id);
+}
+
+function ChangeLikeProcess(id)
+{
+    var processLikeValue = $("#processLike").html();
+    if(processLikeValue=="Start")
+    {
+        $("#processLike").html("Stop")
+    }else{
+        $("#processLike").html("Start")
+    }
+
+    ProcessSelection(id);
+}
+
+function ChangeCommentProcess(id)
+{
+    var processCommentValue = $("#processComment").html();
+    if(processCommentValue=="Start")
+    {
+        $("#processComment").html("Stop")
+    }else{
+        $("#processComment").html("Start")
+    }
+
+    ProcessSelection(id);
+}
+
+function ChangeUnFollowProcess(id)
+{
+    var processUnFollowValue = $("#processUnFollow").html();
+    if(processUnFollowValue=="Start")
+    {
+
+        $("#processUnFollow").html("Stop")
+    }else{
+        $("#processUnFollow").html("Start")
+    }
+
+    ProcessSelection(id);
+}
+
+function ProcessSelection(id) {
+
+    var processFollowValue = $("#processFollow").html();
+    var processLikeValue = $("#processLike").html();
+    var processCommentValue = $("#processComment").html();
+    var processUnFollowValue = $("#processUnFollow").html();
+    var Like="";
+    var Comment="";
+    var Follow="";
+    var UnFollow="";
+    if(processFollowValue=="Start"){
+        Follow="False";
+    }
+    else {
+        Follow ="True";
+    }
+    if(processCommentValue=="Start"){
+        Comment="False";
+    }else{
+        Comment="True";
+    }
+    if(processLikeValue=="Start"){
+        Like="False";
+    }else{
+        Like="True";
+    }
+    if(processUnFollowValue="Start"){
+        UnFollow="False";
+    }else{
+        UnFollow="True";
+    }
+
+
+   // alert(processLikeValue +":"+ processCommentValue +":" +processFollowValue +":"+processUnFollowValue);
+    var data = {
+        "action": "ChangeStatusTrueFalse"
+    };
+
+    if(id!= null)
+    {
+        var query_data = {
+            "Id": id,
+            "LikeStatus": Like,
+            "CommentStatus":Comment,
+            "FollowStatus":Follow,
+            "UnFollowStatus":UnFollow
+
+        };
+
+        data = $(this).serialize() + "&" + $.param(data)+ "&" + $.param(query_data)
+
+    }else {
+        data = $(this).serialize() + "&" + $.param(data)
+    }
+
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "actionpage/mainsettingtblfalse.php", //Relative or absolute path to response.php file
+        data: data,
+        success: function (data) {
+            data= JSON.stringify(data);
+            alert(data);
+
+        }
+
+
+    });
+    return false;
+}
+
+
 function updatestatus_stop(id) {
 
     // alert(id);
@@ -95,6 +220,7 @@ function updateliketrue(id) {
                 updatelikefalse(temp1);
             });
         }
+
            // $("#div1").html("<i class=\"fa fa-play\"> Stop</i>");
 
             // alert(innerTableHtml);
@@ -184,7 +310,6 @@ function updatelikefalse(id) {
 }
 
 //////////////////////////////////////////mainsettingtblfalse///////////////
-
 
 function updatecommenttrue(id) {
 
@@ -572,10 +697,7 @@ function updateunfollowfalse(id) {
 
 }
 
-
-
 ////////////////////////////////////////////                                   //////////////////////////////
-
 
 function update(id) {
 
@@ -687,18 +809,36 @@ $("document").ready(function(){
 
             $('#dashboard').html(innerTableHtml);
             //$('#div1').setAttribute("onclick","update("+temp+")");
-            $('#div1').bind('click',function(){
-                updateliketrue(temp);
+
+            $('#processFollow').bind('click',function(){
+                ChangeFollowProcess(temp);
             });
-            $('#div2').bind('click',function(){
-                updatecommenttrue(temp);
+
+            $('#processLike').bind('click',function(){
+                ChangeLikeProcess(temp);
             });
-            $('#div3').bind('click',function(){
-                updatefollowtrue(temp);
+
+            $('#processComment').bind('click',function(){
+                ChangeCommentProcess(temp);
             });
-            $('#div4').bind('click',function(){
-                updateunfollowtrue(temp);
+
+            $('#processUnFollow').bind('click',function(){
+                ChangeUnFollowProcess(temp);
             });
+
+
+            //$('#div1').bind('click',function(){
+            //    updateliketrue(temp);
+            //});
+            //$('#div2').bind('click',function(){
+            //    updatecommenttrue(temp);
+            //});
+            //$('#div3').bind('click',function(){
+            //    updatefollowtrue(temp);
+            //});
+            //$('#div4').bind('click',function(){
+            //    updateunfollowtrue(temp);
+            //});
         }
 
     });
@@ -717,15 +857,14 @@ $("document").ready(function(){
                 "action": "DeleteSelectedTag"
             };
 
-            if(id!= null)
-            {
+            if (id != null) {
                 var query_data = {
                     "Id": id
                 };
 
-                data = $(this).serialize() + "&" + $.param(data)+ "&" + $.param(query_data);
+                data = $(this).serialize() + "&" + $.param(data) + "&" + $.param(query_data);
 
-            }else {
+            } else {
                 data = $(this).serialize() + "&" + $.param(data);
             }
 
@@ -734,25 +873,30 @@ $("document").ready(function(){
                 dataType: "json",
                 url: "actionpage/DeleteTag.php", //Relative or absolute path to response.php file
                 data: data,
-                success: function(data, status) {
-                    $("#"+id).hide();
+                success: function (data, status) {
+                    if(data="Success") {
+                        $("#" + id).hide();
+                    }
 
                 },
-                error: function(xhr, desc, err) {
-                                    }
+                error: function (xhr, desc, err) {
+
+                }
             });
         }
-        else {
-            //alert("false");
-            //$("#loaderImage").attr("style", 'display:block');
+                else {
+                   // $("#" + id).show();
+                    //alert("false");
+                    //$("#loaderImage").attr("style", 'display:block');
 
-            //window.location.href = "photos.php?photoId=cancel";
+                    //window.location.href = "photos.php?photoId=cancel";
 
-        }
+                }
 
-    });
+            });
 
-    return false;
+            return false;
+
 }
 
 
@@ -823,13 +967,6 @@ $("document").ready(function(){
 function addTag(){
     var Tagname = $("#inpAddTags").val();
 
-    alert(Tagname);
-   // var innerHTML = "";
-
-   // innerHTML += "<li><a href='#'>"+Tagname;
-   // innerHTML +='<button type="button" style="color: #fff;float: left;margin-left: -12px;margin-right: 5px;margin-top: 5px;text-shadow:0 1px 0 #000" class="close" data-dismiss="alert" aria-hidden="true" onclick="deletetag(\''+data[i].id+'\')" href="javascript:void(0)">&times;</button>';
-  //  innerHTML +="</a></li>";
-   // $('#hashtag-list').appendChild(innerHTML);
     function GetParameterValues(param) {
         var url = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
         for (var i = 0; i < url.length; i++) {
@@ -865,19 +1002,15 @@ function addTag(){
         data: data,
         success: function(data) {
 
-            data = Json.stringify(data);
-            alert(data);
-           // var innerTableHtml = "";
+            data = eval(data);
+            var innerTableHtml = "";
 
 
-          //  for (var i = 0; i < data.length; i++) {
+            innerTableHtml += "<li><a href='#'>"+Tagname;
+            innerTableHtml +='<button type="button" style="color: #fff;float: left;margin-left: -12px;margin-right: 5px;margin-top: 5px;text-shadow:0 1px 0 #000" class="close" data-dismiss="alert" aria-hidden="true" onclick="deletetag(\''+data[0].id+'\')" href="javascript:void(0)">&times;</button>';
+            innerTableHtml +="</a></li>";
 
-                // innerTableHtml += "<li><a href='#'>"+data[i].tagname+"<button type='button' style='color: #fff;float: left;margin-left: -12px;margin-right: 5px;margin-top: 5px;text-shadow:0 1px 0 #000' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button></a></li>";
-              //  innerTableHtml += "<li><a href='#'>"+data[0].tagname;
-               // innerTableHtml +='<button type="button" style="color: #fff;float: left;margin-left: -12px;margin-right: 5px;margin-top: 5px;text-shadow:0 1px 0 #000" class="close" data-dismiss="alert" aria-hidden="true" onclick="deletetag(\''+data[i].id+'\')" href="javascript:void(0)">&times;</button>';
-               // innerTableHtml +="</a></li>";
-           // }
-           // $('#hashtag-list').append(innerTableHtml);
+            $('#hashtag-list').append(innerTableHtml);
 
         },
         error: function(xhr, desc, err) {

@@ -174,15 +174,19 @@ function updatestatus(id) {
 
 
 function test(id) {
-    var innerTableHtml="";
-    alert(id);
-    var divActivity = "divActivity" + "_" +id ;
 
-    alert(  $("#"+divActivity+"").html());
+   // var divActivity = "divActivity" + "_" +id ;
+    var valueOfdiv =$("#divActivity"+ "_" +id).html();
+    alert(valueOfdiv);
 
-   // alert(divActivity);
-   // innerTableHtml += "<i id="+divActivity+" class='fa fa-play'> Stop</i>";
-   //alert(innerTableHtml);
+    if(valueOfdiv=='Start')
+    {
+        $("#divActivity" + "_" +id).html("Stop");
+        updatestatus(id);
+    }else{
+        $("#divActivity" + "_" +id).html("Start");
+        updatestatusstop(id);
+    }
 }
 
 $("document").ready(function(){
@@ -263,8 +267,8 @@ $("document").ready(function(){
                 innerTableHtml += "<div>";
                 innerTableHtml += "<table width='100%'>";
                 innerTableHtml += "<tr>";
-                innerTableHtml += '<td width="35%"><div id="clickstart" class="btn btn-danger" href="javascript:void(0)">';
-                innerTableHtml += "<i id='divActivity_"+data[i].id+"' class='fa fa-play'> Start</i></div></td>";
+                innerTableHtml += '<td width="35%"><div id="clickstart" class="btn btn-danger" href="javascript:void(0)" onclick="test(\'' + data[i].id + '\')">';
+                innerTableHtml += "<i id='divActivity_"+data[i].id+"' class='fa fa-play'>Start</i></div></td>";
                // innerTableHtml +="<td width='35%'><div class='btn btn-primary'><i class='fa fa-gear'></i><a href='../activity.php'> Settings</a></div></td>";
                 innerTableHtml +="<td width='35%'><div><a class='btn btn-primary' href='../activity.php?id="+data[i].id+"'><i class='fa fa-gear'></i>Settings</a></div></td>";
                 innerTableHtml += "<td width='30%'><div class='btn-group pull-right'>";
@@ -303,17 +307,17 @@ $("document").ready(function(){
            // for (var i = 0; i < temp_data.length; i++) {
               //  var temp_data = temp_data[i];
               //  alert(temp_data);
-            $('#divActivity_'+ temp_data).on('click', function (e) {
-                   e.preventDefault();
-                    $(this).text(function (_, text) {
-                        if (text != "Stop") {
-                            updatestatus(temp_data);
-                        } else {
-                            updatestatusstop(temp_data);
-                        }
-                        return text === 'Stop' ? 'Start' : 'Stop';
-                    }).toggleClass('stop_button');
-                });
+            //$('#divActivity_'+ temp_data).on('click', function (e) {
+            //       e.preventDefault();
+            //        $(this).text(function (_, text) {
+            //            if (text != "Stop") {
+            //                updatestatus(temp_data);
+            //            } else {
+            //                updatestatusstop(temp_data);
+            //            }
+            //            return text === 'Stop' ? 'Start' : 'Stop';
+            //        }).toggleClass('stop_button');
+            //    });
             }
 
 

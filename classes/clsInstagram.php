@@ -410,34 +410,34 @@ class clsInstagram {
         $dbCon = new DatabaseConnection();
 
 
-        $chk_usertag = $dbCon->con->prepare("SELECT * FROM tblUsertag where id=:id");
+      //  $chk_usertag = $dbCon->con->prepare("SELECT * FROM tblUsertag where id=:id");
 
-        $chk_usertag->bindParam(':id', $id);
+       // $chk_usertag->bindParam(':id', $id);
 
 
-        $chk_usertag->execute();
+       // $chk_usertag->execute();
 
-        $no_user = $chk_usertag->fetch(PDO::FETCH_OBJ);
+       // $no_user = $chk_usertag->fetch(PDO::FETCH_OBJ);
         // $data=$chk_username=fetch(PDO::FETCH_OBJ);
-        $uid=$no_user->uid;
-        $InstaAccId=$no_user->InstaAccId;
-        $tagname=$no_user->tagname;
+       // $uid=$no_user->uid;
+       // $InstaAccId=$no_user->InstaAccId;
+       // $tagname=$no_user->tagname;
        // echo $uid;
        // echo $InstaAccId;
        // echo $tagname;
        // echo $id;
         /////////////////////////////////////
 
-        $chk_Iguname = $dbCon->con->prepare("SELECT * FROM tblInstagram where id=:InstaAccId");
+      //  $chk_Iguname = $dbCon->con->prepare("SELECT * FROM tblInstagram where id=:InstaAccId");
 
-        $chk_Iguname->bindParam(':InstaAccId', $InstaAccId);
+       // $chk_Iguname->bindParam(':InstaAccId', $InstaAccId);
 
 
-        $chk_Iguname->execute();
+       // $chk_Iguname->execute();
 
-        $no_Iguname = $chk_Iguname->fetch(PDO::FETCH_OBJ);
+        //$no_Iguname = $chk_Iguname->fetch(PDO::FETCH_OBJ);
         // $data=$chk_username=fetch(PDO::FETCH_OBJ);
-        $Iguname=$no_Iguname->IGuname;
+       // $Iguname=$no_Iguname->IGuname;
        // echo $Iguname;
 
         /////////////////////////////////////
@@ -455,22 +455,22 @@ class clsInstagram {
        // echo $rows;
 
         ////////////////////tbl userinhashtag code///////////////////////////////
-        $date=date('Y-m-d');
+       // $date=date('Y-m-d');
 
-        $strQuery1 = "insert into tblUserInHashTag (`uid`,`InstaAccId`,`username`,`hashtagname`,`date`)
-                              VALUES (:uid,:InstaAccId,:username,:hashtagname,:date)";
-        $result_Userinhashtag= $dbCon->con->prepare($strQuery1);
+      //  $strQuery1 = "insert into tblUserInHashTag (`uid`,`InstaAccId`,`username`,`hashtagname`,`date`)
+         //                     VALUES (:uid,:InstaAccId,:username,:hashtagname,:date)";
+      //  $result_Userinhashtag= $dbCon->con->prepare($strQuery1);
+//
+      //  $result_Userinhashtag->bindParam(':uid', $uid);
+       // $result_Userinhashtag->bindParam(':InstaAccId',$InstaAccId);
+       // $result_Userinhashtag->bindParam(':username', $Iguname);
+       // $result_Userinhashtag->bindParam(':hashtagname',$tagname );
+       // $result_Userinhashtag->bindParam(':date', $date);
 
-        $result_Userinhashtag->bindParam(':uid', $uid);
-        $result_Userinhashtag->bindParam(':InstaAccId',$InstaAccId);
-        $result_Userinhashtag->bindParam(':username', $Iguname);
-        $result_Userinhashtag->bindParam(':hashtagname',$tagname );
-        $result_Userinhashtag->bindParam(':date', $date);
 
+       // $result_Userinhashtag->execute();
 
-        $result_Userinhashtag->execute();
-
-        $rows_userinhashtag = $result_Userinhashtag->rowCount();//  fetch(PDO::FETCH_NUM);
+       // $rows_userinhashtag = $result_Userinhashtag->rowCount();//  fetch(PDO::FETCH_NUM);
 
 
         ////////////////////////////tbl userinhashtagcode/////////////////////////
@@ -484,251 +484,28 @@ class clsInstagram {
         echo json_encode($responseMsg);
     }
 
-    public function ChangeMainSettingLikeStatusTrue($id,$Status)
+
+    public function ChangeMainSettingLikeStatusTrueFalse($id,$LikeStatus,$CommentStatus,$FollowStatus,$UnFollowStatus)
     {
 
         $dbCon = new DatabaseConnection();
-        //$likes="True";
-
-        $result = $dbCon->con->prepare("UPDATE `tblMainSetting` Set `likes`= :likes  where `InstaAccId`=:id");
-
-        $result->bindParam(':id', $id);
-        $result->bindParam(':likes', $Status);
-
-        $result->execute();
-
-        $rows = $result->rowCount();//  fetch(PDO::FETCH_NUM);
-       // echo $id;
-       // echo $rows;
-       // if ($rows == 1) {
-           // $responseMsg = "Success";
 
 
-         // } else {
-        //   $responseMsg = "Failed";
-
-        //  }
-        $result_fetch =$dbCon->con->prepare("select * from tblMainSetting  where `InstaAccId`=:id");
-        $result_fetch->bindParam(':id', $id);
-        $result_fetch->execute();
-        $data=$result_fetch->fetchall();
-        echo json_encode($data);
-
-    }
-
-    public function ChangeMainSettingLikeStatusfalse($id)
-    {
-
-        $dbCon = new DatabaseConnection();
-        $likes="False";
-
-        $result = $dbCon->con->prepare("UPDATE `tblMainSetting` Set `likes`= :likes  where `InstaAccId`=:id");
+        $result = $dbCon->con->prepare("UPDATE `tblMainSetting` Set `likes`= :likes,
+                                        `comments`= :comments,`follows`= :follows,
+                                         `unfollows`= :unfollows where `InstaAccId`=:id");
 
         $result->bindParam(':id', $id);
-        $result->bindParam(':likes', $likes);
+        $result->bindParam(':likes', $LikeStatus);
+        $result->bindParam(':comments', $CommentStatus);
+        $result->bindParam(':follows', $FollowStatus);
+        $result->bindParam(':unfollows', $UnFollowStatus);
 
         $result->execute();
 
         $rows = $result->rowCount();//  fetch(PDO::FETCH_NUM);
 
 
-        $result_fetch =$dbCon->con->prepare("select * from tblMainSetting  where `InstaAccId`=:id");
-        $result_fetch->bindParam(':id', $id);
-        $result_fetch->execute();
-        $data=$result_fetch->fetchall();
-       /* echo json_encode($data);
-
-        if ($rows == 1) {
-            $responseMsg = "Success";
-
-
-        } else {
-            $responseMsg = "Failed";
-
-        }*/
-        echo json_encode($data);
-
-    }
-
-    public function ChangeMainSettingCommentStatusTrue($id,$Status)
-    {
-
-        $dbCon = new DatabaseConnection();
-       // $comments="True";
-
-        $result = $dbCon->con->prepare("UPDATE `tblMainSetting` Set `comments`= :comments  where `InstaAccId`=:id");
-
-        $result->bindParam(':id', $id);
-        $result->bindParam(':comments', $Status);
-
-        $result->execute();
-
-        $rows = $result->rowCount();//  fetch(PDO::FETCH_NUM);
-      //  echo $id;
-        //echo $rows;
-        // if ($rows == 1) {
-        // $responseMsg = "Success";
-
-
-        // } else {
-        //   $responseMsg = "Failed";
-
-        //  }
-        $result_fetch =$dbCon->con->prepare("select * from tblMainSetting  where `InstaAccId`=:id");
-        $result_fetch->bindParam(':id', $id);
-        $result_fetch->execute();
-        $data=$result_fetch->fetchall();
-        echo json_encode($data);
-
-    }
-
-    public function ChangeMainSettingCommentStatusfalse($id)
-    {
-
-        $dbCon = new DatabaseConnection();
-        $comments="False";
-
-        $result = $dbCon->con->prepare("UPDATE `tblMainSetting` Set `comments`= :comments  where `InstaAccId`=:id");
-
-        $result->bindParam(':id', $id);
-        $result->bindParam(':comments', $comments);
-
-        $result->execute();
-
-        $rows = $result->rowCount();//  fetch(PDO::FETCH_NUM);
-
-
-        $result_fetch =$dbCon->con->prepare("select * from tblMainSetting  where `InstaAccId`=:id");
-        $result_fetch->bindParam(':id', $id);
-        $result_fetch->execute();
-        $data=$result_fetch->fetchall();
-        /* echo json_encode($data);
-
-         if ($rows == 1) {
-             $responseMsg = "Success";
-
-
-         } else {
-             $responseMsg = "Failed";
-
-         }*/
-        echo json_encode($data);
-
-    }
-
-    public function ChangeMainSettingFollowStatusTrue($id,$Status)
-    {
-
-        $dbCon = new DatabaseConnection();
-       // $follows="True";
-
-        $result = $dbCon->con->prepare("UPDATE `tblMainSetting` Set `follows`= :follows  where `InstaAccId`=:id");
-
-        $result->bindParam(':id', $id);
-        $result->bindParam(':follows', $Status);
-
-        $result->execute();
-
-        $rows = $result->rowCount();//  fetch(PDO::FETCH_NUM);
-       // echo $id;
-       // echo $rows;
-        // if ($rows == 1) {
-        // $responseMsg = "Success";
-
-
-        // } else {
-        //   $responseMsg = "Failed";
-
-        //  }
-        $result_fetch =$dbCon->con->prepare("select * from tblMainSetting  where `InstaAccId`=:id");
-        $result_fetch->bindParam(':id', $id);
-        $result_fetch->execute();
-        $data=$result_fetch->fetchall();
-        echo json_encode($data);
-
-    }
-
-    public function ChangeMainSettingFollowStatusfalse($id)
-    {
-
-        $dbCon = new DatabaseConnection();
-        $follows="False";
-
-        $result = $dbCon->con->prepare("UPDATE `tblMainSetting` Set `follows`= :follows  where `InstaAccId`=:id");
-
-        $result->bindParam(':id', $id);
-        $result->bindParam(':follows', $follows);
-
-        $result->execute();
-
-        $rows = $result->rowCount();//  fetch(PDO::FETCH_NUM);
-
-
-        $result_fetch =$dbCon->con->prepare("select * from tblMainSetting  where `InstaAccId`=:id");
-        $result_fetch->bindParam(':id', $id);
-        $result_fetch->execute();
-        $data=$result_fetch->fetchall();
-        /* echo json_encode($data);
-
-         if ($rows == 1) {
-             $responseMsg = "Success";
-
-
-         } else {
-             $responseMsg = "Failed";
-
-         }*/
-        echo json_encode($data);
-
-    }
-
-
-    public function ChangeMainSettingUnfollowStatusTrue($id,$Status)
-    {
-
-        $dbCon = new DatabaseConnection();
-        //$unfollows="True";
-
-        $result = $dbCon->con->prepare("UPDATE `tblMainSetting` Set `unfollows`= :unfollows  where `InstaAccId`=:id");
-
-        $result->bindParam(':id', $id);
-        $result->bindParam(':unfollows', $Status);
-
-        $result->execute();
-
-        $rows = $result->rowCount();//  fetch(PDO::FETCH_NUM);
-       // echo $id;
-       // echo $rows;
-        // if ($rows == 1) {
-        // $responseMsg = "Success";
-
-
-        // } else {
-        //   $responseMsg = "Failed";
-
-        //  }
-        $result_fetch =$dbCon->con->prepare("select * from tblMainSetting  where `InstaAccId`=:id");
-        $result_fetch->bindParam(':id', $id);
-        $result_fetch->execute();
-        $data=$result_fetch->fetchall();
-        echo json_encode($data);
-
-    }
-
-    public function ChangeMainSettingUnfollowStatusfalse($id)
-    {
-
-        $dbCon = new DatabaseConnection();
-        $unfollows="False";
-
-        $result = $dbCon->con->prepare("UPDATE `tblMainSetting` Set `unfollows`= :unfollows  where `InstaAccId`=:id");
-
-        $result->bindParam(':id', $id);
-        $result->bindParam(':unfollows', $unfollows);
-
-        $result->execute();
-
-        $rows = $result->rowCount();//  fetch(PDO::FETCH_NUM);
 
 
         $result_fetch =$dbCon->con->prepare("select * from tblMainSetting  where `InstaAccId`=:id");
@@ -775,34 +552,34 @@ class clsInstagram {
         $rows_tblusertag = $result_tblusertag->rowCount();//  fetch(PDO::FETCH_NUM);
 
         //////////////////////////////////////////////
-        $chk_Iguname = $dbCon->con->prepare("SELECT * FROM tblInstagram where id=:InstaAccId");
+      //  $chk_Iguname = $dbCon->con->prepare("SELECT * FROM tblInstagram where id=:InstaAccId");
 
-        $chk_Iguname->bindParam(':InstaAccId', $id);
+       // $chk_Iguname->bindParam(':InstaAccId', $id);
 
 
-        $chk_Iguname->execute();
+       // $chk_Iguname->execute();
 
-        $no_Iguname = $chk_Iguname->fetch(PDO::FETCH_OBJ);
+       // $no_Iguname = $chk_Iguname->fetch(PDO::FETCH_OBJ);
         // $data=$chk_username=fetch(PDO::FETCH_OBJ);
-        $Iguname=$no_Iguname->IGuname;
+       // $Iguname=$no_Iguname->IGuname;
         //////////////////////////////////////////////
 
 
         ////////////////////////////////////////////
-        $date=date('Y-m-d');
-        $strQuery1 = "insert into tblUserInHashTag (`uid`,`InstaAccId`,`hashtagname`,`username`,`date`)
-                              VALUES (:uid,:InstaAccId,:tagname,:username,:date)";
-        $result_tbluserinhashtag = $dbCon->con->prepare($strQuery1);
+      //  $date=date('Y-m-d');
+       // $strQuery1 = "insert into tblUserInHashTag (`uid`,`InstaAccId`,`hashtagname`,`username`,`date`)
+          //                    VALUES (:uid,:InstaAccId,:tagname,:username,:date)";
+       // $result_tbluserinhashtag = $dbCon->con->prepare($strQuery1);
 
-        $result_tbluserinhashtag->bindParam(':uid', $uid);
-        $result_tbluserinhashtag->bindParam(':InstaAccId',$id);
-        $result_tbluserinhashtag->bindParam(':tagname', $tag);
-        $result_tbluserinhashtag->bindParam(':username',$Iguname);
-        $result_tbluserinhashtag->bindParam(':date', $date);
+       // $result_tbluserinhashtag->bindParam(':uid', $uid);
+       // $result_tbluserinhashtag->bindParam(':InstaAccId',$id);
+        //$result_tbluserinhashtag->bindParam(':tagname', $tag);
+        //$result_tbluserinhashtag->bindParam(':username',$Iguname);
+        //$result_tbluserinhashtag->bindParam(':date', $date);
 
-        $result_tbluserinhashtag->execute();
+        //$result_tbluserinhashtag->execute();
 
-        $rows_tbluserinhashtag = $result_tbluserinhashtag->rowCount();//  fetch(PDO::FETCH_NUM);
+       // $rows_tbluserinhashtag = $result_tbluserinhashtag->rowCount();//  fetch(PDO::FETCH_NUM);
 
         /////////////////////////////////////////
 
@@ -813,9 +590,9 @@ class clsInstagram {
         $result_fetch->bindParam(':InstaAccId',$id);
         $result_fetch->execute();
         $data=$result_fetch->fetchAll();
-        /* echo json_encode($data);
+         echo json_encode($data);
 
-         if ($rows == 1) {
+        /* if ($rows == 1) {
              $responseMsg = "Success";
 
 
@@ -823,7 +600,7 @@ class clsInstagram {
              $responseMsg = "Failed";
 
          }*/
-        echo json_encode($data);
+       // echo json_encode($data);
 
     }
 

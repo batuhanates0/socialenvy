@@ -402,22 +402,22 @@
 
             <tr>
                 <td width="50%" align="left" valign="middle">Likes:</td>
-                <td width="50%" align="right" valign="middle"><div id="div1" class="btn btn-danger"><i class='fa fa-play'> Start</i></div></td>
+                <td width="50%" align="right" valign="middle"><div  class="btn btn-danger"><i id="processLike" class='fa fa-play'>Start</i></div></td>
             </tr>
 
             <tr>
                 <td width="50%" align="left" valign="middle">Comments:</td>
-                <td width="50%" align="right" valign="middle"><div id="div2" class="btn btn-danger"><i class='fa fa-play'> Start</i></div></td>
+                <td width="50%" align="right" valign="middle"><div  class="btn btn-danger"><i id="processComment" class='fa fa-play'>Start</i></div></td>
             </tr>
 
             <tr>
                 <td width="50%" align="left" valign="middle">Follows:</td>
-                <td width="50%" align="right" valign="middle"><div id="div3" class="btn btn-danger"><i class='fa fa-play'> Start</i></div></td>
+                <td width="50%" align="right" valign="middle"><div  class="btn btn-danger"><i id="processFollow" class='fa fa-play'>Start</i></div></td>
             </tr>
 
             <tr>
                 <td width="50%" align="left" valign="middle">Unfollows:</td>
-                <td width="50%" align="right" valign="middle"><div id="div4" class="btn btn-danger"><i class='fa fa-play'> Start</i></div></td>
+                <td width="50%" align="right" valign="middle"><div  class="btn btn-danger"><i id="processUnFollow" class='fa fa-play'>Start</i></div></td>
             </tr>
 
         </table>
