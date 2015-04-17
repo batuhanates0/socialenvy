@@ -24,6 +24,9 @@
     <script src="js/jquery-1.11.0.min.js"></script>
     <script src="js/popup.min.js?v=155"></script>
     <script src="ajax_request/activity.js"></script>
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <link rel="stylesheet" href="css/jquery.alerts.css" media="screen"/>
+    <script src="js/jquery.alerts.js"></script>
 
 
     <!-- Fonts -->
@@ -60,7 +63,37 @@
 
 
     <script type="text/javascript">
+       /* $(document).ready(function() {
 
+        });
+        function addTag(inpAddTags){
+            alert(inpAddTags);
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                url: "actionpage/hashtag.php", //Relative or absolute path to response.php file
+                data: data,
+                success: function(data, status) {
+                    data = eval(data);
+                    var innerTableHtml = "";
+
+
+                    //for (var i = 0; i < data.length; i++) {
+
+                    // innerTableHtml += "<li><a href='#'>"+data[i].tagname+"<button type='button' style='color: #fff;float: left;margin-left: -12px;margin-right: 5px;margin-top: 5px;text-shadow:0 1px 0 #000' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button></a></li>";
+                    innerTableHtml += "<li><a href='#'>"+inpAddTags;
+                    innerTableHtml +='<button type="button" style="color: #fff;float: left;margin-left: -12px;margin-right: 5px;margin-top: 5px;text-shadow:0 1px 0 #000" class="close" data-dismiss="alert" aria-hidden="true" onclick="deletetag(\''+data[i].id+'\')" href="javascript:void(0)">&times;</button>';
+                    innerTableHtml +="</a></li>";
+                    //}
+                    $('#hashtag-list').append(innerTableHtml);
+
+                }
+
+            });
+            return false;
+
+        }
+*/
     </script>
 </head>
 <body class="skin-black">
@@ -369,22 +402,22 @@
 
             <tr>
                 <td width="50%" align="left" valign="middle">Likes:</td>
-                <td width="50%" align="right" valign="middle"><div id="div1" href="javascript:void(0)" class="btn btn-danger"><i class='fa fa-play'> Start</i></div></td>
+                <td width="50%" align="right" valign="middle"><div id="div1" class="btn btn-danger"><i class='fa fa-play'> Start</i></div></td>
             </tr>
 
             <tr>
                 <td width="50%" align="left" valign="middle">Comments:</td>
-                <td width="50%" align="right" valign="middle"><div class="btn btn-danger" onclick="updatestatus(\'' + data[i].id + '\')"><i class='fa fa-play'> Start</i></div></td>
+                <td width="50%" align="right" valign="middle"><div id="div2" class="btn btn-danger"><i class='fa fa-play'> Start</i></div></td>
             </tr>
 
             <tr>
                 <td width="50%" align="left" valign="middle">Follows:</td>
-                <td width="50%" align="right" valign="middle"><div class="btn btn-danger" onclick="updatestatus(\'' + data[i].id + '\')"><i class='fa fa-play'> Start</i></div></td>
+                <td width="50%" align="right" valign="middle"><div id="div3" class="btn btn-danger"><i class='fa fa-play'> Start</i></div></td>
             </tr>
 
             <tr>
                 <td width="50%" align="left" valign="middle">Unfollows:</td>
-                <td width="50%" align="right" valign="middle"><div class="btn btn-danger" onclick="updatestatus(\'' + data[i].id + '\')"><i class='fa fa-play'> Start</i></div></td>
+                <td width="50%" align="right" valign="middle"><div id="div4" class="btn btn-danger"><i class='fa fa-play'> Start</i></div></td>
             </tr>
 
         </table>
@@ -436,7 +469,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12">
 
         <h3>Main settings</h3>
-
+         <div id="mainsettingtbl-list"></div>
         <div class="col-lg-4 col-md-4 col-sm-4">
 
             <div  class="inner-setting-box">
@@ -448,7 +481,7 @@
                         <td  align="right" valign="middle">
 
 
-                            <select name="Activityspeed" class="form-control" >
+                            <select  id="Activityspeed" name="Activityspeed" class="form-control" >
                                 <option value="Slow">Slow</option>
                                 <option value="Normal">Normal</option>
                                 <option value="Fast">Fast</option>
@@ -479,7 +512,7 @@
                         <td  align="right" valign="middle">
 
 
-                            <select name="Mediasource" class="form-control" >
+                            <select id="Mediasource" name="Mediasource" class="form-control" >
                                 <option value="Tags">Tags</option>
                                 <option value="Locations">Locations</option>
                                 <option value="My Feed">My Feed</option>
@@ -504,7 +537,13 @@
 
                         <td  align="left" valign="middle" style="padding-bottom:14px;">New media only<a href="#" data-toggle="tooltip"><i class="fa fa-question"></i></a></td>
                         <td  align="right" valign="middle">
+                              <span class="pull-right">
+							<input name="newMediaOnly" id="inpNewMediaOnly" class="chk-custom" type="checkbox"
+                                   data-checked="false"/>
+							<label class="chk-custom" for="inpNewMediaOnly"></label>
+						</span>
                         </td>
+
 
                     </tr>
 
@@ -524,7 +563,7 @@
                         <td  align="right" valign="middle">
 
 
-                            <input name="Minlikesfilter" type="number" placeholder="0"/>
+                            <input id="Minlikesfilter" name="Minlikesfilter" type="number" placeholder="0"/>
 
 
                         </td>
@@ -547,7 +586,7 @@
                         <td  align="right" valign="middle">
 
 
-                            <input name="Maxlikesfilter" type="number" placeholder="0"/>
+                            <input id="Maxlikesfilter" name="Maxlikesfilter" type="number" placeholder="0"/>
 
 
                         </td>
@@ -575,6 +614,7 @@
             </div>
 
         </div>
+
     </div>
 </div><!-- main setting ends -->
 
@@ -686,10 +726,10 @@
                             <div class="input-group">
                                 <input id="inpAddTags" class="form-control" type="text"/>
                                 <div class="input-group-btn">
-                                    <button class="btn btn-plain btn-add-tags" tabindex="-1">Add</button>
-                                    <button class="btn btn-plain dropdown-toggle" data-toggle="dropdown" tabindex="-1">
+                                    <input type="button" class="btn btn-plain btn-add-tags" onclick="addTag()" value="ADD"/>
+                                    <!--<button class="btn btn-plain dropdown-toggle" data-toggle="dropdown" tabindex="-1">
                                         <span class="caret"></span>
-                                    </button>
+                                    </button>-->
                                     <ul class="dropdown-menu dropdown-menu-right">
                                         <li><a href="#" class="btn-del-tags">Delete all tags</a></li>
                                     </ul>
@@ -809,9 +849,9 @@
 
         <h3>Auto-stop settings</h3>
 
+<!--     <div id="autostopsettingtbl-list"></div>-->
 
-
-        <div class="col-lg-4 col-md-4 col-sm-4">
+       <div class="col-lg-4 col-md-4 col-sm-4">
 
             <div  class="inner-setting-box">
                 <table width="100%" cellpadding="0" cellspacing="0">
@@ -822,7 +862,7 @@
                         <td  align="right" valign="middle">
 
 
-                            <input name="Likescounter" type="number" placeholder="0"/>
+                            <input id="Likescounter" name="Likescounter" type="number" placeholder="0"/>
 
 
                         </td>
@@ -845,7 +885,7 @@
                         <td  align="right" valign="middle">
 
 
-                            <input name="Commentscounter" type="number" placeholder="0"/>
+                            <input id="Commentscounter" name="Commentscounter" type="number" placeholder="0"/>
 
 
                         </td>
@@ -868,7 +908,7 @@
                         <td  align="right" valign="middle">
 
 
-                            <input name="Followscounter" type="number" placeholder="0"/>
+                            <input id="Followscounter" name="Followscounter" type="number" placeholder="0"/>
 
 
                         </td>
@@ -891,7 +931,7 @@
                         <td  align="right" valign="middle">
 
 
-                            <input name="Unfollowscounter" type="number" placeholder="0"/>
+                            <input id="Unfollowscounter" name="Unfollowscounter" type="number" placeholder="0"/>
 
 
                         </td>
@@ -914,18 +954,19 @@
                         <td  align="right" valign="middle">
 
 
-                            <input name="Timer" type="time" />
+                            <input id="Timer" name="Timer" type="time" />
 
 
                         </td>
 
                     </tr>
-                    </form>
+
                 </table>
             </div>
 
         </div>
 
+        </form>
         <div class="text-red">Reset all settings to default values</div>
     </div>
 

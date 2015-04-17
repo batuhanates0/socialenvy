@@ -69,16 +69,26 @@ class InstagramLogin
                 $result_userid = $check_userid->fetch(PDO::FETCH_ASSOC);
 
                 $uid=$result_userid['id'];
-                $unique_username= $_SESSION['login_user'];
+                //////Fetch data from tblproxy/////////////////////
+                $Proxy_id=1;
+                $fetch_tblproxy=$dbCon->con->prepare("SELECT * FROM tblProxy where id=:id");
+                $fetch_tblproxy->bindParam(':id',$Proxy_id);
+                $fetch_tblproxy->execute();
+                $result_tblproxy = $fetch_tblproxy->fetch(PDO::FETCH_OBJ);
+                $ProxyAddress=$result_tblproxy->ProxyAddress;
+                $ProxyPort=$result_tblproxy->ProxyPort;
 
+                //////Fetch data from tblproxy/////////////////////
+
+                $unique_username= $_SESSION['login_user'];
                 $IGAccstatus='Active';
                 $date = date('Y-m-d');
                 $isRunning='Stopped';
 
 
 
-                $strQuery = "insert into tblInstagram (`uid`,`unique_username`,`IGuname`,`IGpassword`,`IGAccstatus`,`date`,`isRunning`)
-                              VALUES (:uid,:unique_username,:IGuname,:IGpassword,:IGAccstatus,:date,:isRunning)";
+                $strQuery = "insert into tblInstagram (`uid`,`unique_username`,`IGuname`,`IGpassword`,`IGAccstatus`,`date`,`isRunning`,`ProxyAddress`,`ProxyPort`)
+                              VALUES (:uid,:unique_username,:IGuname,:IGpassword,:IGAccstatus,:date,:isRunning,:ProxyAddress,:ProxyPort)";
 
 
                 $result =$dbCon-> con->prepare($strQuery);
@@ -90,6 +100,8 @@ class InstagramLogin
                 $result->bindParam(':IGAccstatus', $IGAccstatus);
                 $result->bindParam(':date', $date);
                 $result->bindParam(':isRunning', $isRunning);
+                $result->bindParam(':ProxyAddress',$ProxyAddress);
+                $result->bindParam(':ProxyPort',$ProxyPort);
 
 
                 $result->execute();
