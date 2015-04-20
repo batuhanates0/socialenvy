@@ -314,7 +314,7 @@
             </li>-->
 
             <li>
-                <a href="accounts.html">
+                <a href="addinstagramaccount.php">
                     <i class="fa fa-plus"></i> <span>Add Account</span> <small class="badge pull-right bg-blue"></small>
                 </a>
             </li>
@@ -402,22 +402,22 @@
 
             <tr>
                 <td width="50%" align="left" valign="middle">Likes:</td>
-                <td width="50%" align="right" valign="middle"><div  class="btn btn-danger"><i id="processLike" class='fa fa-play'>Start</i></div></td>
+                <td width="50%" align="right" valign="middle"><div id="divLikes" class="btn btn-success"><i id="processLike" class='fa fa-play'>Start</i></div></td>
             </tr>
 
             <tr>
                 <td width="50%" align="left" valign="middle">Comments:</td>
-                <td width="50%" align="right" valign="middle"><div  class="btn btn-danger"><i id="processComment" class='fa fa-play'>Start</i></div></td>
+                <td width="50%" align="right" valign="middle"><div id="divComment" class="btn btn-success"><i id="processComment" class='fa fa-play'>Start</i></div></td>
             </tr>
 
             <tr>
                 <td width="50%" align="left" valign="middle">Follows:</td>
-                <td width="50%" align="right" valign="middle"><div  class="btn btn-danger"><i id="processFollow" class='fa fa-play'>Start</i></div></td>
+                <td  width="50%" align="right" valign="middle"><div id="divFollow"  class="btn btn-success" style="background-color:3e8f3e"><i id="processFollow" class='fa fa-play'>Start</i></div></td>
             </tr>
 
             <tr>
                 <td width="50%" align="left" valign="middle">Unfollows:</td>
-                <td width="50%" align="right" valign="middle"><div  class="btn btn-danger"><i id="processUnFollow" class='fa fa-play'>Start</i></div></td>
+                <td width="50%" align="right" valign="middle"><div id="divUnFollow" class="btn btn-success"><i id="processUnFollow" class='fa fa-play'>Start</i></div></td>
             </tr>
 
         </table>

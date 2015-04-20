@@ -526,7 +526,7 @@ class clsInstagram {
 
     }
 
-    public function AdduserTag($id,$tag)
+    public function AdduserTag($id,$tag,$count)
     {
 
         $dbCon = new DatabaseConnection();
@@ -537,20 +537,21 @@ class clsInstagram {
         $result_userid = $check_userid->fetch(PDO::FETCH_ASSOC);
 
         $uid=$result_userid['id'];
+        foreach($tag as $value) {
 
-        $strQuery1 = "insert into tblUsertag (`uid`,`InstaAccId`,`tagname`)
+            $strQuery1 = "insert into tblUsertag (`uid`,`InstaAccId`,`tagname`)
                               VALUES (:uid,:InstaAccId,:tagname)";
-        $result_tblusertag = $dbCon->con->prepare($strQuery1);
+            $result_tblusertag = $dbCon->con->prepare($strQuery1);
 
-        $result_tblusertag->bindParam(':uid', $uid);
-        $result_tblusertag->bindParam(':InstaAccId',$id);
-        $result_tblusertag->bindParam(':tagname', $tag);
+            $result_tblusertag->bindParam(':uid', $uid);
+            $result_tblusertag->bindParam(':InstaAccId', $id);
+            $result_tblusertag->bindParam(':tagname', $value);
 
 
-        $result_tblusertag->execute();
+            $result_tblusertag->execute();
 
-        $rows_tblusertag = $result_tblusertag->rowCount();//  fetch(PDO::FETCH_NUM);
-
+            $rows_tblusertag = $result_tblusertag->rowCount();//  fetch(PDO::FETCH_NUM);
+        }
         //////////////////////////////////////////////
       //  $chk_Iguname = $dbCon->con->prepare("SELECT * FROM tblInstagram where id=:InstaAccId");
 
@@ -583,15 +584,15 @@ class clsInstagram {
 
         /////////////////////////////////////////
 
+         //foreach($tag as $value) {
 
-
-        $result_fetch =$dbCon->con->prepare("select * from tblUsertag  where `tagname`=:tagname and `InstaAccId`=:InstaAccId");
-        $result_fetch->bindParam(':tagname', $tag);
-        $result_fetch->bindParam(':InstaAccId',$id);
-        $result_fetch->execute();
-        $data=$result_fetch->fetchAll();
-         echo json_encode($data);
-
+             $result_fetch = $dbCon->con->prepare("select * from tblUsertag  where `InstaAccId`=:InstaAccId order by id desc limit $count");
+            // $result_fetch->bindParam(':tagname', $value);
+             $result_fetch->bindParam(':InstaAccId', $id);
+             $result_fetch->execute();
+             $data = $result_fetch->fetchAll();
+             echo json_encode($data);
+       //  }
         /* if ($rows == 1) {
              $responseMsg = "Success";
 
