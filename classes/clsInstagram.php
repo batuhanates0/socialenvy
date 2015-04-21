@@ -70,6 +70,7 @@ class clsInstagram {
 
 
     }
+
     public function InstagramAccount(){
         $dbCon = new DatabaseConnection();
          $username=$_SESSION['login_user'];
@@ -80,6 +81,7 @@ class clsInstagram {
         $data = $result->fetchall();
         echo json_encode($data);
     }
+
     public function changeaccountstatus($id,$isRunning){
         $dbCon = new DatabaseConnection();
        // $isRun='Stopped';
@@ -119,6 +121,7 @@ class clsInstagram {
       //  echo json_encode($responseMsg);
         echo json_encode($data);
     }
+
     public function changeallaccountstatus($isRunning){
         $dbCon = new DatabaseConnection();
 
@@ -148,6 +151,7 @@ class clsInstagram {
         }
         echo json_encode($responseMsg);
     }
+
     public function stopallaccountstatus($isRunning){
         $dbCon = new DatabaseConnection();
 
@@ -177,6 +181,7 @@ class clsInstagram {
         }
         echo json_encode($responseMsg);
     }
+
     public function getid($id){
         $dbCon = new DatabaseConnection();
 
@@ -192,6 +197,7 @@ class clsInstagram {
        echo json_encode($data);
 
     }
+
     public function changeaccountstatus_stop($id,$isRunning){
         $dbCon = new DatabaseConnection();
 
@@ -356,7 +362,6 @@ class clsInstagram {
         echo json_encode($data);
     }
 
-
     public function gethashtag($InstaAccId){
         $dbCon = new DatabaseConnection();
 
@@ -372,7 +377,6 @@ class clsInstagram {
         echo json_encode($data);
 
     }
-
 
     public function getMainSettingTblData($InstAccId){
         $dbCon = new DatabaseConnection();
@@ -484,7 +488,6 @@ class clsInstagram {
         echo json_encode($responseMsg);
     }
 
-
     public function ChangeMainSettingLikeStatusTrueFalse($id,$LikeStatus,$CommentStatus,$FollowStatus,$UnFollowStatus)
     {
 
@@ -586,7 +589,7 @@ class clsInstagram {
 
          //foreach($tag as $value) {
 
-             $result_fetch = $dbCon->con->prepare("select * from tblUsertag  where `InstaAccId`=:InstaAccId order by id desc limit $count");
+             $result_fetch = $dbCon->con->prepare("select * from tblUsertag  where `InstaAccId`=:InstaAccId");
             // $result_fetch->bindParam(':tagname', $value);
              $result_fetch->bindParam(':InstaAccId', $id);
              $result_fetch->execute();
@@ -604,6 +607,156 @@ class clsInstagram {
        // echo json_encode($data);
 
     }
+
+    public function AddLocation($id,$LocationName)
+    {
+
+        $dbCon = new DatabaseConnection();
+
+        $check_userid=$dbCon->con->prepare("SELECT id FROM tblLogin WHERE username = :user");
+        $check_userid->bindparam(':user',$_SESSION['login_user']);
+        $check_userid->execute();
+        $result_userid = $check_userid->fetch(PDO::FETCH_ASSOC);
+
+        $uid=$result_userid['id'];
+        foreach($LocationName as $value) {
+
+            $strQuery1 = "insert into tblLocation (`uid`,`InstaAccId`,`Locationname`)
+                              VALUES (:uid,:InstaAccId,:Locationname)";
+            $result_tblLocation = $dbCon->con->prepare($strQuery1);
+
+            $result_tblLocation->bindParam(':uid', $uid);
+            $result_tblLocation->bindParam(':InstaAccId', $id);
+            $result_tblLocation->bindParam(':Locationname', $value);
+
+
+            $result_tblLocation->execute();
+
+            $rows_tblLocation = $result_tblLocation->rowCount();//  fetch(PDO::FETCH_NUM);
+        }
+
+        $result_fetch = $dbCon->con->prepare("select * from tblLocation  where `InstaAccId`=:InstaAccId");
+        // $result_fetch->bindParam(':tagname', $value);
+        $result_fetch->bindParam(':InstaAccId', $id);
+        $result_fetch->execute();
+        $data = $result_fetch->fetchAll();
+        echo json_encode($data);
+
+    }
+
+    public function getLocation($InstaAccId){
+        $dbCon = new DatabaseConnection();
+
+
+        $result =$dbCon->con->prepare("select * from tblLocation where InstaAccId=:InstaAccId");
+
+        $result->bindParam(':InstaAccId',$InstaAccId);
+
+
+        $result->execute();
+
+        $data = $result->fetchall();//  fetch(PDO::FETCH_NUM);
+        echo json_encode($data);
+
+    }
+
+    public function DeleteLocation($id){
+        $dbCon = new DatabaseConnection();
+
+
+
+        $result =$dbCon->con->prepare("delete from tblLocation where id=:id");
+
+        $result->bindParam(':id',$id);
+
+
+        $result->execute();
+        $rows = $result->rowCount();//  fetch(PDO::FETCH_NUM);
+
+
+        if ($rows == 1) {
+            $responseMsg = "Success";
+        } else {
+            $responseMsg = "Failed";
+        }
+        echo json_encode($responseMsg);
+    }
+
+    public function AddUsername($id,$UserName)
+    {
+
+        $dbCon = new DatabaseConnection();
+
+        $check_userid=$dbCon->con->prepare("SELECT id FROM tblLogin WHERE username = :user");
+        $check_userid->bindparam(':user',$_SESSION['login_user']);
+        $check_userid->execute();
+        $result_userid = $check_userid->fetch(PDO::FETCH_ASSOC);
+
+        $uid=$result_userid['id'];
+        foreach($UserName as $value) {
+
+            $strQuery1 = "insert into tblUsername (`uid`,`InstaAccId`,`username`)
+                              VALUES (:uid,:InstaAccId,:username)";
+            $result_tblUsername = $dbCon->con->prepare($strQuery1);
+
+            $result_tblUsername->bindParam(':uid', $uid);
+            $result_tblUsername->bindParam(':InstaAccId', $id);
+            $result_tblUsername->bindParam(':username', $value);
+
+
+            $result_tblUsername->execute();
+
+            $rows_tblUsername = $result_tblUsername->rowCount();//  fetch(PDO::FETCH_NUM);
+        }
+
+        $result_fetch = $dbCon->con->prepare("select * from tblUsername  where `InstaAccId`=:InstaAccId");
+        // $result_fetch->bindParam(':tagname', $value);
+        $result_fetch->bindParam(':InstaAccId', $id);
+        $result_fetch->execute();
+        $data = $result_fetch->fetchAll();
+        echo json_encode($data);
+
+    }
+
+    public function getUsername($InstaAccId){
+        $dbCon = new DatabaseConnection();
+
+
+        $result =$dbCon->con->prepare("select * from tblUsername where InstaAccId=:InstaAccId");
+
+        $result->bindParam(':InstaAccId',$InstaAccId);
+
+
+        $result->execute();
+
+        $data = $result->fetchall();//  fetch(PDO::FETCH_NUM);
+        echo json_encode($data);
+
+    }
+
+    public function DeleteUsername($id){
+        $dbCon = new DatabaseConnection();
+
+
+
+        $result =$dbCon->con->prepare("delete from tblUsername where id=:id");
+
+        $result->bindParam(':id',$id);
+
+
+        $result->execute();
+        $rows = $result->rowCount();//  fetch(PDO::FETCH_NUM);
+
+
+        if ($rows == 1) {
+            $responseMsg = "Success";
+        } else {
+            $responseMsg = "Failed";
+        }
+        echo json_encode($responseMsg);
+    }
+
+
 
 
 

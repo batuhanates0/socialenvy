@@ -182,9 +182,17 @@ function test(id) {
     if(valueOfdiv=='Start')
     {
         $("#divActivity" + "_" +id).html("Stop");
+        $("#clickstart").removeClass('btn btn-success');
+        $("#clickstart").addClass('btn btn-danger');
+        $("#divActivity" + "_" +id).removeClass('fa fa-play');
+        $("#divActivity" + "_" +id).addClass('fa fa-stop');
         updatestatus(id);
     }else{
         $("#divActivity" + "_" +id).html("Start");
+        $("#clickstart").removeClass('btn btn-danger');
+        $("#clickstart").addClass('btn btn-success');
+        $("#divActivity" + "_" +id).removeClass('fa fa-stop');
+        $("#divActivity" + "_" +id).addClass('fa fa-play');
         updatestatusstop(id);
     }
 }
@@ -267,7 +275,7 @@ $("document").ready(function(){
                 innerTableHtml += "<div>";
                 innerTableHtml += "<table width='100%'>";
                 innerTableHtml += "<tr>";
-                innerTableHtml += '<td width="35%"><div id="clickstart" class="btn btn-danger" href="javascript:void(0)" onclick="test(\'' + data[i].id + '\')">';
+                innerTableHtml += '<td width="35%"><div id="clickstart" class="btn btn-success" href="javascript:void(0)" onclick="test(\'' + data[i].id + '\')">';
                 innerTableHtml += "<i id='divActivity_"+data[i].id+"' class='fa fa-play'>Start</i></div></td>";
                // innerTableHtml +="<td width='35%'><div class='btn btn-primary'><i class='fa fa-gear'></i><a href='../activity.php'> Settings</a></div></td>";
                 innerTableHtml +="<td width='35%'><div><a class='btn btn-primary' href='../activity.php?id="+data[i].id+"'><i class='fa fa-gear'></i>Settings</a></div></td>";

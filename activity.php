@@ -623,16 +623,16 @@
 
     <div class="col-lg-12 col-md-12 col-sm-12">
 
-        <div  class="inner-setting-box">
+        <div class="inner-setting-box" style="min-height:100px;">
 
-            <table width="100%" cellpadding="0" cellspacing="0">
-
+            <table cellpadding="0" cellspacing="0">
+               <tbody>
                 <tr>
 
-                    <td  align="left" valign="middle">Locations<a href="#" data-toggle="tooltip"><i class="fa fa-question"></i></a>
-                        <small class="badge pull-left bg-red">New</small>
-
-                        <div class="btn-group" style="margin-left:20px;">
+                    <td>Locations<a href="#" data-toggle="tooltip"><i class="fa fa-question"></i></a>
+<!--                       <small class="badge pull-left bg-red">New</small>-->
+                    </td>
+                        <!--<div class="btn-group" style="margin-left:20px;">
                             <button class="btn btn-plain" tabindex="-1" data-popup-open="#popup-activity-locations">Add</button>
                             <button class="btn btn-plain dropdown-toggle" tabindex="-1" data-toggle="dropdown">
                                 <span class="caret"></span>
@@ -642,50 +642,87 @@
                                 <li><a href="#">Delete all locations</a></li>
 
                             </ul>
-                        </div>
+                        </div>-->
+
+                    <td>
+                           <ul>
+                            <div id="location-list"></div>
+
+                            <li>
+                                <div class="input-group">
+                                    <input id="inpAddLocation" class="form-control" type="text"/>
+                                    <div class="input-group-btn">
+                                        <input type="button" class="btn btn-plain" onclick="addLocation()" value="ADD"/>
+                                        <!--<button class="btn btn-plain dropdown-toggle" data-toggle="dropdown" tabindex="-1">
+                                            <span class="caret"></span>
+                                        </button>-->
+                                        <ul class="dropdown-menu dropdown-menu-right">
+                                            <li><a href="#" class="btn-del-tags">Delete all Locations</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                           </ul>
 
                     </td>
 
 
 
 
+
                 </tr>
+               </tbody>
 
             </table>
         </div>
 
     </div>
+    </div>
+<div class="row">
 
     <div class="col-lg-12 col-md-12 col-sm-12">
 
-        <div  class="inner-setting-box">
+        <div  class="inner-setting-box" style="min-height:100px;">
 
-            <table width="100%" cellpadding="0" cellspacing="0">
-
+            <table cellpadding="0" cellspacing="0">
+              <tbody>
                 <tr>
 
-                    <td  align="left" valign="middle">Usernames<a href="#" data-toggle="tooltip"><i class="fa fa-question"></i></a>
+                    <td>Usernames<a href="#" data-toggle="tooltip"><i class="fa fa-question"></i></a></td>
+                    <td>
+                        <ul>
+                            <div id="username-list"></div>
+
+                            <li>
+                                <div class="input-group">
+                                    <input id="inpAddUsername" class="form-control" type="text"/>
+                                    <div class="input-group-btn">
+                                        <input type="button" class="btn btn-plain" onclick="addUsername()" value="ADD"/>
 
 
-                        <div class="btn-group" style="margin-left:20px;">
-                            <button class="btn btn-plain" tabindex="-1" data-popup-open="#popup-activity-usernames">Add</button>
-                            <button class="btn btn-plain dropdown-toggle" tabindex="-1" data-toggle="dropdown">
-                                <span class="caret"></span>
-                                <span class="sr-only">Toggle Dropdown</span>
-                            </button>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Delete all username</a></li>
+                                        <!--<div class="btn-group" style="margin-left:20px;">
+                                            <button class="btn btn-plain" tabindex="-1" data-popup-open="#popup-activity-usernames">Add</button>
+                                            <button class="btn btn-plain dropdown-toggle" tabindex="-1" data-toggle="dropdown">
+                                                <span class="caret"></span>
+                                                <span class="sr-only">Toggle Dropdown</span>
+                                            </button>
 
-                            </ul>
-                        </div>
+                                        -->
+                                        <ul class="dropdown-menu dropdown-menu-right">
+                                            <li><a href="#" class="btn-del-tags">Delete all Usernames</a></li>
+                                        </ul>
 
+                                </div>
+                            </div>
+                          </li>
+                       </ul>
                     </td>
 
 
 
 
                 </tr>
-
+              </tbody>
             </table>
         </div>
 
