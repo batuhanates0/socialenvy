@@ -112,6 +112,25 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </a>
+        <div>
+            <ul class="nav navbar-nav">
+                <li class="header">
+                    <a href="">HOME</a>
+                </li>
+                <li class="header">
+                    <a href="">SERVICES</a>
+                </li>
+                <li class="header">
+                    <a href="">TEAM</a>
+                </li>
+                <li class="header">
+                    <a href="">GUIDE</a>
+                </li>
+                <li class="header">
+                    <a href="">CONTACT</a>
+                </li>
+            </ul>
+        </div>
         <div class="navbar-right">
             <ul class="nav navbar-nav">
                 <!-- Messages: style can be found in dropdown.less-->
@@ -296,7 +315,7 @@
         <!-- /.search form -->
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
-            <li class="active">
+            <li>
                 <a href="user/dashboard.php">
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                 </a>
@@ -331,7 +350,7 @@
             </li>
 
 
-            <li>
+            <!--<li>
                 <a href="calendar.html">
                     <i class="fa fa-calendar"></i> <span>Calendar</span>
                     <small class="badge pull-right bg-red"></small>
@@ -342,12 +361,20 @@
                     <i class="fa fa-envelope"></i> <span>Mailbox</span>
                     <small class="badge pull-right bg-yellow"></small>
                 </a>
-            </li>
+            </li>-->
         </ul>
     </section>
     <!-- /.sidebar -->
 </aside>
+<div class="row">
 
+    <div class="col-sm-12 col-md-4 col-md-push-4">
+        <div class="title-block">Add new account to your dashboard</div>
+        <div class="-add-account-cont">
+            <a class="btn btn-plain btn-big btn-danger btn-add-account js-btn-add-account" href="addinstagramaccount.php">Add account</a>
+        </div>
+    </div>
+</div>
 <!-- Right side column. Contains the navbar and content of the page -->
 <aside class="right-side">
 <!-- Content Header (Page header) -->

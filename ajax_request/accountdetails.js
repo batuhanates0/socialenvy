@@ -213,6 +213,15 @@ $("document").ready(function(){
            // var temp_data = [];
             var temp_data="";
 
+           // innerTableHtml +="<div class='row'>";
+           // innerTableHtml +="<div class='col-sm-12 col-md-4 col-md-push-4'>";
+           // innerTableHtml +="<div class='title-block'>Add new account to your dashboard</div>";
+           // innerTableHtml +="<div class='-add-account-cont'>";
+           // innerTableHtml +="<button class='btn btn-plain btn-big btn-danger btn-add-account js-btn-add-account' data-popup-open='#popup-login'>Add account</button>";
+           // innerTableHtml +="</div>";
+           // innerTableHtml +="</div>";
+
+
             for (var i = 0; i < data.length; i++) {
                // temp_data.push(data[i].id);
                 temp_data=data[i].id;
@@ -307,11 +316,19 @@ $("document").ready(function(){
             }
             if(innerTableHtml =="")
             {
-                $("#loginMsg").show();
-                innerTableHtml = "<div id='loginMsg' class='alert alert-danger'>No Instagram account found. To add Instagram account click <a href='../addinstagramaccount.php'>here</a> </div>"
-            }
-            $('#dashboard-list').append(innerTableHtml);
+                //$("#loginMsg").show();
+                //innerTableHtml = "<div id='loginMsg' class='alert alert-danger'>No Instagram account found. To add Instagram account click <a href='../addinstagramaccount.php'>here</a> </div>"
+               // innerTableHtml +="<div class='row'>";
+               // innerTableHtml +="<div class='col-sm-12 col-md-4 col-md-push-4'>";
+               // innerTableHtml +="<div class='title-block'>Add new account to your dashboard</div>";
+               // innerTableHtml +="<div class='-add-account-cont'>";
+               // innerTableHtml +="<button class='btn btn-plain btn-big btn-danger btn-add-account js-btn-add-account' data-popup-open='#popup-login'>Add account</button>";
+               // innerTableHtml +="</div>";
+               // innerTableHtml +="</div>";
 
+                }
+            $('#dashboard-list').append(innerTableHtml);
+           // $('#mybutton').attr('onclick','../addinstagramaccount.php');
            // for (var i = 0; i < temp_data.length; i++) {
               //  var temp_data = temp_data[i];
               //  alert(temp_data);

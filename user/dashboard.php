@@ -56,6 +56,26 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </a>
+
+                <div>
+                    <ul class="nav navbar-nav">
+                        <li class="header">
+                            <a href="">HOME</a>
+                        </li>
+                        <li class="header">
+                            <a href="">SERVICES</a>
+                        </li>
+                        <li class="header">
+                            <a href="">TEAM</a>
+                        </li>
+                        <li class="header">
+                            <a href="">GUIDE</a>
+                        </li>
+                        <li class="header">
+                            <a href="">CONTACT</a>
+                        </li>
+                    </ul>
+                </div>
                 <div class="navbar-right">
                     <ul class="nav navbar-nav">
                         <!-- Messages: style can be found in dropdown.less-->
@@ -238,7 +258,7 @@
                     <!-- /.search form -->
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
-                        <li >
+                        <li class="active" >
                             <a href="dashboard.php">
                                 <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                             </a>
@@ -255,7 +275,7 @@
                             </a>
                         </li>-->
 
-                        <li class="active">
+                        <li>
                             <a href="../addinstagramaccount.php">
                                 <i class="fa fa-plus"></i> <span>Add Account</span> <small class="badge pull-right bg-blue"></small>
                             </a>
@@ -272,7 +292,7 @@
                         </li>
 
 
-                        <li>
+                       <!-- <li>
                             <a href="../calendar.html">
                                 <i class="fa fa-calendar"></i> <span>Calendar</span>
                                 <small class="badge pull-right bg-red"></small>
@@ -283,16 +303,76 @@
                                 <i class="fa fa-envelope"></i> <span>Mailbox</span>
                                 <small class="badge pull-right bg-yellow"></small>
                             </a>
-                        </li>
+                        </li>-->
 
                     </ul>
                 </section>
                 <!-- /.sidebar -->
             </aside>
 
+<!--            <div class="row">-->
+<!---->
+<!--                <div class="col-sm-12 col-md-4 col-md-push-4">-->
+<!--                    <div class="title-block">Add new account to your dashboard</div>-->
+<!--                    <div class="-add-account-cont">-->
+<!--                        <a class="btn btn-plain btn-big btn-danger btn-add-account js-btn-add-account" href="../addinstagramaccount.php">Add account</a>-->
+<!--                    </div>-->
+<!--                </div><br/><br/>-->
+<!---->
+<!---->
+<!--               <div class="col-sm-12 col-md-4 col-md-push-4s">-->
+<!--                    <div class="title-block">-->
+<!--                        Buy time package-->
+<!--                    </div>-->
+<!---->
+<!--                    <a href="#" class="btn btn-success">Buy time package</a>-->
+<!---->
+<!---->
+<!--                   <!-- <div class="mt10">-->
+<!--                        <a href="#" class="link-ajax" data-popup-open="#popup-time-transfer">Transfer time</a>-->
+<!--                    </div>-->-->
+<!--                </div>-->
+<!---->
+<!--            </div>-->
+
+
             <!-- Right side column. Contains the navbar and content of the page -->
             <aside class="right-side">
-                <!-- Content Header (Page header) -->
+            <div class="col-lg-4 col-md-4 col-sm-4">
+            <p class="text-red">Add new account to your dashboard<</p>
+            <div class="btn btn-success" onclick="update('47')" href="javascript:void(0)" style="text-align:center; margin-bottom:10px;">
+                <i class="fa fa-save"></i>
+                Save Your Settings
+            </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <p class="text-red">Add new account to your dashboard<</p>
+                <div class="btn btn-success" onclick="update('47')" href="javascript:void(0)" style="text-align:center; margin-bottom:10px;">
+                    <i class="fa fa-save"></i>
+                    Save Your Settings
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <p class="text-red">Add new account to your dashboard<</p>
+                <div class="btn btn-success" onclick="update('47')" href="javascript:void(0)" style="text-align:center; margin-bottom:10px;">
+                    <i class="fa fa-save"></i>
+                    Save Your Settings
+                </div>
+            </div>
+
+<!--            <div class="title-block">/div>-->
+<!--            <div class="-add-account-cont">-->
+<!--                <a class="btn btn-plain btn-big btn-danger btn-add-account js-btn-add-account" href="../addinstagramaccount.php">Add account</a>-->
+<!--            </div>-->
+<!---->
+<!--            <div class="title-block">-->
+<!--                Buy time package-->
+<!--            </div>-->
+<!---->
+<!--            <a href="#" class="btn btn-success">Buy time package</a>-->
+
+                        <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
                         Accounts
@@ -314,7 +394,8 @@
                     <!-- Main row -->
                     <div class="row">
 
-                      <div id="dashboard-list"></div>
+
+                    <div id="dashboard-list"></div>
                         <!-- user accounts -->
                            <!--<div class="col-lg-4 col-md-4 col-sm-4">
 

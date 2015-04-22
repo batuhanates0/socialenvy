@@ -84,6 +84,12 @@
     <form id="login" action="addinstagramaccount.php" method="post">
         <div class="body bg-gray">
             <div class="form-group">
+                <div class="alert alert-success">
+                    <strong>Your privacy is important to us!</strong><br/>
+                    We won't store your password and use it only to obtain required data
+                    for Instagram <abbr title="Application programming interface">API</abbr>.
+                    Please, check out <a href="/guide">Guide</a> page before you sign in.
+                </div>
 
                 <div id="alert-err" class="alert alert-danger"></div>
                 <input type="text" name="IGuname" class="form-control" placeholder="Instagram Username"/>

@@ -330,8 +330,8 @@ $("document").ready(function(){
 function deletetag(id)
    {
 
-   // jConfirm('Do You Really Want To Delete?', 'Confirmation', function (result) {
-       // if (result) {
+    jConfirm('Do You Really Want To Delete?', 'Confirmation', function (result) {
+        if (result) {
 
 
 
@@ -357,29 +357,28 @@ function deletetag(id)
                 data: data,
                 success: function (data, status) {
                     $("#"+id).hide();
-                    //alert("Tag Deleted");
+                    alert("Tag Deleted");
                 },
                 error: function (xhr, desc, err) {
 
                 }
             });
-     //   }
-             //   else {
+        }
+                else {
 
-             //   }
+                }
 
-        //    });
+            });
 
             return false;
 
 }
 /////////////////////////////////////////// delete usertag tbl data ///////////////////////////////////////////
-////////////////////////////// delete tbllocation data///////////////////////////////////
 function deleteLocation(id)
 {
 
-   // jConfirm('Do You Really Want To Delete?', 'Confirmation', function (result) {
-     //   if (result) {
+    jConfirm('Do You Really Want To Delete?', 'Confirmation', function (result) {
+        if (result) {
 
 
 
@@ -405,72 +404,23 @@ function deleteLocation(id)
                 data: data,
                 success: function (data, status) {
                     $("#"+id).hide();
-                  //  alert("Location Deleted");
+                    alert("Location Deleted");
                 },
                 error: function (xhr, desc, err) {
 
                 }
             });
-     //   }
-     //   else {
+        }
+        else {
 
-      //  }
+        }
 
-   // });
-
-    return false;
-
-}
-////////////////////////////////////Delete tbllocation data////////////////////////////
-////////////////////////////////////// Delete tblUsername data////////////////////////
-function deleteUsername(id)
-{
-
-    //jConfirm('Do You Really Want To Delete?', 'Confirmation', function (result) {
-       // if (result) {
-
-
-
-            var data = {
-                "action": "DeleteSelectedUsername"
-            };
-
-            if (id != null) {
-                var query_data = {
-                    "Id": id
-                };
-
-                data = $(this).serialize() + "&" + $.param(data) + "&" + $.param(query_data);
-
-            } else {
-                data = $(this).serialize() + "&" + $.param(data);
-            }
-
-            $.ajax({
-                type: "POST",
-                dataType: "json",
-                url: "actionpage/username.php", //Relative or absolute path to response.php file
-                data: data,
-                success: function (data, status) {
-                    $("#"+id).hide();
-                   // alert("Username Deleted");
-                },
-                error: function (xhr, desc, err) {
-
-                }
-            });
-      //  }
-       // else {
-
-      //  }
-
-   // });
+    });
 
     return false;
 
 }
 
-//////////////////////////////////////delete tblUsername data/////////////////////////
 ///////////////////////////////////location tbl data//////////////////////////////
 $("document").ready(function(){
     function GetParameterValues(param) {
@@ -517,7 +467,7 @@ $("document").ready(function(){
 
                 // innerTableHtml += "<li><a href='#'>"+data[i].tagname+"<button type='button' style='color: #fff;float: left;margin-left: -12px;margin-right: 5px;margin-top: 5px;text-shadow:0 1px 0 #000' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button></a></li>";
                 innerTableHtml += "<li id='"+data[i].id +"'><a>"+data[i].Locationname;
-                innerTableHtml +='<button type="button" class="close" href="javascript:void(0)"  onclick="deleteLocation(\''+data[i].id+'\')">&times;</button>';
+                innerTableHtml +='<button type="button" style="color: #fff;float: left;margin-left: -12px;margin-right: 5px;margin-top: 5px;text-shadow:0 1px 0 #000" class="close" href="javascript:void(0)"  onclick="deleteLocation(\''+data[i].id+'\')">&times;</button>';
                 innerTableHtml +="</a></li>";
             }
             $('#location-list').append(innerTableHtml);
@@ -528,64 +478,12 @@ $("document").ready(function(){
     return false;
 });
 ///////////////////////////////////location tbl data//////////////////////////////
-//////////////////////////////////////////tblUsername data////////////////////////////
-$("document").ready(function(){
-    function GetParameterValues(param) {
-        var url = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-        for (var i = 0; i < url.length; i++) {
-            var urlparam = url[i].split('=');
-            if (urlparam[0] == param) {
-                return urlparam[1];
-            }
-        }
-    }
-
-    var user_Id = GetParameterValues('id');
-
-    var data = {
-        "action": "getUsernames"
-    };
-    if(user_Id!= null)
-    {
-        var query_data = {
-            "Id": user_Id
-        };
-
-        data = $(this).serialize() + "&" + $.param(data)+ "&" + $.param(query_data);
-
-    }else {
-        data = $(this).serialize() + "&" + $.param(data);
-    }
-    // var data = {
-    //       "action": "gethashtags"
-    // };
-    // data = $(this).serialize() + "&" + $.param(data);
-    $.ajax({
-        type: "POST",
-        dataType: "json",
-        url: "actionpage/username.php", //Relative or absolute path to response.php file
-        data: data,
-        success: function(data, status) {
-            data = eval(data);
-            var innerTableHtml = "";
 
 
-            for (var i = 0; i < data.length; i++) {
 
-                // innerTableHtml += "<li><a href='#'>"+data[i].tagname+"<button type='button' style='color: #fff;float: left;margin-left: -12px;margin-right: 5px;margin-top: 5px;text-shadow:0 1px 0 #000' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button></a></li>";
-                innerTableHtml += "<li id='"+data[i].id +"'><a>"+data[i].username;
-                innerTableHtml +='<button type="button" class="close" href="javascript:void(0)" onclick="deleteUsername(\''+data[i].id+'\')">&times;</button>';
-                innerTableHtml +="</a></li>";
-            }
-            $('#username-list').append(innerTableHtml);
 
-        }
 
-    });
-    return false;
-});
-//////////////////////////////////////////tblUsername data////////////////////////////
-//////////////////////////////////////////////////////////usertag tbl data//////////////////////////
+//////////////////////////////////////////////////////////usertag tbl data
 $("document").ready(function(){
     function GetParameterValues(param) {
         var url = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
@@ -641,8 +539,7 @@ $("document").ready(function(){
     });
     return false;
 });
-//////////////////////////////////////////////////////user tbl data/////////////////////////////
-////////////////////////////////////////////////////////add tags/////////////////////////////////
+////////////////////////////////////////////////////////
 function addTag(){
     //var Tagname = $("#inpAddTags").val();
     var Tagname = [];
@@ -719,13 +616,13 @@ function addTag(){
     return false;
 
 }
-////////////////////////////////////add tags///////////////////////////////////////////////
+
 ////////////////////////////Add Location////////////////////////////////
 function addLocation(){
     //var Tagname = $("#inpAddTags").val();
     var LocationName = [];
     LocationName = $('#inpAddLocation').val().split(',');
-    //alert(LocationName);
+    alert(LocationName);
   //  var count=Tagname.length;
     // alert(count);
     function GetParameterValues(param) {
@@ -770,7 +667,7 @@ function addLocation(){
             //  for (j=0; j<splitter.length; i++)
             //  {
             for(i=0; i<data.length; i++){
-              //  alert(data[i].id + " " +data[i].Locationname );
+                alert(data[i].id + " " +data[i].Locationname );
                 innerTableHtml += "<li id='"+data[i].id+"'><a>"+data[i].Locationname;
                 innerTableHtml +='<button type="button"  class="close" onclick="deleteLocation(\''+data[i].id+'\')" href="javascript:void(0)">&times;</button>';
                 innerTableHtml +="</a></li>";
@@ -797,76 +694,10 @@ function addLocation(){
     return false;
 
 }
+
+
 /////////////////////////////Add Location///////////////////////////////
-///////////////////////////////////////////////////Add Username///////////////////////////
-function addUsername(){
-    //var Tagname = $("#inpAddTags").val();
-    var Username = [];
-    Username = $('#inpAddUsername').val().split(',');
-   // alert(Username);
-    //  var count=Tagname.length;
-    // alert(count);
-    function GetParameterValues(param) {
-        var url = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-        for (var i = 0; i < url.length; i++) {
-            var urlparam = url[i].split('=');
-            if (urlparam[0] == param) {
-                return urlparam[1];
-            }
-        }
-    }
 
-    var user_Id = GetParameterValues('id');
-
-    var data = {
-        "action": "addUsername"
-    };
-    if(user_Id!= null)
-    {
-
-        var query_data = {
-            "Id": user_Id,
-            "Username":Username
-            // "count":count
-        };
-
-        data = $(this).serialize() + "&" + $.param(data)+ "&" + $.param(query_data)
-
-    }else {
-        data = $(this).serialize() + "&" + $.param(data);
-    }
-
-    $.ajax({
-        type: "POST",
-        dataType: "json",
-        url: "actionpage/username.php", //Relative or absolute path to response.php file
-        data: data,
-        success: function(data) {
-
-            data = eval(data);
-            var innerTableHtml = "";
-
-            for(i=0; i<data.length; i++){
-              //  alert(data[i].id + " " +data[i].username );
-                innerTableHtml += "<li id='"+data[i].id+"'><a>"+data[i].username;
-                innerTableHtml +='<button type="button" class="close" onclick="deleteUsername(\''+data[i].id+'\')" href="javascript:void(0)">&times;</button>';
-                innerTableHtml +="</a></li>";
-
-            }
-            $('#username-list').html(innerTableHtml);
-
-        },
-        error: function(xhr, desc, err) {
-            // alert(xhr);
-            //alert("Details: " + desc + "\nError:" + err);
-        }
-
-
-    });
-    return false;
-
-}
-/////////////////////////////////////////////////Add username//////////////////////////
 //////////////////////////////////Mainsettings tbl data/////////////////////////////////////////////////////////////
 $("document").ready(function(){
     function GetParameterValues(param) {
@@ -924,6 +755,8 @@ $("document").ready(function(){
     return false;
 });
 ////////////////////////////////////////////////////////Mainsettings data//////////////////////////////////////////////////////////////////////////
+
+
 ///////////////////////////////////////////////////Auto stop setting tbl data/////////////////////////////////////////////////////////
 $("document").ready(function(){
     function GetParameterValues(param) {
