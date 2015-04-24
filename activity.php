@@ -63,37 +63,7 @@
 
 
     <script type="text/javascript">
-       /* $(document).ready(function() {
 
-        });
-        function addTag(inpAddTags){
-            alert(inpAddTags);
-            $.ajax({
-                type: "POST",
-                dataType: "json",
-                url: "actionpage/hashtag.php", //Relative or absolute path to response.php file
-                data: data,
-                success: function(data, status) {
-                    data = eval(data);
-                    var innerTableHtml = "";
-
-
-                    //for (var i = 0; i < data.length; i++) {
-
-                    // innerTableHtml += "<li><a href='#'>"+data[i].tagname+"<button type='button' style='color: #fff;float: left;margin-left: -12px;margin-right: 5px;margin-top: 5px;text-shadow:0 1px 0 #000' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button></a></li>";
-                    innerTableHtml += "<li><a href='#'>"+inpAddTags;
-                    innerTableHtml +='<button type="button" style="color: #fff;float: left;margin-left: -12px;margin-right: 5px;margin-top: 5px;text-shadow:0 1px 0 #000" class="close" data-dismiss="alert" aria-hidden="true" onclick="deletetag(\''+data[i].id+'\')" href="javascript:void(0)">&times;</button>';
-                    innerTableHtml +="</a></li>";
-                    //}
-                    $('#hashtag-list').append(innerTableHtml);
-
-                }
-
-            });
-            return false;
-
-        }
-*/
     </script>
 </head>
 <body class="skin-black">
@@ -368,15 +338,10 @@
 </aside>
 <div class="row">
 
-    <div class="col-sm-12 col-md-4 col-md-push-4">
-        <div class="title-block">Add new account to your dashboard</div>
-        <div class="-add-account-cont">
-            <a class="btn btn-plain btn-big btn-danger btn-add-account js-btn-add-account" href="addinstagramaccount.php">Add account</a>
-        </div>
-    </div>
-</div>
 <!-- Right side column. Contains the navbar and content of the page -->
 <aside class="right-side">
+
+
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
@@ -391,6 +356,29 @@
 
 <!-- Main content -->
 <section class="content">
+<div class="col-lg-4 col-md-4 col-sm-4">
+    <p class="text-blue">Add new account to your dashboard</p>
+    <a class="btn btn-danger"  href="addinstagramaccount.php" style="text-align:center; margin-bottom:10px;">
+                       <i class="fa fa-plus"></i>
+        Add Account
+    </a>
+</div>
+
+<div class="col-lg-4 col-md-4 col-sm-4">
+    <p class="text-blue">Buy Time Package</p>
+    <a class="btn btn-danger" style="text-align:center; margin-bottom:10px;">
+        <!--                    <i class="fa fa-save"></i>-->
+        Buy Time Package
+    </a>
+</div>
+<!--<div class="col-lg-4 col-md-4 col-sm-4">
+    <p class="text-blue">Buy Time Package</p>
+    <a class="btn btn-danger" style="text-align:center; margin-bottom:10px;">
+        <i class="fa fa-save"></i>
+        Buy Time Package
+    </a>
+</div>-->
+
 
 <div class="row" style="border-bottom:1px solid #ccc;">
 
@@ -817,7 +805,7 @@
 
 <!-- tags -->
 
-<!--<div class="row">
+<div class="row">
 
     <div class="col-lg-12 col-md-12 col-sm-12">
 
@@ -854,56 +842,6 @@
     </div>
 
 </div><!-- tags ends-->
-
-<div class="list-row form-group comments"
-     data-field="comments"
-     data-hidden="false">
-    <div class="nice-block clearfix">
-					<span class="label-wrap">
-						<label class="control-label">Comments</label>
-						<span class="help-tip"
-                              title="Comments"
-                              data-content="Add comments to comment media.
-								Comments for each photo or video will be selected randomly.
-								Our system remembers commented photos and videos to interact
-								with them only once. We recommend using at least 10 different
-								neutral comments like: Nice, Like it, Beautiful, etc.<br/><br/>
-								The total length of the comment cannot exceed 300 characters.<br/>
-								The comment cannot contain more than 4 hashtags.<br/>
-								The comment cannot contain more than 1 URL.<br/>
-								The comment cannot consist of all capital letters.<br/>
-								The comments must be different as much as possible.<br/><br/>
-								Maximum allowed 100 comments.">?</span>
-					</span>
-
-        <textarea name="comments"
-                  id="inpComments"
-                  class="hidden"></textarea>
-
-        <script id="tplComment" type="text/html">
-            <span class="unit-comment" data-comment="{{ comment }}">
-							<span>{{ comment }}</span>
-							<a href="#" tabindex="-1">&times;</a>
-						</span>
-        </script>
-
-					<span class="comments-row">
-
-					</span>
-
-        <div class="btn-group">
-            <button class="btn btn-plain" tabindex="-1">Add</button>
-            <button class="btn btn-plain dropdown-toggle" data-toggle="dropdown" tabindex="-1">
-                <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu dropdown-menu-right">
-                <li><a href="/emoji" target="_blank">Emoji cheat sheet</a></li>
-                <li class="divider"></li>
-                <li><a href="#" class="btn-del-comments">Delete all comments</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
 
 <!--  Main settings starts -->
 
@@ -1037,218 +975,7 @@
 </div><!-- main setting ends -->
 
 
-<!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
 
-
-
-
-<div id="popup-activity-locations" class="popup">
-    <h3>Add Locations</h3>
-    <a href="#" class="btn-close-x" data-popup-close="#popup-activity-locations"></a>
-
-    <div class="color-gray mb10">
-        Find locations by name, address or city and get the most popular places nearby.
-        Or just click on the Search button to start exploring locations on the current map position.
-    </div>
-
-    <div class="alerts">
-        <div class="alert alert-danger alert-error js-txt-error"></div>
-        <div class="alert alert-success js-txt-status"></div>
-    </div>
-
-    <input type="hidden"
-           class="js-inp-lat"
-           value="29.85"/>
-    <input type="hidden"
-           class="js-inp-lng"
-           value="76.6667"/>
-
-    <div class="mb20">
-        <div class="input-group input-group-with-gap">
-            <input type="text"
-                   class="form-control input-icon input-icon-location js-inp-address"
-                   placeholder="Location"
-                   autofocus/>
-			<span class="input-group-btn">
-				<button class="btn btn-plain btn-success js-btn-find">Search</button>
-			</span>
-        </div>
-        <span class="help-block text-danger text-error hidden"></span>
-    </div>
-
-    <div class="map js-wgt-map js-hidden"></div>
-
-    <div class="mt20 js-wgt-results js-hidden"></div>
-
-    <div class="loader mt20 js-wgt-loader js-hidden"></div>
-
-    <div class="text-align-center mt20">
-        <button class="btn btn-plain js-btn-close js-hidden"
-                data-popup-close="#popup-activity-locations">Close</button>
-        <button class="btn btn-plain btn-success js-btn-add js-hidden">Add</button>
-    </div>
-</div>
-
-<div id="popup-activity-usernames" class="popup">
-    <h3>Add Usernames</h3>
-    <a href="#" class="btn-close-x" data-popup-close="#popup-activity-usernames"></a>
-
-    <div class="alerts">
-        <div class="alert alert-danger alert-error" data-ui="txt-error"></div>
-        <div class="alert alert-success" data-ui="txt-status"></div>
-    </div>
-
-    <div class="mb20">
-        <div class="input-group input-group-with-gap">
-            <input type="text"
-                   class="form-control input-icon input-icon-username"
-                   placeholder="Username"
-                   autofocus
-                   data-ui="inp-search"/>
-			<span class="input-group-btn">
-				<button class="btn btn-plain btn-success" data-ui="btn-search">Search</button>
-			</span>
-        </div>
-        <span class="help-block text-danger text-error hidden"></span>
-    </div>
-
-    <div class="mt20" data-ui="results"></div>
-
-    <div class="loader mt20 hidden" data-ui="loader"></div>
-
-    <div class="text-align-center mt20">
-        <button class="btn btn-plain hidden" data-ui="btn-close"
-                data-popup-close="#popup-activity-usernames">Close</button>
-        <button class="btn btn-plain btn-success hidden" data-ui="btn-add">Add</button>
-    </div>
-</div>
-<script>
-    $(function() {
-        var schedule = JSON.parse('null');
-        console.log(schedule);
-
-        var scDays  = [
-            'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'
-        ];
-
-        var scHours = [
-            '12 AM', '1 AM', '2 AM', '3 AM', '4 AM', '5 AM', '6 AM', '7 AM', '8 AM', '9 AM', '10 AM', '11 AM',
-            '12 PM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM', '8 PM', '9 PM', '10 PM', '11 PM'
-        ];
-
-        var $popup 	   = $('#popup-activity-schedule');
-        var $table 	   = $('table', $popup);
-        var $tableHead = $('thead', $table);
-        var $tableBody = $('tbody', $table);
-
-        // Render table head, create row
-        var $tr = $('<tr></tr>');
-
-        // Add empty hour cell
-        $tr.append('<th></th>');
-
-        // Add days cells
-        _.each(scDays, function(day) {
-            $tr.append('<th>' + day + '</th>');
-        });
-
-        // Put row into table head
-        $tableHead.append($tr);
-
-        // Render table body
-        _.each(scHours, function(hour, i) {
-            // Create row
-            var $tr = $('<tr></tr>');
-
-            // Add hour cell
-            $tr.append('<td>' + hour + '</td>');
-
-            // Add days cells
-            _.each(scDays, function(day, j) {
-                // Create cell
-                var $td = $('<td></td>');
-
-                // Set attributes
-                $td.attr('data-day', j);
-                $td.attr('data-hour', i);
-                $td.attr('data-state', 0);
-
-                // Put cell into row
-                $tr.append($td);
-            });
-
-            // Put row into table body
-            $tableBody.append($tr);
-        });
-
-        // Attach events to the cells
-        $('td:nth-child(n+2)', $tableBody).on('click', function(e) {
-            e.preventDefault();
-
-            var $td = $(this);
-
-            if ( ! parseInt($td.attr('data-state'))) {
-                $td.attr('data-state', 1).addClass('active');
-            }
-            else {
-                $td.attr('data-state', 0).removeClass('active');
-            }
-        });
-
-        // Attach event to "select all" button
-        $('.js-btn-select-all', $popup).on('click', function(e) {
-            e.preventDefault();
-            $('td:nth-child(n+2)', $tableBody).attr('data-state', 1).addClass('active');
-        });
-
-        // Attach event to "select none" button
-        $('.js-btn-select-none', $popup).on('click', function(e) {
-            e.preventDefault();
-            $('td:nth-child(n+2)', $tableBody).attr('data-state', 0).removeClass('active');
-        });
-
-        // Attach event to "save" button
-        $('.js-btn-save', $popup).on('click', function(e) {
-            e.preventDefault();
-
-            var data = [];
-            var $tds = $('td:nth-child(n+2)', $tableBody);
-
-            // Go through all days
-            _.each(scDays, function(day, j) {
-                var dayData = [];
-
-                // Go through all hours for each day
-                _.each(scHours, function(hour, i) {
-                    // Get state of the day hour
-                    dayData.push(parseInt($tds.filter('[data-day=' + j +'][data-hour=' + i + ']').attr('data-state')));
-                });
-
-                data.push(dayData);
-            });
-
-            // Output data
-            _.each(data, function(dayData) {
-                console.log(dayData.toString());
-            });
-
-            console.log(JSON.stringify(data));
-        });
-
-        // Attach event to popup
-        $popup.on('popup.open', function() {
-            if (schedule === null) {
-                // Activate all cells if no schedule saved yet
-                $('td:nth-child(n+2)', $tableBody).attr('data-state', 1).addClass('active');
-            }
-            else {
-                // Populate last saved schedule state
-                // todo: ...
-            }
-        });
-    });
-</script>
--->
 </section> <!-- /.content -->
 </aside> <!-- /.right-side -->
 </div><!-- ./wrapper -->

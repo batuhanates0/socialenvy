@@ -43,12 +43,10 @@
     <body class="skin-black">
         <!-- header logo: style can be found in header.less -->
         <header class="header">
-            <a href="dashboard.php" class="logo">
-                <!-- Add the class icon to your logo image or logo icon to add the margining -->
-                SocialEnvy
-            </a>
+
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top" role="navigation">
+
                 <!-- Sidebar toggle button-->
                 <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
                     <span class="sr-only">Toggle navigation</span>
@@ -233,8 +231,16 @@
         <div class="wrapper row-offcanvas row-offcanvas-left">
             <!-- Left side column. contains the logo and sidebar -->
             <aside class="left-side sidebar-offcanvas">
+
+                <a href="dashboard.php">
+                    <img src="../img/SocialEnvyLogo.png" width="100px" height="120px" />
+                    <!-- Add the class icon to your logo image or logo icon to add the margining -->
+
+                </a>
+
                 <!-- sidebar: style can be found in sidebar.less -->
                 <section class="sidebar">
+
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
                         <div class="pull-left image">
@@ -330,7 +336,7 @@
 <!---->
 <!--                   <!-- <div class="mt10">-->
 <!--                        <a href="#" class="link-ajax" data-popup-open="#popup-time-transfer">Transfer time</a>-->
-<!--                    </div>-->-->
+<!--                    </div>-->
 <!--                </div>-->
 <!---->
 <!--            </div>-->
@@ -338,29 +344,29 @@
 
             <!-- Right side column. Contains the navbar and content of the page -->
             <aside class="right-side">
-            <div class="col-lg-4 col-md-4 col-sm-4">
-            <p class="text-red">Add new account to your dashboard<</p>
-            <div class="btn btn-success" onclick="update('47')" href="javascript:void(0)" style="text-align:center; margin-bottom:10px;">
+       <!--     <div class="col-lg-4 col-md-4 col-sm-4">
+            <p class="text-blue">Add new account to your dashboard</p>
+            <a class="btn btn-danger"  href="../addinstagramaccount.php" style="text-align:center; margin-bottom:10px;">
                 <i class="fa fa-save"></i>
-                Save Your Settings
-            </div>
+                Add Account
+            </a>
             </div>
 
             <div class="col-lg-4 col-md-4 col-sm-4">
-                <p class="text-red">Add new account to your dashboard<</p>
+                <p class="text-blue">Buy Time Package</p>
+                <a class="btn btn-danger" style="text-align:center; margin-bottom:10px;">
+                    <i class="fa fa-save"></i>
+                    Buy Time Package
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <p class="text-red">Add new account to your dashboard</p>
                 <div class="btn btn-success" onclick="update('47')" href="javascript:void(0)" style="text-align:center; margin-bottom:10px;">
                     <i class="fa fa-save"></i>
                     Save Your Settings
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-4">
-                <p class="text-red">Add new account to your dashboard<</p>
-                <div class="btn btn-success" onclick="update('47')" href="javascript:void(0)" style="text-align:center; margin-bottom:10px;">
-                    <i class="fa fa-save"></i>
-                    Save Your Settings
-                </div>
-            </div>
-
+-->
 <!--            <div class="title-block">/div>-->
 <!--            <div class="-add-account-cont">-->
 <!--                <a class="btn btn-plain btn-big btn-danger btn-add-account js-btn-add-account" href="../addinstagramaccount.php">Add account</a>-->
@@ -377,6 +383,7 @@
                     <h1>
                         Accounts
                         <small>Control panel</small>
+
                     </h1>
                     <ol class="breadcrumb">
 
@@ -386,10 +393,34 @@
                         <li><a href="#">Status</a></li>
                         <li><a href="#">Time</a></li>
                     </ol>
+
                 </section>
 
-                <!-- Main content -->
+
+
+       <!-- Main content -->
                 <section class="content">
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <p class="text-blue">Add new account to your dashboard</p>
+                    <a class="btn btn-danger"  href="../addinstagramaccount.php" style="text-align:center; margin-bottom:10px;">
+                                        <i class="fa fa-plus"></i>
+                        Add Account
+                    </a>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <p class="text-blue">Buy Time Package</p>
+                    <a class="btn btn-danger" style="text-align:center; margin-bottom:10px;">
+                        <!--                    <i class="fa fa-save"></i>-->
+                        Buy Time Package
+                    </a>
+                </div>                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <p class="text-blue">Buy Time Package</p>
+                    <a class="btn btn-danger" style="text-align:center; margin-bottom:10px;">
+                        <!--                    <i class="fa fa-save"></i>-->
+                        Buy Time Package
+                    </a>
+                </div>
 
                     <!-- Main row -->
                     <div class="row">
