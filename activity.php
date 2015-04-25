@@ -31,32 +31,32 @@
 
     <!-- Fonts -->
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700"/>
+<!--    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700"/>-->
 
     <!-- Styles -->
-    <link rel="stylesheet" href="css/bootstrap.min.css?v=155" media="all"/>
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css?v=155" media="all"/>
-    <link rel="stylesheet" href="css/font-awesome.min.css?v=155" media="all"/>
-    <link rel="stylesheet" href="css/jquery.fancybox.css?v=155" media="all"/>
-    <link rel="stylesheet" href="css/emojify.min.css" media="all"/>
-    <link rel="stylesheet" href="css/emojione.min.css" media="all"/>
-    <link rel="stylesheet" href="css/common.css?v=155" media="all"/>
-    <link rel="stylesheet" href="css/main.css?v=155" media="all"/>
-    <link rel="stylesheet" href="css/main-new.css?v=155" media="all"/>
+<!--    <link rel="stylesheet" href="css/bootstrap.min.css?v=155" media="all"/>-->
+<!--    <link rel="stylesheet" href="css/bootstrap-theme.min.css?v=155" media="all"/>-->
+<!--    <link rel="stylesheet" href="css/font-awesome.min.css?v=155" media="all"/>-->
+<!--    <link rel="stylesheet" href="css/jquery.fancybox.css?v=155" media="all"/>-->
+<!--    <link rel="stylesheet" href="css/emojify.min.css" media="all"/>-->
+<!--    <link rel="stylesheet" href="css/emojione.min.css" media="all"/>-->
+<!--    <link rel="stylesheet" href="css/common.css?v=155" media="all"/>-->
+<!--    <link rel="stylesheet" href="css/main.css?v=155" media="all"/>-->
+<!--    <link rel="stylesheet" href="css/main-new.css?v=155" media="all"/>-->
 
     <!-- Scripts -->
-    <script src="js/jquery-1.11.0.min.js?v=155"></script>
-    <script src="js/jquery.cookie.min.js?v=155"></script>
-    <script src="js/jquery.fancybox.pack.js?v=155"></script>
-    <script src="js/jquery.maskedinput.min.js?v=155"></script>
-    <script src="js/underscore.min.js?v=155"></script>
-    <script src="js/bootstrap.min.js?v=155"></script>
-    <script src="js/json2.min.js?v=155"></script>
-    <script src="js/emojify.min.js"></script>
-    <script src="js/emojione.min.js"></script>
-    <script src="js/helper.min.js?v=155"></script>
-    <script src="js/popup.min.js?v=155"></script>
-    <script src=js/main.min.js?v=155"></script>
+<!--    <script src="js/jquery-1.11.0.min.js?v=155"></script>-->
+<!--    <script src="js/jquery.cookie.min.js?v=155"></script>-->
+<!--    <script src="js/jquery.fancybox.pack.js?v=155"></script>-->
+<!--    <script src="js/jquery.maskedinput.min.js?v=155"></script>-->
+<!--    <script src="js/underscore.min.js?v=155"></script>-->
+<!--    <script src="js/bootstrap.min.js?v=155"></script>-->
+<!--    <script src="js/json2.min.js?v=155"></script>-->
+<!--    <script src="js/emojify.min.js"></script>-->
+<!--    <script src="js/emojione.min.js"></script>-->
+<!--    <script src="js/helper.min.js?v=155"></script>-->
+<!--    <script src="js/popup.min.js?v=155"></script>-->
+<!--    <script src=js/main.min.js?v=155"></script>-->
 
 
 
@@ -69,10 +69,17 @@
 <body class="skin-black">
 <!-- header logo: style can be found in header.less -->
 <header class="header">
-    <a href="user/dashboard.php" class="logo">
+<!--    <a href="user/dashboard.php" class="logo">-->
+<!--        <!-- Add the class icon to your logo image or logo icon to add the margining -->
+<!--        Social Envy-->
+<!--    </a>-->
+
+    <a href="dashboard.php" class="logo">
+        <img src="img/SocialEnvyLogo.png" width="150px" height="40" />
         <!-- Add the class icon to your logo image or logo icon to add the margining -->
-        Social Envy
+
     </a>
+
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top" role="navigation">
         <!-- Sidebar toggle button-->
@@ -336,7 +343,7 @@
     </section>
     <!-- /.sidebar -->
 </aside>
-<div class="row">
+<div >
 
 <!-- Right side column. Contains the navbar and content of the page -->
 <aside class="right-side">
@@ -344,6 +351,23 @@
 
 <!-- Content Header (Page header) -->
 <section class="content-header">
+
+    <div class="col-lg-6 col-md-6 col-sm-6">
+        <p class="text-blue">Add new account to your dashboard</p>
+        <a class="btn btn-danger"  href="addinstagramaccount.php" style="text-align:center; margin-bottom:10px;">
+            <i class="fa fa-plus"></i>
+            Add Account
+        </a>
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-6">
+        <p class="text-blue">Buy Time Package</p>
+        <a class="btn btn-danger" style="text-align:center; margin-bottom:10px;">
+            <!--                    <i class="fa fa-save"></i>-->
+            Buy Time Package
+        </a>
+    </div>
+
     <h1>
         Activity
         <small>Control panel</small>
@@ -356,21 +380,7 @@
 
 <!-- Main content -->
 <section class="content">
-<div class="col-lg-4 col-md-4 col-sm-4">
-    <p class="text-blue">Add new account to your dashboard</p>
-    <a class="btn btn-danger"  href="addinstagramaccount.php" style="text-align:center; margin-bottom:10px;">
-                       <i class="fa fa-plus"></i>
-        Add Account
-    </a>
-</div>
 
-<div class="col-lg-4 col-md-4 col-sm-4">
-    <p class="text-blue">Buy Time Package</p>
-    <a class="btn btn-danger" style="text-align:center; margin-bottom:10px;">
-        <!--                    <i class="fa fa-save"></i>-->
-        Buy Time Package
-    </a>
-</div>
 <!--<div class="col-lg-4 col-md-4 col-sm-4">
     <p class="text-blue">Buy Time Package</p>
     <a class="btn btn-danger" style="text-align:center; margin-bottom:10px;">
@@ -552,11 +562,10 @@
 
                         <td  align="left" valign="middle" style="padding-bottom:14px;">New media only<a href="#" data-toggle="tooltip"><i class="fa fa-question"></i></a></td>
                         <td  align="right" valign="middle">
-                              <span class="pull-right">
-							<input name="newMediaOnly" id="inpNewMediaOnly" class="chk-custom" type="checkbox"
-                                   data-checked="false"/>
-							<label class="chk-custom" for="inpNewMediaOnly"></label>
-						</span>
+<!--                              <span class="pull-right">-->
+							<input name="Newmediaonly" id="Newmediaonly" class="chk-custom" type="checkbox"/>
+							<!--<label class="chk-custom" for="Newmediaonly"></label>
+						</span>-->
                         </td>
 
 
@@ -621,7 +630,12 @@
                     <tr>
 
                         <td align="left" valign="middle" style="padding-bottom:6px;">Don't comment same users<a href="#" data-toggle="tooltip"><i class="fa fa-question"></i></a></td>
-                        <td align="left" valign="middle"></td>
+                        <td align="left" valign="middle">
+<!--                            <span class="pull-right">-->
+							<input name="Dontcommentsameusers" id="Dontcommentsameusers" class="chk-custom" type="checkbox"/>
+<!--							<label class="chk-custom" for="Dontcommentsameusers"></label>-->
+<!--						</span>-->
+                        </td>
 
                     </tr>
 
@@ -814,7 +828,9 @@
                 <tr>
                     <td>Comments<a href="#" data-toggle="tooltip"><i class="fa fa-question"></i></a></td>
                     <td>
-                        <ul class="tags">
+                        <ul>
+                            <div id="comment-list"></div>
+                           <!-- <li><a href="#">awesome<button type="button" style="color: #fff;float: left;margin-left: -12px;margin-right: 5px;margin-top: 5px;text-shadow:0 1px 0 #000" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></a></li>
                             <li><a href="#">awesome<button type="button" style="color: #fff;float: left;margin-left: -12px;margin-right: 5px;margin-top: 5px;text-shadow:0 1px 0 #000" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></a></li>
                             <li><a href="#">awesome<button type="button" style="color: #fff;float: left;margin-left: -12px;margin-right: 5px;margin-top: 5px;text-shadow:0 1px 0 #000" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></a></li>
                             <li><a href="#">awesome<button type="button" style="color: #fff;float: left;margin-left: -12px;margin-right: 5px;margin-top: 5px;text-shadow:0 1px 0 #000" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></a></li>
@@ -828,8 +844,21 @@
                             <li><a href="#">awesome<button type="button" style="color: #fff;float: left;margin-left: -12px;margin-right: 5px;margin-top: 5px;text-shadow:0 1px 0 #000" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></a></li>
                             <li><a href="#">awesome<button type="button" style="color: #fff;float: left;margin-left: -12px;margin-right: 5px;margin-top: 5px;text-shadow:0 1px 0 #000" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></a></li>
                             <li><a href="#">awesome<button type="button" style="color: #fff;float: left;margin-left: -12px;margin-right: 5px;margin-top: 5px;text-shadow:0 1px 0 #000" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></a></li>
-                            <li><a href="#">awesome<button type="button" style="color: #fff;float: left;margin-left: -12px;margin-right: 5px;margin-top: 5px;text-shadow:0 1px 0 #000" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></a></li>
-
+-->
+                            <li>
+                                <div class="input-group">
+                                    <input id="inpAddComments" class="form-control" type="text"/>
+                                    <div class="input-group-btn">
+                                        <input type="button" class="btn btn-plain btn-add-tags" onclick="addComment()" value="ADD"/>
+                                        <!--<button class="btn btn-plain dropdown-toggle" data-toggle="dropdown" tabindex="-1">
+                                            <span class="caret"></span>
+                                        </button>-->
+                                        <ul class="dropdown-menu dropdown-menu-right">
+                                            <li><a href="#" class="btn-del-tags">Delete all comments</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
                         </ul>
 
 

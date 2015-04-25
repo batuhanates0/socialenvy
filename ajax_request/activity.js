@@ -201,8 +201,24 @@ function updatestatus_stop(id) {
 
 }
 function update(id) {
+    var Newmediaonly="";
+    var Dontcommentsameusers="";
+    if ($('#Newmediaonly').is(":checked"))
+    {
+        Newmediaonly="True";
+    }
+    else{
+        Newmediaonly="False";
+    }
+    if ($('#Dontcommentsameusers').is(":checked"))
+    {
+        Dontcommentsameusers="True";
+    }
+    else{
+        Dontcommentsameusers="False";
+    }
 
-    // alert(id);
+     //alert(Newmediaonly);
     var data = {
         "action": "changestatus"
     };
@@ -210,7 +226,9 @@ function update(id) {
     if(id!= null)
     {
         var query_data = {
-            "Id": id
+            "Id": id,
+            "Newmediaonly":Newmediaonly,
+            "Dontcommentsameusers":Dontcommentsameusers
         };
 
         data = $(this).serialize() + "&" + $.param(data)+ "&" + $.param(query_data) + "&" + $('#formsubmit').serialize();
@@ -469,8 +487,55 @@ function deleteUsername(id)
     return false;
 
 }
-
 //////////////////////////////////////delete tblUsername data/////////////////////////
+////////////////////////////////////////delete tblComment data/////////////////////////
+function deleteComment(id)
+{
+
+    //jConfirm('Do You Really Want To Delete?', 'Confirmation', function (result) {
+    // if (result) {
+
+
+
+    var data = {
+        "action": "DeleteSelectedComment"
+    };
+
+    if (id != null) {
+        var query_data = {
+            "Id": id
+        };
+
+        data = $(this).serialize() + "&" + $.param(data) + "&" + $.param(query_data);
+
+    } else {
+        data = $(this).serialize() + "&" + $.param(data);
+    }
+
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "actionpage/comment.php", //Relative or absolute path to response.php file
+        data: data,
+        success: function (data, status) {
+            $("#"+id).hide();
+            // alert("Username Deleted");
+        },
+        error: function (xhr, desc, err) {
+
+        }
+    });
+    //  }
+    // else {
+
+    //  }
+
+    // });
+
+    return false;
+
+}
+//////////////////////////////////////////delete tblComment data///////////////////////
 ///////////////////////////////////location tbl data//////////////////////////////
 $("document").ready(function(){
     function GetParameterValues(param) {
@@ -642,6 +707,63 @@ $("document").ready(function(){
     return false;
 });
 //////////////////////////////////////////////////////user tbl data/////////////////////////////
+///////////////////////////////////fetch tblComment data////////////////////////////////////////
+$("document").ready(function(){
+    function GetParameterValues(param) {
+        var url = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+        for (var i = 0; i < url.length; i++) {
+            var urlparam = url[i].split('=');
+            if (urlparam[0] == param) {
+                return urlparam[1];
+            }
+        }
+    }
+
+    var user_Id = GetParameterValues('id');
+
+    var data = {
+        "action": "getComments"
+    };
+    if(user_Id!= null)
+    {
+        var query_data = {
+            "Id": user_Id
+        };
+
+        data = $(this).serialize() + "&" + $.param(data)+ "&" + $.param(query_data);
+
+    }else {
+        data = $(this).serialize() + "&" + $.param(data);
+    }
+    // var data = {
+    //       "action": "gethashtags"
+    // };
+    // data = $(this).serialize() + "&" + $.param(data);
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "actionpage/comment.php", //Relative or absolute path to response.php file
+        data: data,
+        success: function(data, status) {
+            data = eval(data);
+            var innerTableHtml = "";
+
+
+            for (var i = 0; i < data.length; i++) {
+
+                // innerTableHtml += "<li><a href='#'>"+data[i].tagname+"<button type='button' style='color: #fff;float: left;margin-left: -12px;margin-right: 5px;margin-top: 5px;text-shadow:0 1px 0 #000' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button></a></li>";
+                innerTableHtml += "<li id='"+data[i].id +"'><a>"+data[i].comment;
+                innerTableHtml +='<button type="button" class="close" href="javascript:void(0)"  onclick="deleteComment(\''+data[i].id+'\')">&times;</button>';
+                innerTableHtml +="</a></li>";
+            }
+            $('#comment-list').append(innerTableHtml);
+
+        }
+
+    });
+    return false;
+});
+///////////////////////////////////fetch tblComment data///////////////////////////////////////
 ////////////////////////////////////////////////////////add tags/////////////////////////////////
 function addTag(){
     //var Tagname = $("#inpAddTags").val();
@@ -867,6 +989,75 @@ function addUsername(){
 
 }
 /////////////////////////////////////////////////Add username//////////////////////////
+////////////////////////////////////////////////Add Comments///////////////////////////////////////////////
+function addComment(){
+    //var Tagname = $("#inpAddTags").val();
+    var Comment = [];
+    Comment = $('#inpAddComments').val().split(',');
+    // alert(Username);
+    //  var count=Tagname.length;
+    // alert(count);
+    function GetParameterValues(param) {
+        var url = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+        for (var i = 0; i < url.length; i++) {
+            var urlparam = url[i].split('=');
+            if (urlparam[0] == param) {
+                return urlparam[1];
+            }
+        }
+    }
+
+    var user_Id = GetParameterValues('id');
+
+    var data = {
+        "action": "addComment"
+    };
+    if(user_Id!= null)
+    {
+
+        var query_data = {
+            "Id": user_Id,
+            "Comment":Comment
+            // "count":count
+        };
+
+        data = $(this).serialize() + "&" + $.param(data)+ "&" + $.param(query_data)
+
+    }else {
+        data = $(this).serialize() + "&" + $.param(data);
+    }
+
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "actionpage/comment.php", //Relative or absolute path to response.php file
+        data: data,
+        success: function(data) {
+
+            data = eval(data);
+            var innerTableHtml = "";
+
+            for(i=0; i<data.length; i++){
+                //  alert(data[i].id + " " +data[i].username );
+                innerTableHtml += "<li id='"+data[i].id+"'><a>"+data[i].comment;
+                innerTableHtml +='<button type="button" class="close" onclick="deleteComment(\''+data[i].id+'\')" href="javascript:void(0)">&times;</button>';
+                innerTableHtml +="</a></li>";
+
+            }
+            $('#comment-list').html(innerTableHtml);
+
+        },
+        error: function(xhr, desc, err) {
+            // alert(xhr);
+            //alert("Details: " + desc + "\nError:" + err);
+        }
+
+
+    });
+    return false;
+
+}
+////////////////////////////////////////////////Add comments end//////////////////////////////////////////
 //////////////////////////////////Mainsettings tbl data/////////////////////////////////////////////////////////////
 $("document").ready(function(){
     function GetParameterValues(param) {
@@ -912,6 +1103,23 @@ $("document").ready(function(){
                 $('#Mediasource').val(data[0].Mediasource);
                 $('#Minlikesfilter').val(data[0].Minlikesfilter);
                 $('#Maxlikesfilter').val(data[0].Maxlikesfilter);
+
+                if (data[0].Newmediaonly != "False"){
+                  //  alert("hello"+data[0].Newmediaonly);
+                    $("#Newmediaonly").iCheck('check');
+                   // $('.icheckbox_minimal').attr('aria-checked', true);
+                  //  $("#Newmediaonly").attr("checked") ? alert("Checked") : alert("Unchecked");
+                }
+                else{
+                    $('#Newmediaonly').iCheck('uncheck');
+                   // $("#Newmediaonly").attr("checked") ? alert("Checked") : alert("Unchecked");
+                }
+                if (data[0].Dontcommentsameusers != "False"){
+                    $('#Dontcommentsameusers').iCheck('check');
+                }
+                else{
+                    $('#Dontcommentsameusers').iCheck('uncheck');
+                }
                // $('#imgprevw').attr('src','../userimages/small/' + data[0].Image );
                // $('#articleTitle').val(data[0].articleTitle);
 

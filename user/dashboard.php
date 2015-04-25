@@ -43,6 +43,16 @@
     <body class="skin-black">
         <!-- header logo: style can be found in header.less -->
         <header class="header">
+<!--            <a href="dashboard.php" class="logo">-->
+<!--                <!-- Add the class icon to your logo image or logo icon to add the margining -->
+<!--                Social Envy-->
+<!--            </a>-->
+
+            <a href="dashboard.php" class="logo">
+                <img src="../img/SocialEnvyLogo.png" width="150px" height="40" />
+                <!-- Add the class icon to your logo image or logo icon to add the margining -->
+
+            </a>
 
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top" role="navigation">
@@ -232,11 +242,6 @@
             <!-- Left side column. contains the logo and sidebar -->
             <aside class="left-side sidebar-offcanvas">
 
-                <a href="dashboard.php">
-                    <img src="../img/SocialEnvyLogo.png" width="100px" height="120px" />
-                    <!-- Add the class icon to your logo image or logo icon to add the margining -->
-
-                </a>
 
                 <!-- sidebar: style can be found in sidebar.less -->
                 <section class="sidebar">
@@ -344,6 +349,8 @@
 
             <!-- Right side column. Contains the navbar and content of the page -->
             <aside class="right-side">
+
+
        <!--     <div class="col-lg-4 col-md-4 col-sm-4">
             <p class="text-blue">Add new account to your dashboard</p>
             <a class="btn btn-danger"  href="../addinstagramaccount.php" style="text-align:center; margin-bottom:10px;">
@@ -380,11 +387,22 @@
 
                         <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1>
-                        Accounts
-                        <small>Control panel</small>
 
-                    </h1>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <p class="text-blue">Add new account to your dashboard</p>
+                        <a class="btn btn-danger"  href="addinstagramaccount.php" style="text-align:center; margin-bottom:10px;">
+                            <i class="fa fa-plus"></i>
+                            Add Account
+                        </a>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <p class="text-blue">Buy Time Package</p>
+                        <a class="btn btn-danger" style="text-align:center; margin-bottom:10px;">
+                            <!--                    <i class="fa fa-save"></i>-->
+                            Buy Time Package
+                        </a>
+                    </div>
                     <ol class="breadcrumb">
 
                         <li class="active">Sort:</li>
@@ -393,6 +411,12 @@
                         <li><a href="#">Status</a></li>
                         <li><a href="#">Time</a></li>
                     </ol>
+                    <h1>
+                        Accounts
+                        <small>Control panel</small>
+
+                    </h1>
+
 
                 </section>
 
@@ -400,27 +424,6 @@
 
        <!-- Main content -->
                 <section class="content">
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                    <p class="text-blue">Add new account to your dashboard</p>
-                    <a class="btn btn-danger"  href="../addinstagramaccount.php" style="text-align:center; margin-bottom:10px;">
-                                        <i class="fa fa-plus"></i>
-                        Add Account
-                    </a>
-                </div>
-
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                    <p class="text-blue">Buy Time Package</p>
-                    <a class="btn btn-danger" style="text-align:center; margin-bottom:10px;">
-                        <!--                    <i class="fa fa-save"></i>-->
-                        Buy Time Package
-                    </a>
-                </div>                <div class="col-lg-4 col-md-4 col-sm-4">
-                    <p class="text-blue">Buy Time Package</p>
-                    <a class="btn btn-danger" style="text-align:center; margin-bottom:10px;">
-                        <!--                    <i class="fa fa-save"></i>-->
-                        Buy Time Package
-                    </a>
-                </div>
 
                     <!-- Main row -->
                     <div class="row">

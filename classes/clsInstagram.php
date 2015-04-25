@@ -227,7 +227,7 @@ class clsInstagram {
         echo json_encode($data);
     }
 
-    public function changeaccountstatusinsertdetails($id,$isRunning,$Activityspeed,$Mediasource,$Minlikesfilter,$Maxlikesfilter,$Likescounter,$Commentscounter,$Followscounter,$Unfollowscounter,$Timer){
+    public function changeaccountstatusinsertdetails($id,$isRunning,$Activityspeed,$Mediasource,$Minlikesfilter,$Maxlikesfilter,$Newmedia,$DontComment,$Likescounter,$Commentscounter,$Followscounter,$Unfollowscounter,$Timer){
 
         $dbCon = new DatabaseConnection();
        // $isRun='Stopped';
@@ -268,6 +268,7 @@ class clsInstagram {
 
             $result_updateuser =$dbCon->con->prepare("UPDATE `tblMainSetting` Set `Activityspeed`= :Activityspeed,
                                                         Mediasource=:Mediasource,Minlikesfilter=:Minlikesfilter,
+                                                        Newmediaonly=:Newmediaonly,Dontcommentsameusers=:Dontcommentsameusers,
                                                         Maxlikesfilter=:Maxlikesfilter where `InstaAccId`=:InstaAccId");
 
             $result_updateuser->bindParam(':InstaAccId', $id);
@@ -275,6 +276,9 @@ class clsInstagram {
             $result_updateuser->bindParam(':Mediasource', $Mediasource);
             $result_updateuser->bindParam(':Minlikesfilter', $Minlikesfilter);
             $result_updateuser->bindParam(':Maxlikesfilter', $Maxlikesfilter);
+            $result_updateuser->bindParam(':Newmediaonly', $Newmedia);
+            $result_updateuser->bindParam(':Dontcommentsameusers', $DontComment);
+
 
             $result_updateuser->execute();
 
@@ -283,8 +287,8 @@ class clsInstagram {
         }
         else {
             //Main setting table code
-            $strQuery = "insert into tblMainSetting (`uid`,`InstaAccId`,`Activityspeed`,`Mediasource`,`Minlikesfilter`,`Maxlikesfilter`)
-                              VALUES (:uid,:InstaAccId,:Activityspeed,:Mediasource,:Minlikesfilter,:Maxlikesfilter)";
+            $strQuery = "insert into tblMainSetting (`uid`,`InstaAccId`,`Activityspeed`,`Mediasource`,`Minlikesfilter`,`Maxlikesfilter`,`Newmediaonly`,`Dontcommentsameusers`)
+                              VALUES (:uid,:InstaAccId,:Activityspeed,:Mediasource,:Minlikesfilter,:Maxlikesfilter,:Newmediaonly,:Dontcommentsameusers)";
             $result_mainsetting = $dbCon->con->prepare($strQuery);
 
             $result_mainsetting->bindParam(':uid', $uid);
@@ -293,6 +297,8 @@ class clsInstagram {
             $result_mainsetting->bindParam(':Mediasource', $Mediasource);
             $result_mainsetting->bindParam(':Minlikesfilter', $Minlikesfilter);
             $result_mainsetting->bindParam(':Maxlikesfilter', $Maxlikesfilter);
+            $result_mainsetting->bindParam(':Newmediaonly', $Newmedia);
+            $result_mainsetting->bindParam(':Dontcommentsameusers', $DontComment);
 
             $result_mainsetting->execute();
 
@@ -740,6 +746,80 @@ class clsInstagram {
 
 
         $result =$dbCon->con->prepare("delete from tblUsername where id=:id");
+
+        $result->bindParam(':id',$id);
+
+
+        $result->execute();
+        $rows = $result->rowCount();//  fetch(PDO::FETCH_NUM);
+
+
+        if ($rows == 1) {
+            $responseMsg = "Success";
+        } else {
+            $responseMsg = "Failed";
+        }
+        echo json_encode($responseMsg);
+    }
+
+    public function AddComment($id,$Comment)
+    {
+
+        $dbCon = new DatabaseConnection();
+
+        $check_userid=$dbCon->con->prepare("SELECT id FROM tblLogin WHERE username = :user");
+        $check_userid->bindparam(':user',$_SESSION['login_user']);
+        $check_userid->execute();
+        $result_userid = $check_userid->fetch(PDO::FETCH_ASSOC);
+
+        $uid=$result_userid['id'];
+        foreach($Comment as $value) {
+
+            $strQuery1 = "insert into tblComment (`uid`,`InstaAccId`,`comment`)
+                              VALUES (:uid,:InstaAccId,:comment)";
+            $result_tblComment = $dbCon->con->prepare($strQuery1);
+
+            $result_tblComment->bindParam(':uid', $uid);
+            $result_tblComment->bindParam(':InstaAccId', $id);
+            $result_tblComment->bindParam(':comment', $value);
+
+
+            $result_tblComment->execute();
+
+            $rows_tblUsername = $result_tblComment->rowCount();//  fetch(PDO::FETCH_NUM);
+        }
+
+        $result_fetch = $dbCon->con->prepare("select * from tblComment  where `InstaAccId`=:InstaAccId");
+        // $result_fetch->bindParam(':tagname', $value);
+        $result_fetch->bindParam(':InstaAccId', $id);
+        $result_fetch->execute();
+        $data = $result_fetch->fetchAll();
+        echo json_encode($data);
+
+    }
+
+    public function getComment($InstaAccId){
+        $dbCon = new DatabaseConnection();
+
+
+        $result =$dbCon->con->prepare("select * from tblComment where InstaAccId=:InstaAccId");
+
+        $result->bindParam(':InstaAccId',$InstaAccId);
+
+
+        $result->execute();
+
+        $data = $result->fetchall();//  fetch(PDO::FETCH_NUM);
+        echo json_encode($data);
+
+    }
+
+    public function DeleteComment($id){
+        $dbCon = new DatabaseConnection();
+
+
+
+        $result =$dbCon->con->prepare("delete from tblComment where id=:id");
 
         $result->bindParam(':id',$id);
 
