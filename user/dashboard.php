@@ -49,7 +49,7 @@
 <!--            </a>-->
 
             <a href="dashboard.php" class="logo">
-                <img src="../img/SocialEnvyLogo.png" width="150px" height="40" />
+                <img src="../img/SocialEnvyLogoNew.PNG" width="150px" height="40" />
                 <!-- Add the class icon to your logo image or logo icon to add the margining -->
 
             </a>
@@ -390,7 +390,7 @@
 
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <p class="text-blue">Add new account to your dashboard</p>
-                        <a class="btn btn-danger"  href="addinstagramaccount.php" style="text-align:center; margin-bottom:10px;">
+                        <a class="btn btn-danger"  href="addinstagramaccount.php" style="text-align:center; margin-bottom:10px; width:250px;">
                             <i class="fa fa-plus"></i>
                             Add Account
                         </a>
@@ -398,8 +398,8 @@
 
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <p class="text-blue">Buy Time Package</p>
-                        <a class="btn btn-danger" style="text-align:center; margin-bottom:10px;">
-                            <!--                    <i class="fa fa-save"></i>-->
+                        <a class="btn btn-danger" style="text-align:center; margin-bottom:10px; width:250px;">
+                                                <i class="fa fa-credit-card"></i>
                             Buy Time Package
                         </a>
                     </div>

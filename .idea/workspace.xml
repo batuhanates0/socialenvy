@@ -24,7 +24,30 @@
     <favorites_list name="socialenvy" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="accountdetails.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ajax_request/accountdetails.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="4.959578" vertical-offset="357" max-vertical-offset="4488">
+              <caret line="291" column="180" selection-start-line="291" selection-start-column="180" selection-end-line="291" selection-end-column="180" />
+              <folding>
+                <element signature="n#!!block;n#updatestopall#0" expanded="false" />
+                <element signature="n#!!block;n#updatestatusall#0" expanded="false" />
+                <element signature="n#!!block;n#updatestatusstop#0" expanded="false" />
+                <element signature="e#2471#2483#0" expanded="false" />
+                <marker date="1429943675646" expanded="false" signature="6478:6548" placeholder="..." />
+                <marker date="1429943675646" expanded="false" signature="6711:6760" placeholder="..." />
+                <marker date="1429943675646" expanded="false" signature="6898:6916" placeholder="..." />
+                <marker date="1429943675646" expanded="false" signature="7242:7312" placeholder="..." />
+                <marker date="1429943675646" expanded="false" signature="7809:7838" placeholder="..." />
+                <marker date="1429943675646" expanded="false" signature="8044:8114" placeholder="..." />
+                <marker date="1429943675646" expanded="false" signature="9237:9307" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -37,19 +60,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/clstest.php" />
         <option value="$PROJECT_DIR$/classes/clsUser.php" />
         <option value="$PROJECT_DIR$/actionpage/location.php" />
         <option value="$PROJECT_DIR$/actionpage/username.php" />
         <option value="$PROJECT_DIR$/addinstagramaccount.php" />
-        <option value="$PROJECT_DIR$/ajax_request/accountdetails.js" />
         <option value="$PROJECT_DIR$/css/default.css" />
-        <option value="$PROJECT_DIR$/user/dashboard.php" />
         <option value="$PROJECT_DIR$/actionpage/comment.php" />
         <option value="$PROJECT_DIR$/classes/clsInstagram.php" />
-        <option value="$PROJECT_DIR$/activity.php" />
         <option value="$PROJECT_DIR$/actionpage/startinstaaccactivity.php" />
+        <option value="$PROJECT_DIR$/ajax_request/accountdetails.js" />
+        <option value="$PROJECT_DIR$/js/popup.min.js" />
+        <option value="$PROJECT_DIR$/css/main.css" />
+        <option value="$PROJECT_DIR$/user/dashboard.php" />
         <option value="$PROJECT_DIR$/ajax_request/activity.js" />
+        <option value="$PROJECT_DIR$/activity.php" />
+        <option value="$PROJECT_DIR$/clstest.php" />
+        <option value="$PROJECT_DIR$/classes/InstagramLogin.php" />
       </list>
     </option>
   </component>
@@ -114,7 +140,21 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
+              <option name="myItemId" value="user" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="socialenvy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="socialenvy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="classes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -153,7 +193,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../welikeu" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../FacebookAutomation" />
     <property name="FullScreen" value="false" />
   </component>
   <component name="RunManager">
@@ -198,8 +238,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1376" height="744" extended-state="0" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1376" height="744" extended-state="1" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -207,7 +247,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25367647" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25367647" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32786885" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -240,74 +280,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ajax_request/accountdetails.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="3111">
-          <caret line="186" column="62" selection-start-line="186" selection-start-column="62" selection-end-line="186" selection-end-column="62" />
-          <folding>
-            <element signature="n#!!block;n#updatestopall#0" expanded="false" />
-            <element signature="n#!!block;n#updatestatusall#0" expanded="false" />
-            <element signature="n#!!block;n#updatestatusstop#0" expanded="false" />
-            <element signature="n#!!block;n#updatestatus#0" expanded="false" />
-            <element signature="e#2471#2483#0" expanded="false" />
-            <marker date="1429709179264" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1429709179264" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1429709179264" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1429709179264" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1429709179264" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1429709179264" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1429709179264" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ajax_request/activity.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="154" max-vertical-offset="2720">
-          <caret line="67" column="18" selection-start-line="67" selection-start-column="18" selection-end-line="67" selection-end-column="18" />
-          <folding>
-            <element signature="n#!!block;n#ChangeFollowProcess#0" expanded="false" />
-            <element signature="n#!!block;n#ChangeLikeProcess#0" expanded="false" />
-            <element signature="n#!!block;n#ChangeCommentProcess#0" expanded="false" />
-            <element signature="n#!!block;n#ChangeUnFollowProcess#0" expanded="false" />
-            <element signature="n#!!block;n#ProcessSelection#0" expanded="false" />
-            <element signature="n#!!block;n#updatestatus_stop#0" expanded="false" />
-            <element signature="e#6937#8851#0" expanded="false" />
-            <element signature="n#!!block;n#deletetag#0" expanded="false" />
-            <element signature="n#!!block;n#deleteLocation#0" expanded="false" />
-            <element signature="n#!!block;n#deleteUsername#0" expanded="false" />
-            <element signature="n#!!block;n#deleteComment#0" expanded="false" />
-            <element signature="e#13826#15672#0" expanded="false" />
-            <element signature="e#15875#17716#0" expanded="false" />
-            <element signature="e#17937#19873#0" expanded="false" />
-            <element signature="e#20100#21937#0" expanded="false" />
-            <element signature="n#!!block;n#addTag#0" expanded="false" />
-            <element signature="n#!!block;n#addLocation#0" expanded="false" />
-            <element signature="n#!!block;n#GetParameterValues#0;n#!!block;n#addLocation#0" expanded="false" />
-            <element signature="n#!!block;n#addUsername#0" expanded="false" />
-            <element signature="n#!!block;n#addComment#0" expanded="false" />
-            <element signature="e#34191#35622#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/user/dashboard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="816" max-vertical-offset="11730">
-          <caret line="20" column="33" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#div#0;n#section#0;n#aside#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#1;n#section#0;n#aside#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1429871767887" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ajax_request/accountdetails.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3111">
@@ -316,15 +293,14 @@
             <element signature="n#!!block;n#updatestopall#0" expanded="false" />
             <element signature="n#!!block;n#updatestatusall#0" expanded="false" />
             <element signature="n#!!block;n#updatestatusstop#0" expanded="false" />
-            <element signature="n#!!block;n#updatestatus#0" expanded="false" />
             <element signature="e#2471#2483#0" expanded="false" />
-            <marker date="1429709179264" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1429709179264" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1429709179264" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1429709179264" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1429709179264" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1429709179264" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1429709179264" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1429943675646" expanded="false" signature="6478:6548" placeholder="..." />
+            <marker date="1429943675646" expanded="false" signature="6711:6760" placeholder="..." />
+            <marker date="1429943675646" expanded="false" signature="6898:6916" placeholder="..." />
+            <marker date="1429943675646" expanded="false" signature="7242:7312" placeholder="..." />
+            <marker date="1429943675646" expanded="false" signature="7809:7838" placeholder="..." />
+            <marker date="1429943675646" expanded="false" signature="8044:8114" placeholder="..." />
+            <marker date="1429943675646" expanded="false" signature="9237:9307" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -497,38 +473,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/InstagramLogin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="4063">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/classes/DatabaseConnection.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="476" max-vertical-offset="663">
           <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clstest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="510">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/clsUser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="1156">
-          <caret line="80" column="84" selection-start-line="80" selection-start-column="84" selection-end-line="80" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/clsLogin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1020" max-vertical-offset="2516">
-          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -585,36 +533,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="7053" max-vertical-offset="59126">
           <caret line="434" column="11" selection-start-line="434" selection-start-column="11" selection-end-line="434" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="28" max-vertical-offset="65059">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ajax_request/accountdetails.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4920914" vertical-offset="2576" max-vertical-offset="3400">
-          <caret line="330" column="13" selection-start-line="330" selection-start-column="13" selection-end-line="330" selection-end-column="13" />
-          <folding>
-            <element signature="n#!!block;n#updatestopall#0" expanded="false" />
-            <element signature="n#!!block;n#updatestatusall#0" expanded="false" />
-            <element signature="n#!!block;n#updatestatusstop#0" expanded="false" />
-            <element signature="n#!!block;n#updatestatus#0" expanded="false" />
-            <element signature="e#2471#2483#0" expanded="false" />
-            <marker date="1429709179264" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1429709179264" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1429709179264" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1429709179264" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1429709179264" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1429709179264" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1429709179264" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -634,99 +552,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/actionpage/startinstaaccactivity.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.50092083" vertical-offset="0" max-vertical-offset="543">
-          <caret line="16" column="223" selection-start-line="16" selection-start-column="223" selection-end-line="16" selection-end-column="223" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/activity.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18600368" vertical-offset="9453" max-vertical-offset="17510">
-          <caret line="562" column="83" selection-start-line="562" selection-start-column="83" selection-end-line="562" selection-end-column="83" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#div#0;n#section#0;n#aside#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#1;n#section#0;n#aside#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#section#1;n#aside#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#aside#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#1;n#tr#2;n#table#0;n#div#2;n#div#0;n#section#1;n#aside#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#3;n#div#0;n#section#1;n#aside#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#3;n#div#0;n#section#1;n#aside#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#3;n#div#0;n#section#1;n#aside#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#1;n#div#3;n#div#0;n#section#1;n#aside#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#2;n#div#3;n#div#0;n#section#1;n#aside#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#2;n#div#3;n#div#0;n#section#1;n#aside#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#div#6;n#div#0;n#div#1;n#section#1;n#aside#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#section#1;n#aside#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#3;n#section#1;n#aside#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#4;n#section#1;n#aside#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#5;n#section#1;n#aside#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1429877050996" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/user/dashboard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6058932" vertical-offset="929" max-vertical-offset="13685">
-          <caret line="74" column="0" selection-start-line="50" selection-start-column="11" selection-end-line="55" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#div#0;n#section#0;n#aside#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#1;n#section#0;n#aside#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1429871767887" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/clsInstagram.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48987108" vertical-offset="4664" max-vertical-offset="14433">
-          <caret line="290" column="150" selection-start-line="290" selection-start-column="150" selection-end-line="290" selection-end-column="150" />
-          <folding>
-            <marker date="1429875867062" expanded="true" signature="-1:-1" placeholder="SELECT IGuna..tblInstagram..." />
-            <marker date="1429875867062" expanded="true" signature="-1:-1" placeholder="SELECT id FR..tblLogin..." />
-            <marker date="1429875867062" expanded="true" signature="-1:-1" placeholder="insert into ..." />
-            <marker date="1429875867062" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..tblInstagram..." />
-            <marker date="1429875867062" expanded="true" signature="-1:-1" placeholder="select * fro..tblInstagram..." />
-            <marker date="1429875867062" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..tblInstagram..." />
-            <marker date="1429875867062" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..tblInstagram..." />
-            <marker date="1429875867062" expanded="true" signature="-1:-1" placeholder="select * fro..tblInstagram..." />
-            <marker date="1429875867062" expanded="true" signature="-1:-1" placeholder="select * fro..tblInstagram..." />
-            <marker date="1429875867062" expanded="true" signature="-1:-1" placeholder="SELECT id FR..tblLogin..." />
-            <marker date="1429875867062" expanded="true" signature="-1:-1" placeholder="select * fro..." />
-            <marker date="1429875867062" expanded="true" signature="-1:-1" placeholder="insert into ..." />
-            <marker date="1429875867062" expanded="true" signature="-1:-1" placeholder="select * fro..." />
-            <marker date="1429875867062" expanded="true" signature="-1:-1" placeholder="insert into ..." />
-            <marker date="1429875867062" expanded="true" signature="-1:-1" placeholder="select * fro..tblInstagram..." />
-            <marker date="1429875867062" expanded="true" signature="-1:-1" placeholder="select * fro..tblUsertag..." />
-            <marker date="1429875867062" expanded="true" signature="-1:-1" placeholder="select * fro..tblMainSetting..." />
-            <marker date="1429875867062" expanded="true" signature="-1:-1" placeholder="select * fro..tblAutoStopSetting..." />
-            <marker date="1429875867062" expanded="true" signature="-1:-1" placeholder="delete from ..." />
-            <marker date="1429875867062" expanded="true" signature="-1:-1" placeholder="select * fro..tblMainSetting..." />
-            <marker date="1429875867062" expanded="true" signature="-1:-1" placeholder="SELECT id FR..tblLogin..." />
-            <marker date="1429875867062" expanded="true" signature="-1:-1" placeholder="insert into ..." />
-            <marker date="1429875867062" expanded="true" signature="-1:-1" placeholder="select * fro..tblUsertag..." />
-            <marker date="1429875867062" expanded="true" signature="-1:-1" placeholder="SELECT id FR..tblLogin..." />
-            <marker date="1429875867062" expanded="true" signature="-1:-1" placeholder="insert into ..." />
-            <marker date="1429875867062" expanded="true" signature="-1:-1" placeholder="select * fro..tblLocation..." />
-            <marker date="1429875867062" expanded="true" signature="-1:-1" placeholder="select * fro..tblLocation..." />
-            <marker date="1429875867062" expanded="true" signature="-1:-1" placeholder="delete from ..." />
-            <marker date="1429875867062" expanded="true" signature="-1:-1" placeholder="SELECT id FR..tblLogin..." />
-            <marker date="1429875867062" expanded="true" signature="-1:-1" placeholder="insert into ..." />
-            <marker date="1429875867062" expanded="true" signature="-1:-1" placeholder="select * fro..tblUsername..." />
-            <marker date="1429875867062" expanded="true" signature="-1:-1" placeholder="select * fro..tblUsername..." />
-            <marker date="1429875867062" expanded="true" signature="-1:-1" placeholder="delete from ..." />
-            <marker date="1429875867062" expanded="true" signature="-1:-1" placeholder="SELECT id FR..tblLogin..." />
-            <marker date="1429875867062" expanded="true" signature="-1:-1" placeholder="insert into ..." />
-            <marker date="1429875867062" expanded="true" signature="-1:-1" placeholder="select * fro..tblComment..." />
-            <marker date="1429875867062" expanded="true" signature="-1:-1" placeholder="select * fro..tblComment..." />
-            <marker date="1429875867062" expanded="true" signature="-1:-1" placeholder="delete from ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/actionpage/comment.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1528777" vertical-offset="0" max-vertical-offset="595">
@@ -735,32 +560,131 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/actionpage/instagramaccountactive.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="255">
+          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/actionpage/startinstaaccactivity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.50092083" vertical-offset="0" max-vertical-offset="543">
+          <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/popup.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="569">
+          <caret line="0" column="2116" selection-start-line="0" selection-start-column="2116" selection-end-line="0" selection-end-column="2116" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.94024605" vertical-offset="64422" max-vertical-offset="65059">
+          <caret line="3821" column="0" selection-start-line="3821" selection-start-column="0" selection-end-line="3821" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/clsLogin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1020" max-vertical-offset="2516">
+          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/clsInstagram.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="7.4865384" vertical-offset="0" max-vertical-offset="14433">
+          <caret line="229" column="20" selection-start-line="229" selection-start-column="20" selection-end-line="229" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/clsUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-52.307693" vertical-offset="0" max-vertical-offset="3094">
+          <caret line="80" column="84" selection-start-line="80" selection-start-column="84" selection-end-line="80" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/actionpage/mainsettingtblfalse.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="255">
+          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/activity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.9230769" vertical-offset="6868" max-vertical-offset="17833">
+          <caret line="410" column="0" selection-start-line="410" selection-start-column="0" selection-end-line="410" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/dashboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.53009707" vertical-offset="6527" max-vertical-offset="13685">
+          <caret line="400" column="105" selection-start-line="400" selection-start-column="105" selection-end-line="400" selection-end-column="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/InstagramLogin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25046042" vertical-offset="493" max-vertical-offset="4182">
+          <caret line="37" column="7" selection-start-line="37" selection-start-column="7" selection-end-line="37" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clstest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33633092" vertical-offset="0" max-vertical-offset="556">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ajax_request/activity.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.73110723" vertical-offset="2780" max-vertical-offset="3570">
-          <caret line="1120" column="63" selection-start-line="1120" selection-start-column="63" selection-end-line="1120" selection-end-column="63" />
+        <state vertical-scroll-proportion="3.7188048" vertical-offset="3494" max-vertical-offset="8653">
+          <caret line="351" column="0" selection-start-line="351" selection-start-column="0" selection-end-line="351" selection-end-column="0" />
           <folding>
-            <element signature="n#!!block;n#ChangeFollowProcess#0" expanded="false" />
-            <element signature="n#!!block;n#ChangeLikeProcess#0" expanded="false" />
             <element signature="n#!!block;n#ChangeCommentProcess#0" expanded="false" />
             <element signature="n#!!block;n#ChangeUnFollowProcess#0" expanded="false" />
-            <element signature="n#!!block;n#ProcessSelection#0" expanded="false" />
-            <element signature="n#!!block;n#updatestatus_stop#0" expanded="false" />
-            <element signature="e#6937#8851#0" expanded="false" />
             <element signature="n#!!block;n#deletetag#0" expanded="false" />
             <element signature="n#!!block;n#deleteLocation#0" expanded="false" />
             <element signature="n#!!block;n#deleteUsername#0" expanded="false" />
             <element signature="n#!!block;n#deleteComment#0" expanded="false" />
-            <element signature="e#13826#15672#0" expanded="false" />
-            <element signature="e#15875#17716#0" expanded="false" />
-            <element signature="e#17937#19873#0" expanded="false" />
-            <element signature="e#20100#21937#0" expanded="false" />
+            <element signature="e#14190#16036#0" expanded="false" />
+            <element signature="e#16239#18080#0" expanded="false" />
+            <element signature="e#18301#20237#0" expanded="false" />
+            <element signature="e#20464#22301#0" expanded="false" />
             <element signature="n#!!block;n#addTag#0" expanded="false" />
             <element signature="n#!!block;n#addLocation#0" expanded="false" />
             <element signature="n#!!block;n#GetParameterValues#0;n#!!block;n#addLocation#0" expanded="false" />
             <element signature="n#!!block;n#addUsername#0" expanded="false" />
             <element signature="n#!!block;n#addComment#0" expanded="false" />
-            <element signature="e#34191#35622#0" expanded="false" />
+            <element signature="e#37304#38735#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ajax_request/accountdetails.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="4.959578" vertical-offset="357" max-vertical-offset="4488">
+          <caret line="291" column="180" selection-start-line="291" selection-start-column="180" selection-end-line="291" selection-end-column="180" />
+          <folding>
+            <element signature="n#!!block;n#updatestopall#0" expanded="false" />
+            <element signature="n#!!block;n#updatestatusall#0" expanded="false" />
+            <element signature="n#!!block;n#updatestatusstop#0" expanded="false" />
+            <element signature="e#2471#2483#0" expanded="false" />
+            <marker date="1429943675646" expanded="false" signature="6478:6548" placeholder="..." />
+            <marker date="1429943675646" expanded="false" signature="6711:6760" placeholder="..." />
+            <marker date="1429943675646" expanded="false" signature="6898:6916" placeholder="..." />
+            <marker date="1429943675646" expanded="false" signature="7242:7312" placeholder="..." />
+            <marker date="1429943675646" expanded="false" signature="7809:7838" placeholder="..." />
+            <marker date="1429943675646" expanded="false" signature="8044:8114" placeholder="..." />
+            <marker date="1429943675646" expanded="false" signature="9237:9307" placeholder="..." />
           </folding>
         </state>
       </provider>

@@ -22,7 +22,7 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
     <script src="js/jquery-1.11.0.min.js"></script>
-    <script src="js/popup.min.js?v=155"></script>
+    <script src="js/popup.min.js?v=158"></script>
     <script src="ajax_request/activity.js"></script>
     <script src="js/jquery-1.7.2.min.js"></script>
     <link rel="stylesheet" href="css/jquery.alerts.css" media="screen"/>
@@ -65,7 +65,8 @@
     <script type="text/javascript">
 
     </script>
-</head>
+
+       </head>
 <body class="skin-black">
 <!-- header logo: style can be found in header.less -->
 <header class="header">
@@ -75,7 +76,7 @@
 <!--    </a>-->
 
     <a href="dashboard.php" class="logo">
-        <img src="img/SocialEnvyLogo.png" width="150px" height="40" />
+        <img src="img/SocialEnvyLogoNew.PNG" width="150px" height="40" />
         <!-- Add the class icon to your logo image or logo icon to add the margining -->
 
     </a>
@@ -354,7 +355,7 @@
 
     <div class="col-lg-6 col-md-6 col-sm-6">
         <p class="text-blue">Add new account to your dashboard</p>
-        <a class="btn btn-danger"  href="addinstagramaccount.php" style="text-align:center; margin-bottom:10px;">
+        <a class="btn btn-danger"  href="addinstagramaccount.php" style="text-align:center; margin-bottom:10px; width:250px;">
             <i class="fa fa-plus"></i>
             Add Account
         </a>
@@ -362,8 +363,8 @@
 
     <div class="col-lg-6 col-md-6 col-sm-6">
         <p class="text-blue">Buy Time Package</p>
-        <a class="btn btn-danger" style="text-align:center; margin-bottom:10px;">
-            <!--                    <i class="fa fa-save"></i>-->
+        <a class="btn btn-danger" style="text-align:center; margin-bottom:10px; width:250px;">
+                                <i class="fa fa-credit-card"></i>
             Buy Time Package
         </a>
     </div>
@@ -408,16 +409,22 @@
 
         <p class="text-muted">Stopped</p>
 
-        <p>Time is over <a href="#" data-toggle="tooltip"><i class="fa fa-question"></i></a></p>
+        <p>Time is over <a href="#" data-toggle="tooltip" title="You can start your activity again in less than
+												a minute. Simply choose a package from the list on the right side
+												and press the &quot;Buy&quot; button."><i class="fa fa-question"></i></a></p>
 
-        <p class="text-red">How time works?</p>
+        <p class="text-red">How time works<a href="#" data-toggle="tooltip" title="— Time is counting down only when your Activity is started and you can use it whenever you want.
+— If you wish to continue using our service, please make a purchase. You can refill your time even if it's not over yet.
+— Choose the Activity time package from our competitive range that best suits your needs.  "><i class="fa fa-question"></i></a></p>
+
 
 <!--        <div class="btn-lg btn-danger" style="text-align:center; margin-bottom:10px;"><i class="fa fa-play"></i> Start</div>-->
             <div id="dashboard"></div>
 <!--            <div id="dashboard_stop"></div>-->
 <!--             <div id="dashboard_start"></div>-->
-        <p class="text-red">How to start?</p>
-
+<!--        <p class="text-red">How to start?</p>-->
+        <p class="text-red"><a href="#" data-toggle="tooltip" title="If you want to get a lot of new likes, comments, and followers, you should be doing the same for others. We help you to be more active! 1. Select what do you want to do: like, comment, follow or unfollow. To do this, press on the button next to each action, so its color changes to red.  2. Our settings will help you to control your activity depends on your needs.
+3. We have already added some tags and comments for easy start. Just push the red button! " >How to start<i class="fa fa-question"></i></a></p>
     </div>
 
     <div class="col-lg-4 col-md-4 col-sm-4">
@@ -502,8 +509,13 @@
 
                     <tr>
 
-                        <td  align="left" valign="middle">Activity speed<a href="#" data-toggle="tooltip"><i class="fa fa-question"></i></a></td>
-                        <td  align="right" valign="middle">
+                        <td  align="left" valign="middle">Activity speed<a href="#" data-toggle="tooltip"   title="Slow — smart speed to do about 800 likes, 200 comments, 250 follows per day.<br/>
+                                                                                                                                                  Normal — smart speed to do about 1000 likes, 250 comments, 300 follows per day.<br/>
+                                                                                                                                                Fast — smart speed to do about 1200 likes, 300 comments, 350 follows per day.<br/>
+                                                                                                                                                Try to use Normal speed for the first time and then change it
+                                                                                                                                                to Slow if action errors occur or change it to Fast if no action
+                                                                                                                                                errors occur for a long time."><i class="fa fa-question"></i></a></td>
+                                                                                <td  align="right" valign="middle">
 
 
                             <select  id="Activityspeed" name="Activityspeed" class="form-control" >
@@ -522,6 +534,8 @@
 
         </div>
 
+
+
         <div class="col-lg-4 col-md-4 col-sm-4">
 
             <div  class="inner-setting-box">
@@ -530,7 +544,7 @@
 
                     <tr>
 
-                        <td  align="left" valign="middle">Media source<a href="#" data-toggle="tooltip"><i class="fa fa-question"></i></a>
+                        <td  align="left" valign="middle">Media source<a href="#" data-toggle="tooltip" title="Select the source of photos and videos for your activity:<br/><br/> Tags — to search media by selected tags.<br/> Locations — to search media by selected locations.<br/> My Feed — to get the media from your own feed."><i class="fa fa-question"></i></a>
                             <small class="badge pull-left bg-red">New</small></td>
 
 
@@ -560,7 +574,7 @@
 
                     <tr>
 
-                        <td  align="left" valign="middle" style="padding-bottom:14px;">New media only<a href="#" data-toggle="tooltip"><i class="fa fa-question"></i></a></td>
+                        <td  align="left" valign="middle" style="padding-bottom:14px;">New media only<a href="#" data-toggle="tooltip" title="When checking this box you will grab only new media objects. Remember, process can wait many time until new media appears in tag or in feed."><i class="fa fa-question"></i></a></td>
                         <td  align="right" valign="middle">
 <!--                              <span class="pull-right">-->
 							<input name="Newmediaonly" id="Newmediaonly" class="chk-custom" type="checkbox"/>
@@ -583,7 +597,7 @@
 
                     <tr>
 
-                        <td align="left" valign="middle">Min. likes filter<a href="#" data-toggle="tooltip"><i class="fa fa-question"></i></a></td>
+                        <td align="left" valign="middle">Min. likes filter<a href="#" data-toggle="tooltip" title="Find only media objects with given minimum amount of likes to interact. Use it with Max. likes filter to set the desired range of media popularity. Recommended value: 0-10. Set zero to disable minimum likes filter."><i class="fa fa-question"></i></a></td>
                         <td  align="right" valign="middle">
 
 
@@ -606,7 +620,7 @@
 
                     <tr>
 
-                        <td  align="left" valign="middle">Max. likes filter<a href="#" data-toggle="tooltip"><i class="fa fa-question"></i></a></td>
+                        <td  align="left" valign="middle">Max. likes filter<a href="#" data-toggle="tooltip" title="Find only media objects with given maximum amount of likes to interact. Use it with Min. likes filter to set the desired range of media popularity. Recommended value: 50-100. Set zero to disable maximum likes filter."><i class="fa fa-question"></i></a></td>
                         <td  align="right" valign="middle">
 
 
@@ -629,7 +643,7 @@
 
                     <tr>
 
-                        <td align="left" valign="middle" style="padding-bottom:6px;">Don't comment same users<a href="#" data-toggle="tooltip"><i class="fa fa-question"></i></a></td>
+                        <td align="left" valign="middle" style="padding-bottom:6px;">Don't comment same users<a href="#" data-toggle="tooltip" title="When checking this box you will not comment more than one photo or video of the same user."><i class="fa fa-question"></i></a></td>
                         <td align="left" valign="middle">
 <!--                            <span class="pull-right">-->
 							<input name="Dontcommentsameusers" id="Dontcommentsameusers" class="chk-custom" type="checkbox"/>
@@ -658,7 +672,7 @@
                <tbody>
                 <tr>
 
-                    <td>Locations<a href="#" data-toggle="tooltip"><i class="fa fa-question"></i></a>
+                    <td>Locations<a href="#" data-toggle="tooltip" title="Add locations to like or comment photos and follow authors of that photos.<br/><br/> Maximum allowed 50 locations."><i class="fa fa-question"></i></a>
 <!--                       <small class="badge pull-left bg-red">New</small>-->
                     </td>
                         <!--<div class="btn-group" style="margin-left:20px;">
@@ -717,7 +731,7 @@
               <tbody>
                 <tr>
 
-                    <td>Usernames<a href="#" data-toggle="tooltip"><i class="fa fa-question"></i></a></td>
+                    <td>Usernames<a href="#" data-toggle="tooltip" title="Add usernames to follow their followers or followings (see Follow source).<br/><br/> Maximum allowed 20 usernames."><i class="fa fa-question"></i></a></td>
                     <td>
                         <ul>
                             <div id="username-list"></div>
@@ -770,7 +784,10 @@
         <div class="inner-setting-box" style="min-height:100px;">
             <table cellpadding="0" cellspacing="0">
                 <tr>
-                    <td>Tags<a href="#" data-toggle="tooltip"><i class="fa fa-question"></i></a></td>
+                    <td>Tags<a href="#" data-toggle="tooltip"
+
+
+                               title="Add tags to get media from. You can add tags one by one or by entering as many tags in one input as you wish. We recommend using at least 10 tags.<br/><br/> Maximum allowed 1000 tags."><i class="fa fa-question"></i></a></td>
                     <td>
                         <ul class="tags">
                             <div id="hashtag-list"></div>
@@ -826,7 +843,8 @@
         <div class="inner-setting-box" style="min-height:100px;">
             <table cellpadding="0" cellspacing="0">
                 <tr>
-                    <td>Comments<a href="#" data-toggle="tooltip"><i class="fa fa-question"></i></a></td>
+                    <td>Comments<a href="#" data-toggle="tooltip"
+                                   title="Add comments to comment media. Comments for each photo or video will be selected randomly. Our system remembers commented photos and videos to interact with them only once. We recommend using at least 10 different neutral comments like: Nice, Like it, Beautiful, etc.<br/><br/> The total length of the comment cannot exceed 300 characters.<br/> The comment cannot contain more than 4 hashtags.<br/> The comment cannot contain more than 1 URL.<br/> The comment cannot consist of all capital letters.<br/> The comments must be different as much as possible.<br/><br/> Maximum allowed 100 comments."><i class="fa fa-question"></i></a></td>
                     <td>
                         <ul>
                             <div id="comment-list"></div>
@@ -889,7 +907,7 @@
 
                     <tr>
 
-                        <td align="left" valign="middle">Likes counter<a href="#" data-toggle="tooltip"><i class="fa fa-question"></i></a></td>
+                        <td align="left" valign="middle">Likes counter<a href="#" data-toggle="tooltip" title="When this number of likes will be done your activity will be stopped automatically. Set zero for no limit."><i class="fa fa-question"></i></a></td>
                         <td  align="right" valign="middle">
 
 
@@ -912,7 +930,7 @@
 
                     <tr>
 
-                        <td  align="left" valign="middle">Comments counter<a href="#" data-toggle="tooltip"><i class="fa fa-question"></i></a></td>
+                        <td  align="left" valign="middle">Comments counter<a href="#" data-toggle="tooltip" title="When this number of comments will be done your activity will be stopped automatically. Set zero for no limit." ><i class="fa fa-question"></i></a></td>
                         <td  align="right" valign="middle">
 
 
@@ -935,7 +953,7 @@
 
                     <tr>
 
-                        <td  align="left" valign="middle">Follows counter<a href="#" data-toggle="tooltip"><i class="fa fa-question"></i></a></td>
+                        <td  align="left" valign="middle">Follows counter<a href="#" data-toggle="tooltip" title="When this number of follows will be done your activity will be stopped automatically. Set zero for no limit."><i class="fa fa-question"></i></a></td>
                         <td  align="right" valign="middle">
 
 
@@ -958,7 +976,7 @@
 
                     <tr>
 
-                        <td  align="left" valign="middle">Unfollows counter<a href="#" data-toggle="tooltip"><i class="fa fa-question"></i></a></td>
+                        <td  align="left" valign="middle">Unfollows counter<a href="#" data-toggle="tooltip" title="When this number of unfollows will be done your activity will be stopped automatically. Set zero for no limit."><i class="fa fa-question"></i></a></td>
                         <td  align="right" valign="middle">
 
 
@@ -981,7 +999,7 @@
 
                     <tr>
 
-                        <td  align="left" valign="middle">Timer<a href="#" data-toggle="tooltip"><i class="fa fa-question"></i></a></td>
+                        <td  align="left" valign="middle">Timer<a href="#" data-toggle="tooltip" title="For example, if you set it to 01:00, then your activity will stop automatically after one hour. If you leave it empty, then activity will work infinite or while Instagram limits for your account not will be reached."><i class="fa fa-question"></i></a></td>
                         <td  align="right" valign="middle">
 
 
@@ -1017,6 +1035,7 @@
 <script src="js/bootstrap.min.js" type="text/javascript"></script>
 <!-- AdminLTE App -->
 <script src="js/app.js" type="text/javascript"></script>
+
 
 </body>
 </html>

@@ -311,8 +311,13 @@ $("document").ready(function(){
 
             for (var i = 0; i < data.length; i++) {
 
-                temp= data[i].id;
-                innerTableHtml +='<div class="btn btn-success" style="text-align:center; margin-bottom:10px;" href="javascript:void(0)" onclick="update(\'' + data[i].id + '\')"><i class="fa fa-save"></i> Save Your Settings</div>';
+                temp = data[i].id;
+                if (data[i].isRunning != "Active"){
+                    innerTableHtml += '<div class="btn btn-success" style="text-align:center; margin-bottom:10px;" href="javascript:void(0)" onclick="update(\'' + data[i].id + '\')"><i class="fa fa-save"></i> Save Your Settings</div>';
+                 }
+                else{
+                    innerTableHtml +='<div class="btn btn-danger" style="text-align:center; margin-bottom:10px;" href="javascript:void(0)" onclick="updatestatus_stop(\'' + data[i].id + '\')"><i class="fa fa-stop"></i> Stop Your Settings</div>';
+                }
 
             }
 
@@ -343,7 +348,9 @@ $("document").ready(function(){
 
     });
     return false;
+
 });
+
 ////////////////////////////////////////delete usertag tbl data/////////////////////////////////////
 function deletetag(id)
    {
@@ -1122,6 +1129,61 @@ $("document").ready(function(){
                 }
                // $('#imgprevw').attr('src','../userimages/small/' + data[0].Image );
                // $('#articleTitle').val(data[0].articleTitle);
+                if(data[0].follows !="True"){
+                    // $('#divFollow').css("background",'green');
+                    $("#processFollow").html("Start");
+                    $('#divFollow').css("background",'#3e8f3e');
+                    $('#processFollow').removeClass('fa fa-stop');
+                    $('#processFollow').addClass('fa fa-play');
+                   // Follow="False";
+                }
+                else {
+                    $("#processFollow").html("Stop");
+                    $('#divFollow').css("background",'#b92c28');
+                    $('#processFollow').removeClass('fa fa-play');
+                    $('#processFollow').addClass('fa fa-stop');
+                  //  Follow ="True";
+                }
+                if(data[0].comments !="True"){
+                    $("#processComment").html("Start");
+                    $('#divComment').css("background",'#3e8f3e');
+                    $('#processComment').removeClass('fa fa-stop');
+                    $('#processComment').addClass('fa fa-play');
+                   // Comment="False";
+                }else{
+                    $("#processComment").html("Stop");
+                    $('#divComment').css("background",'#b92c28');
+                    $('#processComment').removeClass('fa fa-play');
+                    $('#processComment').addClass('fa fa-stop');
+                  //  Comment="True";
+                }
+                if(data[0].likes!="True"){
+                    $("#processLike").html("Start");
+                    $('#divLikes').css("background",'#3e8f3e');
+                    $('#processLike').removeClass('fa fa-stop');
+                    $('#processLike').addClass('fa fa-play');
+                   // Like="False";
+                }else{
+                    $("#processLike").html("Stop");
+                    $('#divLikes').css("background",'#b92c28');
+                    $('#processLike').removeClass('fa fa-play');
+                    $('#processLike').addClass('fa fa-stop');
+                   // Like="True";
+                }
+                if(data[0].unfollows!="True"){
+                    $("#processUnFollow").html("Start");
+                    $('#divUnFollow').css("background",'#3e8f3e');
+                    $('#processUnFollow').removeClass('fa fa-stop');
+                    $('#processUnFollow').addClass('fa fa-play');
+                   // UnFollow="False";
+                }else{
+                    $("#processUnFollow").html("Stop");
+                    $('#divUnFollow').css("background",'#b92c28');
+                    $('#processUnFollow').removeClass('fa fa-play');
+                    $('#processUnFollow').addClass('fa fa-stop');
+                   // UnFollow="True";
+                }
+
 
             }
 
