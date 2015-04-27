@@ -249,7 +249,7 @@
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
                         <div class="pull-left image">
-                            <img src="../img/avatar3.png" class="img-circle" alt="User Image" />
+                            <img src="<?php session_start(); echo  $_SESSION['ImageUrl']; ?>" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
                             <p>Hello,<?php session_start();  echo $_SESSION['login_user']; ?></p>
@@ -390,7 +390,7 @@
 
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <p class="text-blue">Add new account to your dashboard</p>
-                        <a class="btn btn-danger"  href="addinstagramaccount.php" style="text-align:center; margin-bottom:10px; width:250px;">
+                        <a class="btn btn-danger"  href="../addinstagramaccount.php" style="text-align:center; margin-bottom:10px; width:250px;">
                             <i class="fa fa-plus"></i>
                             Add Account
                         </a>

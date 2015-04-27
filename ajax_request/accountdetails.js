@@ -229,7 +229,7 @@ $("document").ready(function(){
                 innerTableHtml += "<div class='inner-accounts-box'>";
                 innerTableHtml += "<div style='border-bottom:1px solid #ccc; padding-bottom:10px; margin-bottom:10px;'>";
                 innerTableHtml += "<div class='pull-left image'>";
-                innerTableHtml += "<img src='../img/avatar3.png' class='img-circle' style='width:100px; height:100px; border:1px solid #ccc;' alt='User Image' />";
+                innerTableHtml += "<img src="+data[i].ImageUrl+" class='img-circle' style='width:100px; height:100px; border:1px solid #ccc;' alt='User Image' />";
                 innerTableHtml += "</div>";
                 innerTableHtml += "<div class='pull-left info' style='padding-left:10px;'>";
                 innerTableHtml += "<h4>"+data[i].IGuname+"</h4>";
