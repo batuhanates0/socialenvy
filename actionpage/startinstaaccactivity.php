@@ -13,7 +13,7 @@ if($_POST['action'] == "changestatus") {
     } else {
         $Dontcommentsameusers="False";
     }*/
-    $active="Active";
+    $active="True";
     $instagramAcc->changeaccountstatusinsertdetails($_POST['Id'],$active,$_POST['Activityspeed'],$_POST['Mediasource'],$_POST['Minlikesfilter'],$_POST['Maxlikesfilter'],$_POST['Newmediaonly'],$_POST['Dontcommentsameusers'],$_POST['Likescounter'],$_POST['Commentscounter'],$_POST['Followscounter'],$_POST['Unfollowscounter'], $_POST['Timer']);
    // echo json_encode($_POST['Activityspeed']);
     // echo $count;

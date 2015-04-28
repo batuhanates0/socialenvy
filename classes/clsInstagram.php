@@ -79,6 +79,18 @@ class clsInstagram {
         $result->execute();
 
         $data = $result->fetchall();
+
+        ///////////////////////////////////////////
+       // $fetch_Image=$dbCon->con->prepare("SELECT ImageUrl FROM tblLogin WHERE `username`=:username");
+         // $fetch_Image->bindParam(':username', $_SESSION['login_user']);
+         // $fetch_Image->execute();
+         // $fetch_Image = $fetch_Image->fetch(PDO::FETCH_ASSOC);
+
+         // $Image=$fetch_Image['ImageUrl'];
+         // $_SESSION['ImageUrl']=$Image;
+
+        //////////////////////////////////////////
+
         echo json_encode($data);
     }
 
@@ -194,6 +206,16 @@ class clsInstagram {
         $result->execute();
 
         $data = $result->fetchall();//  fetch(PDO::FETCH_NUM);
+        //////////////////////////////////////////////////////////////////////
+        //$fetch_ImageUrl=$dbCon->con->prepare("SELECT ImageUrl FROM tblInstagram WHERE `id`=:id");
+        //$fetch_ImageUrl->bindParam(':id', $id);
+       // $fetch_ImageUrl->execute();
+       // $fetch_ImageUrl = $fetch_ImageUrl->fetch(PDO::FETCH_ASSOC);
+
+       // $ImageUrl=$fetch_ImageUrl['ImageUrl'];
+       // $_SESSION['ImageUrl_Id']=$ImageUrl;
+        //////////////////////////////////////////////////////////////////////
+
        echo json_encode($data);
 
     }
@@ -835,6 +857,75 @@ class clsInstagram {
         }
         echo json_encode($responseMsg);
     }
+
+    public function GetSelectedInstaAccount($id){
+        $dbCon = new DatabaseConnection();
+
+
+        $result_fetch =$dbCon->con->prepare("select * from tblProcessDetails where InstaAccId=:id");
+
+        $result_fetch->bindParam(':id', $id);
+
+
+        $result_fetch->execute();
+
+        $data = $result_fetch->fetchall();//  fetch(PDO::FETCH_NUM);
+        //////////////////////////////////////////////////////////////////////
+        $fetch_SelectImageUrl=$dbCon->con->prepare("SELECT ImageUrl FROM tblInstagram WHERE `id`=:id");
+        $fetch_SelectImageUrl->bindParam(':id', $id);
+        $fetch_SelectImageUrl->execute();
+        $fetch_SelectImageUrl = $fetch_SelectImageUrl->fetch(PDO::FETCH_ASSOC);
+
+        $SelectImageUrl=$fetch_SelectImageUrl['ImageUrl'];
+        $_SESSION['ImageUrl_Id']=$SelectImageUrl;
+        //////////////////////////////////////////////////////////////////////
+
+        echo json_encode($data);
+
+    }
+
+    public function TblLoginImageurl(){
+        $dbCon = new DatabaseConnection();
+        $username=$_SESSION['login_user'];
+
+
+        ///////////////////////////////////////////
+        $fetch_Image=$dbCon->con->prepare("SELECT ImageUrl FROM tblLogin WHERE `username`=:username");
+        $fetch_Image->bindParam(':username',$username);
+        $fetch_Image->execute();
+        $data = $fetch_Image->fetchall();
+        //////////////////////////////////////////
+
+        echo json_encode($data);
+    }
+
+    public function GetSelectedInstaAccountImageUrl($id){
+        $dbCon = new DatabaseConnection();
+
+
+        $result =$dbCon->con->prepare("select * from tblInstagram where id=:id");
+
+        $result->bindParam(':id', $id);
+
+
+        $result->execute();
+
+        $data = $result->fetchall();//  fetch(PDO::FETCH_NUM);
+        //////////////////////////////////////////////////////////////////////
+        //$fetch_ImageUrl=$dbCon->con->prepare("SELECT ImageUrl FROM tblInstagram WHERE `id`=:id");
+        //$fetch_ImageUrl->bindParam(':id', $id);
+        // $fetch_ImageUrl->execute();
+        // $fetch_ImageUrl = $fetch_ImageUrl->fetch(PDO::FETCH_ASSOC);
+
+        // $ImageUrl=$fetch_ImageUrl['ImageUrl'];
+        // $_SESSION['ImageUrl_Id']=$ImageUrl;
+        //////////////////////////////////////////////////////////////////////
+
+        echo json_encode($data);
+
+    }
+
+
 
 
 

@@ -249,7 +249,8 @@
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
                         <div class="pull-left image">
-                            <img src="<?php session_start(); echo  $_SESSION['ImageUrl']; ?>" class="img-circle" alt="User Image" />
+<!--                            <img src="--><?php //session_start(); echo  $_SESSION['ImageUrl']; ?><!--" class="img-circle" alt="User Image" />-->
+                            <img id="myImgid" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
                             <p>Hello,<?php session_start();  echo $_SESSION['login_user']; ?></p>

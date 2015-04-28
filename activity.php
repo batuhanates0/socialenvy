@@ -272,7 +272,8 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="<?php session_start(); echo  $_SESSION['ImageUrl']; ?>" class="img-circle" alt="User Image" />
+<!--                <img src="--><?php //session_start(); echo  $_SESSION['ImageUrl_Id']; ?><!--" class="img-circle" alt="User Image" />-->
+                <img id="myimg" class="img-circle" alt="User Image" />
             </div>
             <div class="pull-left info">
                 <p>Hello,<?php session_start();  echo $_SESSION['login_user']; ?></p>
@@ -399,6 +400,10 @@
         <div class="box-body">
             <div class="callout callout-danger">
                 <h4 style="margin-bottom:0px;">Your activity automatically stopped: Activity time is over</h4>
+
+            </div>
+            <div class="callout callout-danger">
+                <h4 style="margin-bottom:0px;">Before Start Like,Comment,Follow and Unfollow...Please Fill Main Settings And Auto-Stop Settings And Then Press <u>Save Your Settings.<u/></h4>
 
             </div>
         </div>
@@ -784,10 +789,7 @@
         <div class="inner-setting-box" style="min-height:100px;">
             <table cellpadding="0" cellspacing="0">
                 <tr>
-                    <td>Tags<a href="#" data-toggle="tooltip"
-
-
-                               title="Add tags to get media from. You can add tags one by one or by entering as many tags in one input as you wish. We recommend using at least 10 tags.<br/><br/> Maximum allowed 1000 tags."><i class="fa fa-question"></i></a></td>
+                    <td>Tags<a href="#" data-toggle="tooltip" title="Add tags to get media from. You can add tags one by one or by entering as many tags in one input by separating tags using comma separator...For Examlpe:Tag1,Tag2,Tag3.... "><i class="fa fa-question"></i></a></td>
                     <td>
                         <ul class="tags">
                             <div id="hashtag-list"></div>

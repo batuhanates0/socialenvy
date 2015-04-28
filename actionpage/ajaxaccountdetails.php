@@ -7,3 +7,10 @@ if($_POST['action'] == "InstagramAccount") {
     $instagramAcc->InstagramAccount();
    // echo $count;
 }
+
+if($_POST['action'] == "TblLoginImageUrl") {
+    $instagramAcc = new clsInstagram();
+
+    $instagramAcc->TblLoginImageurl();
+    // echo $count;
+}

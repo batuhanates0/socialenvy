@@ -89,9 +89,9 @@ class InstagramLogin
                 //////Fetch data from tblproxy/////////////////////
 
                 $unique_username= $_SESSION['login_user'];
-                $IGAccstatus='Active';
+                $IGAccstatus='True';
                 $date = date('Y-m-d');
-                $isRunning='Stopped';
+                $isRunning='False';
 
 
 

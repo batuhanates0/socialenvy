@@ -173,4 +173,35 @@ class clsUser
        echo json_encode($responseMessage);
 
     }
+
+    public function ResetPassword($id,$Newpassword,$Confirmpassword){
+        $dbCon = new DatabaseConnection();
+        if($Newpassword != $Confirmpassword)
+        {
+            $responseMessage="New Password & Confirm Password must be Same.";
+        }
+        else {
+            $strQuery_password = "update tblLogin set `password`=:password	 where `id`=:id";
+
+
+            $result_password = $dbCon->con->prepare($strQuery_password);
+
+
+            $result_password->bindParam(':id', $id);
+            $result_password->bindParam(':password', $Newpassword);
+
+
+            $result_password->execute();
+
+            $rows_password = $result_password->rowCount();
+            if($rows_password == 1){
+                $responseMessage="Password Updated Successfully.";
+            }
+            else{
+                $responseMessage="Failed";
+            }
+        }
+        echo json_encode($responseMessage);
+
+    }
 }

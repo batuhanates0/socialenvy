@@ -284,28 +284,29 @@ $("document").ready(function(){
                 innerTableHtml += "<div>";
                 innerTableHtml += "<table width='100%'>";
                 innerTableHtml += "<tr>";
-                if(data[i].isRunning !="Active") {
-                    innerTableHtml += "<td width='35%'><div id='clickstart_" + data[i].id + "' class='btn btn-success' href='javascript:void(0)' onclick='test("+data[i].id+")'>";
-                    innerTableHtml += "<i id='divActivity_" + data[i].id + "' class='fa fa-play'>Start</i></div></td>";
-                }
-                else{
-                    innerTableHtml += "<td width='35%'><div id='clickstart_" + data[i].id + "' class='btn btn-danger' href='javascript:void(0)' onclick='test(" + data[i].id + ")'>";
-                    innerTableHtml += "<i id='divActivity_" + data[i].id + "' class='fa fa-stop'>Stop</i></div></td>";
-                }
+              ////  if(data[i].isRunning !="Active") {
+               ////     innerTableHtml += "<td width='35%'><div id='clickstart_" + data[i].id + "' class='btn btn-success' href='javascript:void(0)' onclick='test("+data[i].id+")'>";
+                ////    innerTableHtml += "<i id='divActivity_" + data[i].id + "' class='fa fa-play'>Start</i></div></td>";
+              ////  }
+              ////  else{
+                ////    innerTableHtml += "<td width='35%'><div id='clickstart_" + data[i].id + "' class='btn btn-danger' href='javascript:void(0)' onclick='test(" + data[i].id + ")'>";
+                ////    innerTableHtml += "<i id='divActivity_" + data[i].id + "' class='fa fa-stop'>Stop</i></div></td>";
+              ////  }
                // innerTableHtml +="<td width='35%'><div class='btn btn-primary'><i class='fa fa-gear'></i><a href='../activity.php'> Settings</a></div></td>";
                 innerTableHtml +="<td width='35%'><div><a class='btn btn-primary' href='../activity.php?id="+data[i].id+"'><i class='fa fa-gear'></i>Settings</a></div></td>";
                 innerTableHtml += "<td width='30%'><div class='btn-group pull-right'>";
-                innerTableHtml +="<button class='btn btn-warning btn-sm dropdown-toggle' data-toggle='dropdown'><i class='fa fa-bars'></i>  More</button>";
-                innerTableHtml += "<ul class='dropdown-menu pull-right' role='menu'>";
-                innerTableHtml += "<li><a href='#'>Profile</a></li>";
-                innerTableHtml += "<li><a href='#'>Likes</a></li>";
-                innerTableHtml +="<li class='divider'></li>";
-                innerTableHtml +="<li><a href='#'>Transfer Time</a></li>";
-                innerTableHtml +="<li class='divide'></li>";
-                innerTableHtml +="<li><a href='#'>Reconnect</a></li>";
-                innerTableHtml += "<li><a href='#'>Logout</a></li>";
-                innerTableHtml += "</ul>";
-                innerTableHtml +="</div></td>";
+                innerTableHtml +="<a class='btn btn-warning btn-sm dropdown-toggle' href='accountdetails.php?id="+data[i].id+"'><i class='fa fa-bars'></i> Account Details</a>";
+              ////  innerTableHtml +="<button class='btn btn-warning btn-sm dropdown-toggle' data-toggle='dropdown'><i class='fa fa-bars'></i>  More</button>";
+              ////  innerTableHtml += "<ul class='dropdown-menu pull-right' role='menu'>";
+              ////  innerTableHtml += "<li><a href='#'>Profile</a></li>";
+               //// innerTableHtml += "<li><a href='#'>Likes</a></li>";
+              ////  innerTableHtml +="<li class='divider'></li>";
+               ///// innerTableHtml +="<li><a href='#'>Transfer Time</a></li>";
+               //// innerTableHtml +="<li class='divide'></li>";
+               //// innerTableHtml +="<li><a href='#'>Reconnect</a></li>";
+               //// innerTableHtml += "<li><a href='#'>Logout</a></li>";
+               // innerTableHtml += "</ul>";
+               // innerTableHtml +="</div></td>";
                 innerTableHtml +="</tr>";
                 innerTableHtml +="</table>";
                 innerTableHtml +="</div>";
@@ -360,3 +361,30 @@ $("document").ready(function(){
     });
     return false;
 });
+
+//////////////////////////////////////////fetch last image from tblLogin////////////////////
+$("document").ready(function(){
+
+    var data = {
+        "action": "TblLoginImageUrl"
+    };
+
+        data = $(this).serialize() + "&" + $.param(data);
+
+
+
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "../actionpage/ajaxaccountdetails.php", //Relative or absolute path to response.php file
+        data: data,
+        success: function(data, status) {
+            data = eval(data);
+
+            $('#myImgid').attr('src',data[0].ImageUrl);
+
+        }
+    });
+    return false;
+});
+////////////////////////////////////////////fetch last image from tblLogin//////////////////

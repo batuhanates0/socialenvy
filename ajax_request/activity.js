@@ -310,7 +310,7 @@ $("document").ready(function(){
             var temp="";
 
             for (var i = 0; i < data.length; i++) {
-
+                $('#myimg').attr('src',data[i].ImageUrl);
                 temp = data[i].id;
                 if (data[i].isRunning != "Active"){
                     innerTableHtml += '<div class="btn btn-success" style="text-align:center; margin-bottom:10px;" href="javascript:void(0)" onclick="update(\'' + data[i].id + '\')"><i class="fa fa-save"></i> Save Your Settings</div>';

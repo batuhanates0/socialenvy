@@ -73,7 +73,7 @@
 <body class="bg-black">
 
 <div class="form-box" id="login-box">
-    <div class="header">Password Reset</div>
+    <div class="header">Password Recovery</div>
     <form id="resetpassword" action="forgetpassword.php" method="post">
         <div class="body bg-gray">
             <div class="form-group">
@@ -97,7 +97,7 @@
 
     </form>
 
-    <div class="margin text-center">
+   <!-- <div class="margin text-center">
         <span>Sign in using social networks</span>
         <br/>
         <button class="btn bg-light-blue btn-circle"><i class="fa fa-facebook"></i></button>
@@ -106,7 +106,7 @@
 
     </div>
 </div>
-
+-->
 
 <!-- jQuery 2.0.2 -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
