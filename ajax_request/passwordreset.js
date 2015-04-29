@@ -13,7 +13,7 @@ $("document").ready(function(){
         $.ajax({
             type: "POST",
             dataType: "json",
-            url: "actionpage/passwordmail.php", //Relative or absolute path to response.php file
+            url: "../actionpage/passwordmail.php", //Relative or absolute path to response.php file
             data: data,
             success: function(data, status) {
                 if(data=="success")

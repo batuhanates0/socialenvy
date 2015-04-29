@@ -12,5 +12,5 @@ if($_POST['action'] == "passwordmail") {
 if($_POST['action'] == "ResetPassword") {
     $user = new clsUser();
 
-    $user->ResetPassword($_POST['Id'],$_POST['password'],$_POST['password2']);
+    $user->ResetPassword($_POST['oldpassword'],$_POST['password'],$_POST['password2']);
 }

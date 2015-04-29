@@ -925,6 +925,61 @@ class clsInstagram {
 
     }
 
+    public function ChangeDefaultSettings($id){
+        $dbCon = new DatabaseConnection();
+        //////update tblMainSetting
+        $Activityspeed="slow";
+        $Mediasource="Tags";
+        $Minlikesfilter=0;
+        $Maxlikesfilter=0;
+        $Newmediaonly="false";
+        $Dontcommentsameusers="false";
+
+
+        $result_updateuser =$dbCon->con->prepare("UPDATE `tblMainSetting` Set `Activityspeed`= :Activityspeed,
+                                                        Mediasource=:Mediasource,Minlikesfilter=:Minlikesfilter,
+                                                        Newmediaonly=:Newmediaonly,Dontcommentsameusers=:Dontcommentsameusers,
+                                                        Maxlikesfilter=:Maxlikesfilter where `InstaAccId`=:InstaAccId");
+
+        $result_updateuser->bindParam(':InstaAccId', $id);
+        $result_updateuser->bindParam(':Activityspeed', $Activityspeed);
+        $result_updateuser->bindParam(':Mediasource', $Mediasource);
+        $result_updateuser->bindParam(':Minlikesfilter', $Minlikesfilter);
+        $result_updateuser->bindParam(':Maxlikesfilter', $Maxlikesfilter);
+        $result_updateuser->bindParam(':Newmediaonly', $Newmediaonly);
+        $result_updateuser->bindParam(':Dontcommentsameusers', $Dontcommentsameusers);
+
+
+        $result_updateuser->execute();
+
+        $rows_update = $result_updateuser->rowCount();
+        //////update tblMainsetting end
+        //////////////////////update tblAuto-StopSettings
+        $Likescounter=0;
+        $Commentscounter=0;
+        $Followscounter=0;
+        $Unfollowscounter=0;
+        $Timer="00:00";
+        $result_updateuser_tblauto =$dbCon->con->prepare("UPDATE `tblAutoStopSetting` Set `Likescounter`= :Likescounter,
+                                                        Commentscounter=:Commentscounter,Followscounter=:Followscounter,
+                                                        Unfollowscounter=:Unfollowscounter,Timer=:Timer
+                                                         where `InstaAccId`=:InstaAccId");
+
+        $result_updateuser_tblauto->bindParam(':InstaAccId',$id);
+        $result_updateuser_tblauto->bindParam(':Likescounter', $Likescounter);
+        $result_updateuser_tblauto->bindParam(':Commentscounter', $Commentscounter);
+        $result_updateuser_tblauto->bindParam(':Followscounter', $Followscounter);
+        $result_updateuser_tblauto->bindParam(':Unfollowscounter', $Unfollowscounter);
+        $result_updateuser_tblauto->bindParam(':Timer', $Timer);
+        $result_updateuser_tblauto->execute();
+
+        $rows_update_tblauto = $result_updateuser_tblauto->rowCount();
+        echo json_encode($rows_update);
+
+
+    }
+
+
 
 
 

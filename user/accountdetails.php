@@ -33,12 +33,22 @@
    <![endif]-->
     <script src="../js/jquery-1.11.0.min.js"></script>
     <script src="../ajax_request/selectedinstagramacc.js"></script>
+    <script src="../ajax_request/accountdetails.js"></script>
     <script src="../js/jquery-1.7.2.min.js"></script>
     <link rel="stylesheet" href="../css/jquery.alerts.css" media="screen"/>
     <script src="../js/jquery.alerts.js"></script>
 
     <script type="text/javascript">
     </script>
+    <style>
+        .rectangle
+        {
+            width:150px;
+            height:150px;
+            background:blue;
+
+        }
+    </style>
 </head>
 <body class="skin-black">
 <!-- header logo: style can be found in header.less -->
@@ -87,114 +97,114 @@
         <div class="navbar-right">
             <ul class="nav navbar-nav">
                 <!-- Messages: style can be found in dropdown.less-->
-                <li class="dropdown messages-menu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-envelope"></i>
-                        <span class="label label-success"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li class="header">You have 4 messages</li>
-                        <li>
-                            <!-- inner menu: contains the actual data -->
-                            <ul class="menu">
-                                <li><!-- start message -->
-                                    <a href="#">
-                                        <div class="pull-left">
-                                            <img src="img/avatar3.png" class="img-circle" alt="User Image"/>
-                                        </div>
-                                        <h4>
-                                            Welcome
-                                            <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                                        </h4>
-                                        <p>Thanks for join SocialEnvy</p>
-                                    </a>
-                                </li><!-- end message -->
-                                <li><!-- start message -->
-                                    <a href="#">
-                                        <div class="pull-left">
-                                            <img src="img/avatar3.png" class="img-circle" alt="User Image"/>
-                                        </div>
-                                        <h4>
-                                            Welcome
-                                            <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                                        </h4>
-                                        <p>Thanks for join SocialEnvy</p>
-                                    </a>
-                                </li><!-- end message -->
-
-                                <li><!-- start message -->
-                                    <a href="#">
-                                        <div class="pull-left">
-                                            <img src="../img/avatar3.png" class="img-circle" alt="User Image"/>
-                                        </div>
-                                        <h4>
-                                            Welcome
-                                            <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                                        </h4>
-                                        <p>Thanks for join SocialEnvy</p>
-                                    </a>
-                                </li><!-- end message -->
-
-                                <li><!-- start message -->
-                                    <a href="#">
-                                        <div class="pull-left">
-                                            <img src="../img/avatar3.png" class="img-circle" alt="User Image"/>
-                                        </div>
-                                        <h4>
-                                            Welcome
-                                            <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                                        </h4>
-                                        <p>Thanks for join SocialEnvy</p>
-                                    </a>
-                                </li><!-- end message -->
-
-                            </ul>
-                        </li>
-                        <li class="footer"><a href="#">See All Messages</a></li>
-                    </ul>
-                </li>
-                <!-- Notifications: style can be found in dropdown.less -->
-                <li class="dropdown notifications-menu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-warning"></i>
-                        <span class="label label-warning"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li class="header">You have 10 notifications</li>
-                        <li>
-                            <!-- inner menu: contains the actual data -->
-                            <ul class="menu">
-                                <li>
-                                    <a href="#">
-                                        <i class="ion ion-ios7-people info"></i> 5 new members joined today
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-warning danger"></i> Very long description here that may not fit into the page and may cause design problems
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-users warning"></i> 5 new members joined
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#">
-                                        <i class="ion ion-ios7-cart success"></i> 25 sales made
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="ion ion-ios7-person danger"></i> You changed your username
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="footer"><a href="#">View all</a></li>
-                    </ul>
-                </li>
+<!--                <li class="dropdown messages-menu">-->
+<!--                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">-->
+<!--                        <i class="fa fa-envelope"></i>-->
+<!--                        <span class="label label-success"></span>-->
+<!--                    </a>-->
+<!--                    <ul class="dropdown-menu">-->
+<!--                        <li class="header">You have 4 messages</li>-->
+<!--                        <li>-->
+<!--                            <!-- inner menu: contains the actual data -->
+<!--                            <ul class="menu">-->
+<!--                                <li><!-- start message -->
+<!--                                    <a href="#">-->
+<!--                                        <div class="pull-left">-->
+<!--                                            <img src="img/avatar3.png" class="img-circle" alt="User Image"/>-->
+<!--                                        </div>-->
+<!--                                        <h4>-->
+<!--                                            Welcome-->
+<!--                                            <small><i class="fa fa-clock-o"></i> 5 mins</small>-->
+<!--                                        </h4>-->
+<!--                                        <p>Thanks for join SocialEnvy</p>-->
+<!--                                    </a>-->
+<!--                                </li><!-- end message -->
+<!--                                <li><!-- start message -->
+<!--                                    <a href="#">-->
+<!--                                        <div class="pull-left">-->
+<!--                                            <img src="img/avatar3.png" class="img-circle" alt="User Image"/>-->
+<!--                                        </div>-->
+<!--                                        <h4>-->
+<!--                                            Welcome-->
+<!--                                            <small><i class="fa fa-clock-o"></i> 5 mins</small>-->
+<!--                                        </h4>-->
+<!--                                        <p>Thanks for join SocialEnvy</p>-->
+<!--                                    </a>-->
+<!--                                </li><!-- end message -->
+<!---->
+<!--                                <li><!-- start message -->
+<!--                                    <a href="#">-->
+<!--                                        <div class="pull-left">-->
+<!--                                            <img src="../img/avatar3.png" class="img-circle" alt="User Image"/>-->
+<!--                                        </div>-->
+<!--                                        <h4>-->
+<!--                                            Welcome-->
+<!--                                            <small><i class="fa fa-clock-o"></i> 5 mins</small>-->
+<!--                                        </h4>-->
+<!--                                        <p>Thanks for join SocialEnvy</p>-->
+<!--                                    </a>-->
+<!--                                </li><!-- end message -->
+<!---->
+<!--                                <li><!-- start message -->
+<!--                                    <a href="#">-->
+<!--                                        <div class="pull-left">-->
+<!--                                            <img src="../img/avatar3.png" class="img-circle" alt="User Image"/>-->
+<!--                                        </div>-->
+<!--                                        <h4>-->
+<!--                                            Welcome-->
+<!--                                            <small><i class="fa fa-clock-o"></i> 5 mins</small>-->
+<!--                                        </h4>-->
+<!--                                        <p>Thanks for join SocialEnvy</p>-->
+<!--                                    </a>-->
+<!--                                </li><!-- end message -->-->
+<!---->
+<!--                            </ul>-->
+<!--                        </li>-->
+<!--                        <li class="footer"><a href="#">See All Messages</a></li>-->
+<!--                    </ul>-->
+<!--                </li>-->
+<!--                <!-- Notifications: style can be found in dropdown.less -->
+<!--                <li class="dropdown notifications-menu">-->
+<!--                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">-->
+<!--                        <i class="fa fa-warning"></i>-->
+<!--                        <span class="label label-warning"></span>-->
+<!--                    </a>-->
+<!--                    <ul class="dropdown-menu">-->
+<!--                        <li class="header">You have 10 notifications</li>-->
+<!--                        <li>-->
+<!--                            <!-- inner menu: contains the actual data -->
+<!--                            <ul class="menu">-->
+<!--                                <li>-->
+<!--                                    <a href="#">-->
+<!--                                        <i class="ion ion-ios7-people info"></i> 5 new members joined today-->
+<!--                                    </a>-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <a href="#">-->
+<!--                                        <i class="fa fa-warning danger"></i> Very long description here that may not fit into the page and may cause design problems-->
+<!--                                    </a>-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <a href="#">-->
+<!--                                        <i class="fa fa-users warning"></i> 5 new members joined-->
+<!--                                    </a>-->
+<!--                                </li>-->
+<!---->
+<!--                                <li>-->
+<!--                                    <a href="#">-->
+<!--                                        <i class="ion ion-ios7-cart success"></i> 25 sales made-->
+<!--                                    </a>-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <a href="#">-->
+<!--                                        <i class="ion ion-ios7-person danger"></i> You changed your username-->
+<!--                                    </a>-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                        </li>-->
+<!--                        <li class="footer"><a href="#">View all</a></li>-->
+<!--                    </ul>-->
+<!--                </li>-->
 
                 <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
@@ -205,14 +215,14 @@
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header bg-light-blue">
-                            <img src="../img/avatar3.png" class="img-circle" alt="User Image" />
+                            <img id="ImgUrl1" class="img-circle" alt="User Image" />
                             <p>
                                 <?php session_start(); echo $_SESSION['login_user']; ?>
                                 <small>Member since <?php session_start(); echo $_SESSION['date']; ?></small>
                             </p>
                         </li>
                         <!-- Menu Body -->
-                        <li class="user-body">
+                      <!--  <li class="user-body">
                             <div class="col-xs-4 text-center">
                                 <a href="#">Followers</a>
                             </div>
@@ -222,11 +232,11 @@
                             <div class="col-xs-4 text-center">
                                 <a href="#">Friends</a>
                             </div>
-                        </li>
+                        </li>-->
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                <a href="passwordreset.php" class="btn btn-default btn-flat">Profile</a>
                             </div>
                             <div class="pull-right">
                                 <a href="../logout.php" class="btn btn-default btn-flat">Sign out</a>
@@ -300,6 +310,11 @@
             <li>
                 <a href="#">
                     <i class="fa fa-credit-card"></i> <span>Buy Time Package</span> <!--<small class="badge pull-right bg-green">new</small>-->
+                </a>
+            </li>
+            <li>
+                <a href="passwordreset.php">
+                    <i class="glyphicon glyphicon-user"></i> <span>Profile</span> <!--<small class="badge pull-right bg-green">new</small>-->
                 </a>
             </li>
 
@@ -399,19 +414,19 @@
 
     <div class="col-lg-6 col-md-6 col-sm-6">
         <p class="text-blue">Buy Time Package</p>
-        <a class="btn btn-danger" style="text-align:center; margin-bottom:10px; width:250px;">
+        <a class="btn btn-success" style="text-align:center; margin-bottom:10px; width:250px;">
             <i class="fa fa-credit-card"></i>
             Buy Time Package
         </a>
     </div>
-    <ol class="breadcrumb">
+   <!-- <ol class="breadcrumb">
 
         <li class="active">Sort:</li>
         <li><a href="#">Default</a></li>
         <li><a href="#">Username</a></li>
         <li><a href="#">Status</a></li>
         <li><a href="#">Time</a></li>
-    </ol>
+    </ol>-->
     <h1>
         Accounts
         <small>Control panel</small>

@@ -18,3 +18,11 @@ if($_POST['action'] == "changestatus") {
    // echo json_encode($_POST['Activityspeed']);
     // echo $count;
 }
+
+if($_POST['action'] == "changesettings") {
+    $instagramAcc = new clsInstagram();
+
+    $instagramAcc->ChangeDefaultSettings($_POST['Id']);
+    // echo json_encode($_POST['Activityspeed']);
+    // echo $count;
+}

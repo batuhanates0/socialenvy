@@ -138,9 +138,9 @@ function ProcessSelection(id) {
         url: "actionpage/mainsettingtblfalse.php", //Relative or absolute path to response.php file
         data: data,
         success: function (data) {
-            data= JSON.stringify(data);
-            alert(data);
-
+          // data= JSON.stringify(data);
+          //  alert(data);
+            data=eval(data);
         }
 
 
@@ -341,7 +341,7 @@ $("document").ready(function(){
             $('#processUnFollow').bind('click',function(){
                 ChangeUnFollowProcess(temp);
             });
-
+            $('#myanker').attr('href',"updatesettingstodefault("+temp+")")
 
 
         }
@@ -1252,3 +1252,72 @@ $("document").ready(function(){
     return false;
 });
 ///////////////////////////////////////////////////Auto stop setting tbl data/////////////////////////////////////////////////////////
+
+//////////////////////////////////////////fetch last image from tblLogin////////////////////
+$("document").ready(function(){
+
+    var data = {
+        "action": "TblLoginImageUrl"
+    };
+
+    data = $(this).serialize() + "&" + $.param(data);
+
+
+
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "actionpage/ajaxaccountdetails.php", //Relative or absolute path to response.php file
+        data: data,
+        success: function(data, status) {
+            data = eval(data);
+
+
+            $('#myimg1').attr('src',data[0].ImageUrl);
+
+        }
+    });
+    return false;
+});
+////////////////////////////////////////////fetch last image from tblLogin//////////////////
+
+//////////////////////////////////////reset all setting to default////////////////////////////////////////
+function updatesettingstodefault(id) {
+    alert(id);
+
+    var data = {
+        "action": "changesettings"
+    };
+
+    if(id!= null)
+    {
+        var query_data = {
+            "Id": id
+
+        };
+
+        data = $(this).serialize() + "&" + $.param(data)+ "&" + $.param(query_data);
+
+    }else {
+        data = $(this).serialize() + "&" + $.param(data);
+    }
+
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url:"actionpage/startinstaaccactivity.php", //Relative or absolute path to response.php file
+        data: data,
+        success: function(data, status) {
+            data=eval(data);
+
+
+
+
+        }
+
+    });
+
+    return false;
+
+}
+/////////////////////////////////////reset all settings to default////////////////////////////////////////

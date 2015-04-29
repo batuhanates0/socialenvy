@@ -41,7 +41,7 @@
             <div id="alert-errmsg" class="alert alert-danger"></div>
 
             <div class="form-group">
-                <input type="password" name="password" class="form-control" placeholder="Old Password"/>
+                <input type="password" name="oldpassword" class="form-control" placeholder="Old Password"/>
             </div>
             <div class="form-group">
                 <input type="password" name="password" class="form-control" placeholder="New Password"/>

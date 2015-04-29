@@ -174,31 +174,40 @@ class clsUser
 
     }
 
-    public function ResetPassword($id,$Newpassword,$Confirmpassword){
+    public function ResetPassword($Oldpassword,$Newpassword,$Confirmpassword){
         $dbCon = new DatabaseConnection();
-        if($Newpassword != $Confirmpassword)
-        {
-            $responseMessage="New Password & Confirm Password must be Same.";
+        $check_password=$dbCon->con->prepare("SELECT password FROM tblLogin WHERE username = :username");
+        $check_password->bindparam(':username',$_SESSION['login_user']);
+        $check_password->execute();
+        $check_password = $check_password->fetch(PDO::FETCH_ASSOC);
+
+        $userpassword=$check_password['password'];
+        if($userpassword != $Oldpassword ){
+            $responseMessage="Your old Password is not valid.";
         }
         else {
-            $strQuery_password = "update tblLogin set `password`=:password	 where `id`=:id";
+
+            if ($Newpassword != $Confirmpassword) {
+                $responseMessage = "New Password & Confirm Password must be Same.";
+            } else {
+                $strQuery_password = "update tblLogin set `password`=:password	where `username`=:username";
 
 
-            $result_password = $dbCon->con->prepare($strQuery_password);
+                $result_password = $dbCon->con->prepare($strQuery_password);
 
 
-            $result_password->bindParam(':id', $id);
-            $result_password->bindParam(':password', $Newpassword);
+                $result_password->bindParam(':username', $_SESSION['login_user']);
+                $result_password->bindParam(':password', $Newpassword);
 
 
-            $result_password->execute();
+                $result_password->execute();
 
-            $rows_password = $result_password->rowCount();
-            if($rows_password == 1){
-                $responseMessage="Password Updated Successfully.";
-            }
-            else{
-                $responseMessage="Failed";
+                $rows_password = $result_password->rowCount();
+                if ($rows_password == 1) {
+                    $responseMessage = "Password Updated Successfully.";
+                } else {
+                    $responseMessage = "Failed";
+                }
             }
         }
         echo json_encode($responseMessage);

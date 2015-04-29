@@ -177,7 +177,7 @@ function test(id) {
 
    // var divActivity = "divActivity" + "_" +id ;
     var valueOfdiv =$("#divActivity"+ "_" +id).html();
-    alert(valueOfdiv);
+   // alert(valueOfdiv);
 
     if(valueOfdiv=='Start')
     {
@@ -229,10 +229,10 @@ $("document").ready(function(){
                 innerTableHtml += "<div class='inner-accounts-box'>";
                 innerTableHtml += "<div style='border-bottom:1px solid #ccc; padding-bottom:10px; margin-bottom:10px;'>";
                 innerTableHtml += "<div class='pull-left image'>";
-                innerTableHtml += "<img src="+data[i].ImageUrl+" class='img-circle' style='width:100px; height:100px; border:1px solid #ccc;' alt='User Image' />";
+                innerTableHtml += "<a href='../activity.php?id="+data[i].id+"'><img src='"+data[i].ImageUrl+"' class='img-circle' style='width:100px; height:100px; border:1px solid #ccc;' alt='User Image' /></a>";
                 innerTableHtml += "</div>";
                 innerTableHtml += "<div class='pull-left info' style='padding-left:10px;'>";
-                innerTableHtml += "<h4>"+data[i].IGuname+"</h4>";
+                innerTableHtml += "<a href='../activity.php?id="+data[i].id+"'><h4>"+data[i].IGuname+"</h4></a>";
                 innerTableHtml += "<p>Instagram</p>";
                 innerTableHtml += "</div>";
                 innerTableHtml += "<div class='clearfix'></div>";
@@ -382,6 +382,9 @@ $("document").ready(function(){
             data = eval(data);
 
             $('#myImgid').attr('src',data[0].ImageUrl);
+            $('#myImgid1').attr('src',data[0].ImageUrl);
+         //   $('#myimg1').attr('src',data[0].ImageUrl);
+            $('#ImgUrl1').attr('src',data[0].ImageUrl);
 
         }
     });

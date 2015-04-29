@@ -9,6 +9,8 @@ $("document").ready(function(){
         }
     }
 
+
+
     var user_Id = GetParameterValues('id');
 
     var data = {
@@ -49,6 +51,7 @@ $("document").ready(function(){
 
             for (var i = 0; i < data.length; i++) {
                 // temp_data.push(data[i].id);
+
                 temp_data=data[i].id;
                 innerTableHtml += "<div class='col-lg-4 col-md-4 col-sm-4'>";
                 innerTableHtml += "<div class='inner-accounts-box'>";
@@ -79,11 +82,17 @@ $("document").ready(function(){
                     innerTableHtml += "<table width='100%'' >";
                     innerTableHtml += "<tr>";
                    if(data[i].Status =="Liked" || data[i].Status =="Commented" ) {
-                       innerTableHtml += "<img src="+data[i].UserImageUrl+" class='img-circle' style='width:100px; height:100px; border:1px solid #ccc;'/>";
+                      ////// innerTableHtml += "<img src="+data[i].UserImageUrl+" class='img-circle' style='width:100px; height:100px; border:1px solid #ccc;'/>";
+                      //  innerTableHtml += "<img src="+data[i].UserImageUrl+" class='rectangle'/>";
+                       innerTableHtml += "<a href='"+data[i].ImageUrl+"'><img src='"+data[i].UserImageUrl +"' class='rectangle' />";
+                       innerTableHtml += "</a>";
+                      // innerTableHtml += "<img src="+data[i].UserImageUrl +" class='rectangle' /></a>";
+                       //innerTableHtml += "</a>";
+                       //innerTableHtml += "<a id='imgurl_"+data[i].id+"'  href="+data[i].ImageUrl+"></a>";
                    }
                    else{
                        innerTableHtml += "<td width='50%'>IGProfile:</td>";
-                       innerTableHtml += "<td width='50%'>https://instagram.com/"+ data[i].ImageUrl + "</td>";
+                       innerTableHtml += "<td width='50%'><a href='https://instagram.com/"+ data[i].ImageUrl +"'>https://instagram.com/"+ data[i].ImageUrl + "</a></td>";
                    }
                     innerTableHtml += "</tr>";
                     //  innerTableHtml += "<tr>";
@@ -114,6 +123,7 @@ $("document").ready(function(){
                 innerTableHtml += "</table>";
                 innerTableHtml += "</div>";
                 innerTableHtml += "<div>";
+
                ////// innerTableHtml += "<table width='100%'>";
                ////// innerTableHtml += "<tr>";
                 ////  if(data[i].isRunning !="Active") {
@@ -144,8 +154,8 @@ $("document").ready(function(){
                 innerTableHtml +="</div>";
                 innerTableHtml +='</div>';
                 innerTableHtml +='</div>';
-
-
+            //    $("#img_"+data[i].id).wrap('<a href='+data[i].ImageUrl+'></a>');
+                //$('#imgurl_'+data[i].id).html('<img src='+ data[i].UserImageUrl +' class="rectangle" />');
 
             }
 
@@ -162,6 +172,7 @@ $("document").ready(function(){
     });
     return false;
 });
+
 
 /////////////////////////////////////////fetch last image from tblLogin////////////////////
 $("document").ready(function(){
