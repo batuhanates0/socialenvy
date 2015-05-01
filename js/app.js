@@ -139,7 +139,7 @@ $(function() {
         position: "fixed",
         top: "150px",
         right: "0",
-        background: "rgba(0, 0, 0, 0.7)",
+        background: "rgba(0, 0, 0, 0)",
         "border-radius": "5px 0px 0px 5px",
         padding: "10px 15px",
         "font-size": "16px",
