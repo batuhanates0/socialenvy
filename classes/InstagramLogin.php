@@ -133,8 +133,8 @@ class InstagramLogin
                 $Mediasource="Tags";
                 $Minlikesfilter=0;
                 $Maxlikesfilter=0;
-                $Newmediaonly="false";
-                $Dontcommentsameusers="false";
+                $Newmediaonly="False";
+                $Dontcommentsameusers="False";
 
                 $strQuery = "insert into tblMainSetting (`uid`,`InstaAccId`,`Activityspeed`,`Mediasource`,`Minlikesfilter`,`Maxlikesfilter`,`Newmediaonly`,`Dontcommentsameusers`)
                               VALUES (:uid,:InsAccid,:Activityspeed,:Mediasource,:Minlikesfilter,:Maxlikesfilter,:Newmediaonly,:Dontcommentsameusers)";

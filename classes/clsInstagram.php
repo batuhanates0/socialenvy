@@ -568,21 +568,28 @@ class clsInstagram {
         $result_userid = $check_userid->fetch(PDO::FETCH_ASSOC);
 
         $uid=$result_userid['id'];
-        foreach($tag as $value) {
 
-            $strQuery1 = "insert into tblUsertag (`uid`,`InstaAccId`,`tagname`)
+
+
+            foreach ($tag as $value) {
+
+if($value != '') {
+    $strQuery1 = "insert into tblUsertag (`uid`,`InstaAccId`,`tagname`)
                               VALUES (:uid,:InstaAccId,:tagname)";
-            $result_tblusertag = $dbCon->con->prepare($strQuery1);
+    $result_tblusertag = $dbCon->con->prepare($strQuery1);
 
-            $result_tblusertag->bindParam(':uid', $uid);
-            $result_tblusertag->bindParam(':InstaAccId', $id);
-            $result_tblusertag->bindParam(':tagname', $value);
+    $result_tblusertag->bindParam(':uid', $uid);
+    $result_tblusertag->bindParam(':InstaAccId', $id);
+    $result_tblusertag->bindParam(':tagname', $value);
 
 
-            $result_tblusertag->execute();
+    $result_tblusertag->execute();
 
-            $rows_tblusertag = $result_tblusertag->rowCount();//  fetch(PDO::FETCH_NUM);
-        }
+    $rows_tblusertag = $result_tblusertag->rowCount();//  fetch(PDO::FETCH_NUM);
+}
+            }
+
+
         //////////////////////////////////////////////
       //  $chk_Iguname = $dbCon->con->prepare("SELECT * FROM tblInstagram where id=:InstaAccId");
 
@@ -648,19 +655,21 @@ class clsInstagram {
 
         $uid=$result_userid['id'];
         foreach($LocationName as $value) {
+            if($value != '') {
 
-            $strQuery1 = "insert into tblLocation (`uid`,`InstaAccId`,`Locationname`)
+                $strQuery1 = "insert into tblLocation (`uid`,`InstaAccId`,`Locationname`)
                               VALUES (:uid,:InstaAccId,:Locationname)";
-            $result_tblLocation = $dbCon->con->prepare($strQuery1);
+                $result_tblLocation = $dbCon->con->prepare($strQuery1);
 
-            $result_tblLocation->bindParam(':uid', $uid);
-            $result_tblLocation->bindParam(':InstaAccId', $id);
-            $result_tblLocation->bindParam(':Locationname', $value);
+                $result_tblLocation->bindParam(':uid', $uid);
+                $result_tblLocation->bindParam(':InstaAccId', $id);
+                $result_tblLocation->bindParam(':Locationname', $value);
 
 
-            $result_tblLocation->execute();
+                $result_tblLocation->execute();
 
-            $rows_tblLocation = $result_tblLocation->rowCount();//  fetch(PDO::FETCH_NUM);
+                $rows_tblLocation = $result_tblLocation->rowCount();//  fetch(PDO::FETCH_NUM);
+            }
         }
 
         $result_fetch = $dbCon->con->prepare("select * from tblLocation  where `InstaAccId`=:InstaAccId");
@@ -722,19 +731,21 @@ class clsInstagram {
 
         $uid=$result_userid['id'];
         foreach($UserName as $value) {
+            if($value != '') {
 
-            $strQuery1 = "insert into tblUsername (`uid`,`InstaAccId`,`username`)
+                $strQuery1 = "insert into tblUsername (`uid`,`InstaAccId`,`username`)
                               VALUES (:uid,:InstaAccId,:username)";
-            $result_tblUsername = $dbCon->con->prepare($strQuery1);
+                $result_tblUsername = $dbCon->con->prepare($strQuery1);
 
-            $result_tblUsername->bindParam(':uid', $uid);
-            $result_tblUsername->bindParam(':InstaAccId', $id);
-            $result_tblUsername->bindParam(':username', $value);
+                $result_tblUsername->bindParam(':uid', $uid);
+                $result_tblUsername->bindParam(':InstaAccId', $id);
+                $result_tblUsername->bindParam(':username', $value);
 
 
-            $result_tblUsername->execute();
+                $result_tblUsername->execute();
 
-            $rows_tblUsername = $result_tblUsername->rowCount();//  fetch(PDO::FETCH_NUM);
+                $rows_tblUsername = $result_tblUsername->rowCount();//  fetch(PDO::FETCH_NUM);
+            }
         }
 
         $result_fetch = $dbCon->con->prepare("select * from tblUsername  where `InstaAccId`=:InstaAccId");
@@ -932,8 +943,8 @@ class clsInstagram {
         $Mediasource="Tags";
         $Minlikesfilter=0;
         $Maxlikesfilter=0;
-        $Newmediaonly="false";
-        $Dontcommentsameusers="false";
+        $Newmediaonly="False";
+        $Dontcommentsameusers="False";
 
 
         $result_updateuser =$dbCon->con->prepare("UPDATE `tblMainSetting` Set `Activityspeed`= :Activityspeed,
@@ -974,7 +985,12 @@ class clsInstagram {
         $result_updateuser_tblauto->execute();
 
         $rows_update_tblauto = $result_updateuser_tblauto->rowCount();
-        echo json_encode($rows_update);
+        ///////////////////////////////////////////////////////////
+        $sql = $dbCon->con->prepare("SELECT tblMainSetting.*, tblAutoStopSetting.* FROM tblMainSetting, tblAutoStopSetting WHERE tblMainSetting.InstaAccId = :InstaAccId AND tblAutoStopSetting.InstaAccId =:InstaAccId");
+        $sql->bindParam(':InstaAccId', $id);
+        $sql->execute();
+        $data= $sql->fetchAll();
+        echo json_encode($data);
 
 
     }

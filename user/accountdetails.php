@@ -78,19 +78,19 @@
         <div>
             <ul class="nav navbar-nav">
                 <li class="header">
-                    <a href="">HOME</a>
+                    <a href="../index.php">HOME</a>
                 </li>
                 <li class="header">
-                    <a href="">SERVICES</a>
+                    <a href="../services.php">SERVICES</a>
                 </li>
                 <li class="header">
-                    <a href="">TEAM</a>
+                    <a href="../team.php">TEAM</a>
                 </li>
                 <li class="header">
-                    <a href="">GUIDE</a>
+                    <a href="../guide.php">GUIDE</a>
                 </li>
                 <li class="header">
-                    <a href="">CONTACT</a>
+                    <a href="../contact.php">CONTACT</a>
                 </li>
             </ul>
         </div>

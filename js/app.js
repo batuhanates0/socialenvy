@@ -145,8 +145,8 @@ $(function() {
         "font-size": "16px",
         "z-index": "999999",
         cursor: "pointer",
-        color: "#ddd"
-    }).html("<i class='fa fa-gear'></i>").addClass("no-print");
+        color: "#fff"
+    }).html("<i class='fa'></i>").addClass("no-print");
 
     var demo_settings = $("<div />").css({
         "padding": "10px",
@@ -154,7 +154,7 @@ $(function() {
         top: "130px",
         right: "-200px",
         background: "#fff",
-        border: "3px solid rgba(0, 0, 0, 0.7)",
+        border: "3px solid rgba(0, 0, 0, 0)",
         "width": "200px",
         "z-index": "999999"
     }).addClass("no-print");

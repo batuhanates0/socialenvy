@@ -65,7 +65,149 @@
     <script type="text/javascript">
 
     </script>
+     <style>
+         .location {
+             list-style: outside none none;
+             margin: 0;
+             padding: 0;
+             position: absolute;
+         }
 
+         .location li, .location a {
+             float: left;
+             font-size: 11px;
+             height: 34px;
+             line-height: 34px;
+             margin-bottom: 10px;
+             margin-top: -5px;
+             position: relative;
+         }
+         .location a {
+             background: none repeat scroll 0 0 #000;
+             border-bottom-right-radius: 4px;
+             border-top-right-radius: 4px;
+             color: #fff;
+             font-size: 11pt;
+             margin-left: 25px;
+             padding: 0 10px 0 12px;
+             text-decoration: none;
+         }
+         .location a::before {
+             border-color: transparent #000 transparent transparent;
+             border-style: solid;
+             border-width: 17px 17px 17px 0;
+             content: "";
+             height: 0;
+             left: -17px;
+             position: absolute;
+             top: 0;
+             width: 0;
+         }
+         .location a::after {
+             content: "";
+             position: absolute;
+         }
+         .location a:hover {
+             background: none repeat scroll 0 0 #555;
+         }
+         .location a:hover::before {
+             border-color: transparent #555 transparent transparent;
+         }
+         .username{
+             list-style: outside none none;
+             margin: 0;
+             padding: 0;
+             position: absolute;
+         }
+
+         .username li, .username a {
+             float: left;
+             font-size: 11px;
+             height: 34px;
+             line-height: 34px;
+             margin-bottom: 10px;
+             margin-top: -5px;
+             position: relative;
+         }
+         .username a {
+             background: none repeat scroll 0 0 #000;
+             border-bottom-right-radius: 4px;
+             border-top-right-radius: 4px;
+             color: #fff;
+             font-size: 11pt;
+             margin-left: 25px;
+             padding: 0 10px 0 12px;
+             text-decoration: none;
+         }
+         .username a::before {
+             border-color: transparent #000 transparent transparent;
+             border-style: solid;
+             border-width: 17px 17px 17px 0;
+             content: "";
+             height: 0;
+             left: -17px;
+             position: absolute;
+             top: 0;
+             width: 0;
+         }
+         .username a::after {
+             content: "";
+             position: absolute;
+         }
+         .username a:hover {
+             background: none repeat scroll 0 0 #555;
+         }
+         .username a:hover::before {
+             border-color: transparent #555 transparent transparent;
+         }
+         .comment{
+             list-style: outside none none;
+             margin: 0;
+             padding: 0;
+             position: absolute;
+         }
+
+         .comment li, .comment a {
+             float: left;
+             font-size: 11px;
+             height: 34px;
+             line-height: 34px;
+             margin-bottom: 10px;
+             margin-top: -5px;
+             position: relative;
+         }
+         .comment a {
+             background: none repeat scroll 0 0 #000;
+             border-bottom-right-radius: 4px;
+             border-top-right-radius: 4px;
+             color: #fff;
+             font-size: 11pt;
+             margin-left: 25px;
+             padding: 0 10px 0 12px;
+             text-decoration: none;
+         }
+         .comment a::before {
+             border-color: transparent #000 transparent transparent;
+             border-style: solid;
+             border-width: 17px 17px 17px 0;
+             content: "";
+             height: 0;
+             left: -17px;
+             position: absolute;
+             top: 0;
+             width: 0;
+         }
+         .comment a::after {
+             content: "";
+             position: absolute;
+         }
+         .comment a:hover {
+             background: none repeat scroll 0 0 #555;
+         }
+         .comment a:hover::before {
+             border-color: transparent #555 transparent transparent;
+         }
+     </style>
        </head>
 <body class="skin-black">
 <!-- header logo: style can be found in header.less -->
@@ -93,19 +235,19 @@
         <div>
             <ul class="nav navbar-nav">
                 <li class="header">
-                    <a href="">HOME</a>
+                    <a href="index.php">HOME</a>
                 </li>
                 <li class="header">
-                    <a href="">SERVICES</a>
+                    <a href="services.php">SERVICES</a>
                 </li>
                 <li class="header">
-                    <a href="">TEAM</a>
+                    <a href="team.php">TEAM</a>
                 </li>
                 <li class="header">
-                    <a href="">GUIDE</a>
+                    <a href="guide.php">GUIDE</a>
                 </li>
                 <li class="header">
-                    <a href="">CONTACT</a>
+                    <a href="contact.php">CONTACT</a>
                 </li>
             </ul>
         </div>
@@ -380,7 +522,7 @@
         <small>Control panel</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="user/dashboard.php"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Activity</li>
     </ol>
 </section>
@@ -528,7 +670,7 @@
                                                                                 <td  align="right" valign="middle">
 
 
-                            <select  id="Activityspeed" name="Activityspeed" class="form-control" >
+                            <select  id="Activityspeed" name="Activityspeed" class="form-control">
                                 <option value="Slow">Slow</option>
                                 <option value="Normal">Normal</option>
                                 <option value="Fast">Fast</option>
@@ -698,7 +840,7 @@
                         </div>-->
 
                     <td>
-                           <ul>
+                           <ul class="location">
                             <div id="location-list"></div>
 
                             <li>
@@ -713,6 +855,7 @@
                                             <li><a href="#" class="btn-del-tags">Delete all Locations</a></li>
                                         </ul>
                                     </div>
+
                                 </div>
                             </li>
                            </ul>
@@ -743,7 +886,7 @@
 
                     <td>Usernames<a href="#" data-toggle="tooltip" title="Add usernames to follow their followers or followings (see Follow source).<br/><br/> Maximum allowed 20 usernames."><i class="fa fa-question"></i></a></td>
                     <td>
-                        <ul>
+                        <ul class="username">
                             <div id="username-list"></div>
 
                             <li>
@@ -794,7 +937,7 @@
         <div class="inner-setting-box" style="min-height:100px;">
             <table cellpadding="0" cellspacing="0">
                 <tr>
-                    <td>Tags<a href="#" data-toggle="tooltip" title="Add tags to get media from. You can add tags one by one or by entering as many tags in one input by separating tags using comma separator...For Examlpe:Tag1,Tag2,Tag3.... "><i class="fa fa-question"></i></a></td>
+                    <td>Tags<a href="#" data-toggle="tooltip" title="Add tags to get media from. You can add tags one by one or by entering as many tags in one input by separating tags using whitespaces as separator...For Examlpe:Tag1 Tag2 Tag3.... "><i class="fa fa-question"></i></a></td>
                     <td>
                         <ul class="tags">
                             <div id="hashtag-list"></div>
@@ -824,6 +967,7 @@
                                         <li><a href="#" class="btn-del-tags">Delete all tags</a></li>
                                     </ul>
                                 </div>
+                               <div id="loading"></div>
                             </div>
                             </li>
                         </ul>
@@ -850,10 +994,9 @@
         <div class="inner-setting-box" style="min-height:100px;">
             <table cellpadding="0" cellspacing="0">
                 <tr>
-                    <td>Comments<a href="#" data-toggle="tooltip"
-                                   title="Add comments to comment media. Comments for each photo or video will be selected randomly. Our system remembers commented photos and videos to interact with them only once. We recommend using at least 10 different neutral comments like: Nice, Like it, Beautiful, etc.<br/><br/> The total length of the comment cannot exceed 300 characters.<br/> The comment cannot contain more than 4 hashtags.<br/> The comment cannot contain more than 1 URL.<br/> The comment cannot consist of all capital letters.<br/> The comments must be different as much as possible.<br/><br/> Maximum allowed 100 comments."><i class="fa fa-question"></i></a></td>
+                    <td>Comments<a href="#" data-toggle="tooltip" title="Add comments to comment media. Comments for each photo or video will be selected randomly. Our system remembers commented photos and videos to interact with them only once. We recommend using at least 10 different neutral comments like: Nice, Like it, Beautiful, etc.<br/><br/> The total length of the comment cannot exceed 300 characters.<br/> The comment cannot contain more than 4 hashtags.<br/> The comment cannot contain more than 1 URL.<br/> The comment cannot consist of all capital letters.<br/> The comments must be different as much as possible.<br/><br/> Maximum allowed 100 comments."><i class="fa fa-question"></i></a></td>
                     <td>
-                        <ul>
+                        <ul class="comment">
                             <div id="comment-list"></div>
                            <!-- <li><a href="#">awesome<button type="button" style="color: #fff;float: left;margin-left: -12px;margin-right: 5px;margin-top: 5px;text-shadow:0 1px 0 #000" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></a></li>
                             <li><a href="#">awesome<button type="button" style="color: #fff;float: left;margin-left: -12px;margin-right: 5px;margin-top: 5px;text-shadow:0 1px 0 #000" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></a></li>
@@ -1022,12 +1165,12 @@
 
         </div>
 
-        </form>
-        <a id="myanker" class="text-red">Reset all settings to default values</a>
+
+        <div id="myanker"><label class="text-red">Reset all settings to default values</label></div>
     </div>
 
 </div><!-- main setting ends -->
-
+</form>
 
 
 </section> <!-- /.content -->

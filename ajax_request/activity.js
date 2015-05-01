@@ -271,6 +271,7 @@ function update(id) {
 
 
 $("document").ready(function(){
+
     function GetParameterValues(param) {
         var url = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
         for (var i = 0; i < url.length; i++) {
@@ -312,7 +313,7 @@ $("document").ready(function(){
             for (var i = 0; i < data.length; i++) {
                 $('#myimg').attr('src',data[i].ImageUrl);
                 temp = data[i].id;
-                if (data[i].isRunning != "Active"){
+                if (data[i].isRunning != "True"){
                     innerTableHtml += '<div class="btn btn-success" style="text-align:center; margin-bottom:10px;" href="javascript:void(0)" onclick="update(\'' + data[i].id + '\')"><i class="fa fa-save"></i> Save Your Settings</div>';
                  }
                 else{
@@ -341,8 +342,10 @@ $("document").ready(function(){
             $('#processUnFollow').bind('click',function(){
                 ChangeUnFollowProcess(temp);
             });
-            $('#myanker').attr('href',"updatesettingstodefault("+temp+")")
-
+          //  $('#myanker').attr('onclick',"updatesettingstodefault("+temp+")");
+            $('#myanker').bind('click',function(){
+                updatesettingstodefault(temp);
+            });
 
         }
 
@@ -589,7 +592,7 @@ $("document").ready(function(){
 
                 // innerTableHtml += "<li><a href='#'>"+data[i].tagname+"<button type='button' style='color: #fff;float: left;margin-left: -12px;margin-right: 5px;margin-top: 5px;text-shadow:0 1px 0 #000' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button></a></li>";
                 innerTableHtml += "<li id='"+data[i].id +"'><a>"+data[i].Locationname;
-                innerTableHtml +='<button type="button" class="close" href="javascript:void(0)"  onclick="deleteLocation(\''+data[i].id+'\')">&times;</button>';
+                innerTableHtml +='<button type="button" style="color: #fff;float: left;margin-left: -12px;margin-right: 5px;margin-top: 5px;text-shadow:0 1px 0 #000" class="close" href="javascript:void(0)"  onclick="deleteLocation(\''+data[i].id+'\')">&times;</button>';
                 innerTableHtml +="</a></li>";
             }
             $('#location-list').append(innerTableHtml);
@@ -646,7 +649,7 @@ $("document").ready(function(){
 
                 // innerTableHtml += "<li><a href='#'>"+data[i].tagname+"<button type='button' style='color: #fff;float: left;margin-left: -12px;margin-right: 5px;margin-top: 5px;text-shadow:0 1px 0 #000' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button></a></li>";
                 innerTableHtml += "<li id='"+data[i].id +"'><a>"+data[i].username;
-                innerTableHtml +='<button type="button" class="close" href="javascript:void(0)" onclick="deleteUsername(\''+data[i].id+'\')">&times;</button>';
+                innerTableHtml +='<button type="button" style="color: #fff;float: left;margin-left: -12px;margin-right: 5px;margin-top: 5px;text-shadow:0 1px 0 #000" class="close" href="javascript:void(0)" onclick="deleteUsername(\''+data[i].id+'\')">&times;</button>';
                 innerTableHtml +="</a></li>";
             }
             $('#username-list').append(innerTableHtml);
@@ -760,7 +763,7 @@ $("document").ready(function(){
 
                 // innerTableHtml += "<li><a href='#'>"+data[i].tagname+"<button type='button' style='color: #fff;float: left;margin-left: -12px;margin-right: 5px;margin-top: 5px;text-shadow:0 1px 0 #000' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button></a></li>";
                 innerTableHtml += "<li id='"+data[i].id +"'><a>"+data[i].comment;
-                innerTableHtml +='<button type="button" class="close" href="javascript:void(0)"  onclick="deleteComment(\''+data[i].id+'\')">&times;</button>';
+                innerTableHtml +='<button type="button" style="color: #fff;float: left;margin-left: -12px;margin-right: 5px;margin-top: 5px;text-shadow:0 1px 0 #000" class="close" href="javascript:void(0)"  onclick="deleteComment(\''+data[i].id+'\')">&times;</button>';
                 innerTableHtml +="</a></li>";
             }
             $('#comment-list').append(innerTableHtml);
@@ -775,7 +778,7 @@ $("document").ready(function(){
 function addTag(){
     //var Tagname = $("#inpAddTags").val();
     var Tagname = [];
-    Tagname = $('#inpAddTags').val().split(',');
+    Tagname = $('#inpAddTags').val().split(' ');
     //alert(Tagname);
     var count=Tagname.length;
    // alert(count);
@@ -791,6 +794,7 @@ function addTag(){
 
     var user_Id = GetParameterValues('id');
 
+    $('#loading').html('<img src="../img/ajax-loader-6.gif"> loading...');
     var data = {
         "action": "addUserTag"
     };
@@ -836,6 +840,7 @@ function addTag(){
             //innerTableHtml +="</a></li>";
 
             $('#hashtag-list').html(innerTableHtml);
+            $('#inpAddTags').val('');
 
         },
         error: function(xhr, desc, err) {
@@ -853,7 +858,7 @@ function addTag(){
 function addLocation(){
     //var Tagname = $("#inpAddTags").val();
     var LocationName = [];
-    LocationName = $('#inpAddLocation').val().split(',');
+    LocationName = $('#inpAddLocation').val().split(' ');
     //alert(LocationName);
   //  var count=Tagname.length;
     // alert(count);
@@ -901,7 +906,7 @@ function addLocation(){
             for(i=0; i<data.length; i++){
               //  alert(data[i].id + " " +data[i].Locationname );
                 innerTableHtml += "<li id='"+data[i].id+"'><a>"+data[i].Locationname;
-                innerTableHtml +='<button type="button"  class="close" onclick="deleteLocation(\''+data[i].id+'\')" href="javascript:void(0)">&times;</button>';
+                innerTableHtml +='<button type="button"  style="color: #fff;float: left;margin-left: -12px;margin-right: 5px;margin-top: 5px;text-shadow:0 1px 0 #000" class="close" onclick="deleteLocation(\''+data[i].id+'\')" href="javascript:void(0)">&times;</button>';
                 innerTableHtml +="</a></li>";
 
             }
@@ -914,6 +919,7 @@ function addLocation(){
             //innerTableHtml +="</a></li>";
 
             $('#location-list').html(innerTableHtml);
+            $('#inpAddLocation').val('');
 
         },
         error: function(xhr, desc, err) {
@@ -931,7 +937,7 @@ function addLocation(){
 function addUsername(){
     //var Tagname = $("#inpAddTags").val();
     var Username = [];
-    Username = $('#inpAddUsername').val().split(',');
+    Username = $('#inpAddUsername').val().split(' ');
    // alert(Username);
     //  var count=Tagname.length;
     // alert(count);
@@ -978,11 +984,12 @@ function addUsername(){
             for(i=0; i<data.length; i++){
               //  alert(data[i].id + " " +data[i].username );
                 innerTableHtml += "<li id='"+data[i].id+"'><a>"+data[i].username;
-                innerTableHtml +='<button type="button" class="close" onclick="deleteUsername(\''+data[i].id+'\')" href="javascript:void(0)">&times;</button>';
+                innerTableHtml +='<button type="button" style="color: #fff;float: left;margin-left: -12px;margin-right: 5px;margin-top: 5px;text-shadow:0 1px 0 #000" class="close" onclick="deleteUsername(\''+data[i].id+'\')" href="javascript:void(0)">&times;</button>';
                 innerTableHtml +="</a></li>";
 
             }
             $('#username-list').html(innerTableHtml);
+            $('#inpAddUsername').val('');
 
         },
         error: function(xhr, desc, err) {
@@ -1047,11 +1054,12 @@ function addComment(){
             for(i=0; i<data.length; i++){
                 //  alert(data[i].id + " " +data[i].username );
                 innerTableHtml += "<li id='"+data[i].id+"'><a>"+data[i].comment;
-                innerTableHtml +='<button type="button" class="close" onclick="deleteComment(\''+data[i].id+'\')" href="javascript:void(0)">&times;</button>';
+                innerTableHtml +='<button type="button" style="color: #fff;float: left;margin-left: -12px;margin-right: 5px;margin-top: 5px;text-shadow:0 1px 0 #000" class="close" onclick="deleteComment(\''+data[i].id+'\')" href="javascript:void(0)">&times;</button>';
                 innerTableHtml +="</a></li>";
 
             }
             $('#comment-list').html(innerTableHtml);
+            $('#inpAddComments').val('');
 
         },
         error: function(xhr, desc, err) {
@@ -1101,11 +1109,11 @@ $("document").ready(function(){
         data: data,
         success: function(data, status) {
             data = eval(data);
-            var innerTableHtml = "";
+         //   var innerTableHtml = "";
 
 
-            for (var i = 0; i < data.length; i++) {
-
+            //for (var i = 0; i < data.length; i++) {
+                      // alert(data[0].Activityspeed);
                 $('#Activityspeed').val(data[0].Activityspeed);
                 $('#Mediasource').val(data[0].Mediasource);
                 $('#Minlikesfilter').val(data[0].Minlikesfilter);
@@ -1188,7 +1196,7 @@ $("document").ready(function(){
             }
 
 
-        }
+      //  }
 
     });
     return false;
@@ -1230,10 +1238,10 @@ $("document").ready(function(){
         data: data,
         success: function(data, status) {
             data = eval(data);
-            var innerTableHtml = "";
+          //  var innerTableHtml = "";
 
 
-            for (var i = 0; i < data.length; i++) {
+           // for (var i = 0; i < data.length; i++) {
 
                 $('#Likescounter').val(data[0].Likescounter);
                 $('#Commentscounter').val(data[0].Commentscounter);
@@ -1243,7 +1251,7 @@ $("document").ready(function(){
 
 
 
-            }
+           // }
 
 
         }
@@ -1283,7 +1291,7 @@ $("document").ready(function(){
 
 //////////////////////////////////////reset all setting to default////////////////////////////////////////
 function updatesettingstodefault(id) {
-    alert(id);
+   // alert(id);
 
     var data = {
         "action": "changesettings"
@@ -1309,6 +1317,33 @@ function updatesettingstodefault(id) {
         data: data,
         success: function(data, status) {
             data=eval(data);
+            $('#Activityspeed').val(data[0].Activityspeed);
+            $('#Mediasource').val(data[0].Mediasource);
+            $('#Minlikesfilter').val(data[0].Minlikesfilter);
+            $('#Maxlikesfilter').val(data[0].Maxlikesfilter);
+
+            if (data[0].Newmediaonly != "False"){
+                //  alert("hello"+data[0].Newmediaonly);
+                $("#Newmediaonly").iCheck('check');
+                // $('.icheckbox_minimal').attr('aria-checked', true);
+                //  $("#Newmediaonly").attr("checked") ? alert("Checked") : alert("Unchecked");
+            }
+            else{
+                $('#Newmediaonly').iCheck('uncheck');
+                // $("#Newmediaonly").attr("checked") ? alert("Checked") : alert("Unchecked");
+            }
+            if (data[0].Dontcommentsameusers != "False"){
+                $('#Dontcommentsameusers').iCheck('check');
+            }
+            else{
+                $('#Dontcommentsameusers').iCheck('uncheck');
+            }
+
+            $('#Likescounter').val(data[0].Likescounter);
+            $('#Commentscounter').val(data[0].Commentscounter);
+            $('#Followscounter').val(data[0].Followscounter);
+            $('#Unfollowscounter').val(data[0].Unfollowscounter);
+            $('#Timer').val(data[0].Timer);
 
 
 
