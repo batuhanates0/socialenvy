@@ -995,6 +995,33 @@ if($value != '') {
 
     }
 
+    public function getBuyPackage(){
+        $dbCon = new DatabaseConnection();
+
+
+        $result =$dbCon->con->prepare("select * from tblPlan");
+        $result->execute();
+        $data = $result->fetchall();//  fetch(PDO::FETCH_NUM);
+
+        echo json_encode($data);
+
+    }
+
+    public function GetSelectedInstaAccountImage($id){
+        $dbCon = new DatabaseConnection();
+
+
+
+        ///////////////////////////////////////////
+        $fetch_Image=$dbCon->con->prepare("SELECT ImageUrl FROM tblInstagram WHERE `id`=:id");
+        $fetch_Image->bindParam(':id',$id);
+        $fetch_Image->execute();
+        $data = $fetch_Image->fetchall();
+        //////////////////////////////////////////
+
+        echo json_encode($data);
+    }
+
 
 
 
